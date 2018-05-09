@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="it.unibz.inf.ontouml.archive.feature"
+	label="OntoUMLArchive Feature "
+	version="1.0.0.qualifier">
+	<plugin
+			id="it.unibz.inf.ontouml.archive"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="it.unibz.inf.ontouml.archive.ide"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="it.unibz.inf.ontouml.archive.ui"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+</feature>
