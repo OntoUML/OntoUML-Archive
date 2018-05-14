@@ -7,14 +7,20 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +33,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationEndImpl#getName <em>Name</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationEndImpl#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationEndImpl#getEndType <em>End Type</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationEndImpl#getConstraints <em>Constraints</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,6 +79,16 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected it.unibz.inf.ontouml.archive.ontoUMLArchive.Class endType;
+
+  /**
+   * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConstraints()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> constraints;
 
   /**
    * <!-- begin-user-doc -->
@@ -213,6 +230,20 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<String> getConstraints()
+  {
+    if (constraints == null)
+    {
+      constraints = new EDataTypeEList<String>(String.class, this, OntoUMLArchivePackage.ASSOCIATION_END__CONSTRAINTS);
+    }
+    return constraints;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -241,6 +272,8 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
       case OntoUMLArchivePackage.ASSOCIATION_END__END_TYPE:
         if (resolve) return getEndType();
         return basicGetEndType();
+      case OntoUMLArchivePackage.ASSOCIATION_END__CONSTRAINTS:
+        return getConstraints();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -250,6 +283,7 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -263,6 +297,10 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
         return;
       case OntoUMLArchivePackage.ASSOCIATION_END__END_TYPE:
         setEndType((it.unibz.inf.ontouml.archive.ontoUMLArchive.Class)newValue);
+        return;
+      case OntoUMLArchivePackage.ASSOCIATION_END__CONSTRAINTS:
+        getConstraints().clear();
+        getConstraints().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -287,6 +325,9 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
       case OntoUMLArchivePackage.ASSOCIATION_END__END_TYPE:
         setEndType((it.unibz.inf.ontouml.archive.ontoUMLArchive.Class)null);
         return;
+      case OntoUMLArchivePackage.ASSOCIATION_END__CONSTRAINTS:
+        getConstraints().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -307,6 +348,8 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
         return multiplicity != null;
       case OntoUMLArchivePackage.ASSOCIATION_END__END_TYPE:
         return endType != null;
+      case OntoUMLArchivePackage.ASSOCIATION_END__CONSTRAINTS:
+        return constraints != null && !constraints.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -324,6 +367,8 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", constraints: ");
+    result.append(constraints);
     result.append(')');
     return result.toString();
   }

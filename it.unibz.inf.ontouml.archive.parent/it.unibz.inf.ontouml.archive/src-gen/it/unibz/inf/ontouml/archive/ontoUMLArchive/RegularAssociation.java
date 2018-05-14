@@ -21,7 +21,7 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive;
  * @model
  * @generated
  */
-public interface RegularAssociation extends Association
+public interface RegularAssociation extends BinaryAssociation
 {
   /**
    * Returns the value of the '<em><b>From</b></em>' containment reference.

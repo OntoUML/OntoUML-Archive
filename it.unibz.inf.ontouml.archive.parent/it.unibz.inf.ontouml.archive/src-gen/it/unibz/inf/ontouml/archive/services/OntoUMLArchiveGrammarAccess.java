@@ -26,18 +26,18 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.Model");
-		private final Assignment cElmentsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cElmentsModelElementParserRuleCall_0 = (RuleCall)cElmentsAssignment.eContents().get(0);
+		private final Assignment cElementsAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cElementsModelElementParserRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
 		
 		//Model:
-		//	elments+=ModelElement*;
+		//	elements+=ModelElement*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//elments+=ModelElement*
-		public Assignment getElmentsAssignment() { return cElmentsAssignment; }
+		//elements+=ModelElement*
+		public Assignment getElementsAssignment() { return cElementsAssignment; }
 		
 		//ModelElement
-		public RuleCall getElmentsModelElementParserRuleCall_0() { return cElmentsModelElementParserRuleCall_0; }
+		public RuleCall getElementsModelElementParserRuleCall_0() { return cElementsModelElementParserRuleCall_0; }
 	}
 	public class ModelElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.ModelElement");
@@ -78,15 +78,18 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cClassKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameSTRINGTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Assignment cStereotypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cStereotypeStereotypeParserRuleCall_3_0 = (RuleCall)cStereotypeAssignment_3.eContents().get(0);
+		private final Assignment cStereotypesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStereotypesSTEREOTYPE_STRINGTerminalRuleCall_3_0 = (RuleCall)cStereotypesAssignment_3.eContents().get(0);
+		private final Assignment cAttributesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cAttributesAttributeParserRuleCall_4_0 = (RuleCall)cAttributesAssignment_4.eContents().get(0);
 		
 		//Class:
 		//	isAbstract?='abstract'? 'class' name=STRING
-		//	stereotype=Stereotype?;
+		//	stereotypes+=STEREOTYPE_STRING*
+		//	attributes+=Attribute*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//isAbstract?='abstract'? 'class' name=STRING stereotype=Stereotype?
+		//isAbstract?='abstract'? 'class' name=STRING stereotypes+=STEREOTYPE_STRING* attributes+=Attribute*
 		public Group getGroup() { return cGroup; }
 		
 		//isAbstract?='abstract'?
@@ -104,11 +107,64 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getNameSTRINGTerminalRuleCall_2_0() { return cNameSTRINGTerminalRuleCall_2_0; }
 		
-		//stereotype=Stereotype?
-		public Assignment getStereotypeAssignment_3() { return cStereotypeAssignment_3; }
+		//stereotypes+=STEREOTYPE_STRING*
+		public Assignment getStereotypesAssignment_3() { return cStereotypesAssignment_3; }
 		
-		//Stereotype
-		public RuleCall getStereotypeStereotypeParserRuleCall_3_0() { return cStereotypeStereotypeParserRuleCall_3_0; }
+		//STEREOTYPE_STRING
+		public RuleCall getStereotypesSTEREOTYPE_STRINGTerminalRuleCall_3_0() { return cStereotypesSTEREOTYPE_STRINGTerminalRuleCall_3_0; }
+		
+		//attributes+=Attribute*
+		public Assignment getAttributesAssignment_4() { return cAttributesAssignment_4; }
+		
+		//Attribute
+		public RuleCall getAttributesAttributeParserRuleCall_4_0() { return cAttributesAttributeParserRuleCall_4_0; }
+	}
+	public class AttributeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.Attribute");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAttKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cMultiplicityAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMultiplicityMultiplicityParserRuleCall_2_0 = (RuleCall)cMultiplicityAssignment_2.eContents().get(0);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cAttTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cAttTypeClassCrossReference_4_0 = (CrossReference)cAttTypeAssignment_4.eContents().get(0);
+		private final RuleCall cAttTypeClassSTRINGTerminalRuleCall_4_0_1 = (RuleCall)cAttTypeClassCrossReference_4_0.eContents().get(1);
+		
+		//Attribute:
+		//	'att' name=STRING multiplicity=Multiplicity ':' attType=[Class|STRING];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'att' name=STRING multiplicity=Multiplicity ':' attType=[Class|STRING]
+		public Group getGroup() { return cGroup; }
+		
+		//'att'
+		public Keyword getAttKeyword_0() { return cAttKeyword_0; }
+		
+		//name=STRING
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
+		
+		//multiplicity=Multiplicity
+		public Assignment getMultiplicityAssignment_2() { return cMultiplicityAssignment_2; }
+		
+		//Multiplicity
+		public RuleCall getMultiplicityMultiplicityParserRuleCall_2_0() { return cMultiplicityMultiplicityParserRuleCall_2_0; }
+		
+		//':'
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		
+		//attType=[Class|STRING]
+		public Assignment getAttTypeAssignment_4() { return cAttTypeAssignment_4; }
+		
+		//[Class|STRING]
+		public CrossReference getAttTypeClassCrossReference_4_0() { return cAttTypeClassCrossReference_4_0; }
+		
+		//STRING
+		public RuleCall getAttTypeClassSTRINGTerminalRuleCall_4_0_1() { return cAttTypeClassSTRINGTerminalRuleCall_4_0_1; }
 	}
 	public class RelationshipElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.Relationship");
@@ -116,12 +172,13 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAssociationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cGeneralizationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cDependencyLinkParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cDerivationParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Relationship:
-		//	Association | Generalization | DependencyLink;
+		//	Association | Generalization | DependencyLink | Derivation;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Association | Generalization | DependencyLink
+		//Association | Generalization | DependencyLink | Derivation
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Association
@@ -132,25 +189,47 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DependencyLink
 		public RuleCall getDependencyLinkParserRuleCall_2() { return cDependencyLinkParserRuleCall_2; }
+		
+		//Derivation
+		public RuleCall getDerivationParserRuleCall_3() { return cDerivationParserRuleCall_3; }
 	}
 	public class AssociationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.Association");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cRegularAssociationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBinaryAssociationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cNaryAssociationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Association:
-		//	RegularAssociation | NaryAssociation;
+		//	BinaryAssociation | NaryAssociation;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//RegularAssociation | NaryAssociation
+		//BinaryAssociation | NaryAssociation
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//BinaryAssociation
+		public RuleCall getBinaryAssociationParserRuleCall_0() { return cBinaryAssociationParserRuleCall_0; }
+		
+		//NaryAssociation
+		public RuleCall getNaryAssociationParserRuleCall_1() { return cNaryAssociationParserRuleCall_1; }
+	}
+	public class BinaryAssociationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.BinaryAssociation");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cRegularAssociationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cParthoodAssociationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//BinaryAssociation:
+		//	RegularAssociation | ParthoodAssociation;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//RegularAssociation | ParthoodAssociation
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//RegularAssociation
 		public RuleCall getRegularAssociationParserRuleCall_0() { return cRegularAssociationParserRuleCall_0; }
 		
-		//NaryAssociation
-		public RuleCall getNaryAssociationParserRuleCall_1() { return cNaryAssociationParserRuleCall_1; }
+		//ParthoodAssociation
+		public RuleCall getParthoodAssociationParserRuleCall_1() { return cParthoodAssociationParserRuleCall_1; }
 	}
 	public class RegularAssociationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.RegularAssociation");
@@ -158,8 +237,8 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAssociationKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cStereotypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cStereotypeStereotypeParserRuleCall_2_0 = (RuleCall)cStereotypeAssignment_2.eContents().get(0);
+		private final Assignment cStereotypesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0 = (RuleCall)cStereotypesAssignment_2.eContents().get(0);
 		private final Keyword cFromKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cFromAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cFromAssociationEndParserRuleCall_4_0 = (RuleCall)cFromAssignment_4.eContents().get(0);
@@ -169,12 +248,12 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//RegularAssociation:
 		//	'association' name=STRING?
-		//	stereotype=Stereotype?
+		//	stereotypes+=STEREOTYPE_STRING*
 		//	'from' from=AssociationEnd
 		//	'to' to=AssociationEnd;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'association' name=STRING? stereotype=Stereotype? 'from' from=AssociationEnd 'to' to=AssociationEnd
+		//'association' name=STRING? stereotypes+=STEREOTYPE_STRING* 'from' from=AssociationEnd 'to' to=AssociationEnd
 		public Group getGroup() { return cGroup; }
 		
 		//'association'
@@ -186,11 +265,11 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
 		
-		//stereotype=Stereotype?
-		public Assignment getStereotypeAssignment_2() { return cStereotypeAssignment_2; }
+		//stereotypes+=STEREOTYPE_STRING*
+		public Assignment getStereotypesAssignment_2() { return cStereotypesAssignment_2; }
 		
-		//Stereotype
-		public RuleCall getStereotypeStereotypeParserRuleCall_2_0() { return cStereotypeStereotypeParserRuleCall_2_0; }
+		//STEREOTYPE_STRING
+		public RuleCall getStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0() { return cStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0; }
 		
 		//'from'
 		public Keyword getFromKeyword_3() { return cFromKeyword_3; }
@@ -210,14 +289,72 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		//AssociationEnd
 		public RuleCall getToAssociationEndParserRuleCall_6_0() { return cToAssociationEndParserRuleCall_6_0; }
 	}
+	public class ParthoodAssociationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.ParthoodAssociation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAssociationKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cStereotypesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0 = (RuleCall)cStereotypesAssignment_2.eContents().get(0);
+		private final Keyword cWholeKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cWholeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cWholeAssociationEndParserRuleCall_4_0 = (RuleCall)cWholeAssignment_4.eContents().get(0);
+		private final Keyword cPartKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cPartAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cPartAssociationEndParserRuleCall_6_0 = (RuleCall)cPartAssignment_6.eContents().get(0);
+		
+		//ParthoodAssociation:
+		//	'association' name=STRING?
+		//	stereotypes+=STEREOTYPE_STRING*
+		//	'whole' whole=AssociationEnd
+		//	'part' part=AssociationEnd;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'association' name=STRING? stereotypes+=STEREOTYPE_STRING* 'whole' whole=AssociationEnd 'part' part=AssociationEnd
+		public Group getGroup() { return cGroup; }
+		
+		//'association'
+		public Keyword getAssociationKeyword_0() { return cAssociationKeyword_0; }
+		
+		//name=STRING?
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
+		
+		//stereotypes+=STEREOTYPE_STRING*
+		public Assignment getStereotypesAssignment_2() { return cStereotypesAssignment_2; }
+		
+		//STEREOTYPE_STRING
+		public RuleCall getStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0() { return cStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0; }
+		
+		//'whole'
+		public Keyword getWholeKeyword_3() { return cWholeKeyword_3; }
+		
+		//whole=AssociationEnd
+		public Assignment getWholeAssignment_4() { return cWholeAssignment_4; }
+		
+		//AssociationEnd
+		public RuleCall getWholeAssociationEndParserRuleCall_4_0() { return cWholeAssociationEndParserRuleCall_4_0; }
+		
+		//'part'
+		public Keyword getPartKeyword_5() { return cPartKeyword_5; }
+		
+		//part=AssociationEnd
+		public Assignment getPartAssignment_6() { return cPartAssignment_6; }
+		
+		//AssociationEnd
+		public RuleCall getPartAssociationEndParserRuleCall_6_0() { return cPartAssociationEndParserRuleCall_6_0; }
+	}
 	public class NaryAssociationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.NaryAssociation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cAssociationKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cStereotypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cStereotypeStereotypeParserRuleCall_2_0 = (RuleCall)cStereotypeAssignment_2.eContents().get(0);
+		private final Assignment cStereotypesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0 = (RuleCall)cStereotypesAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cEndKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cEndsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
@@ -233,11 +370,12 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//NaryAssociation:
 		//	'association' name=STRING?
-		//	stereotype=Stereotype? ('end' ends+=AssociationEnd) ('end' ends+=AssociationEnd) ('end' ends+=AssociationEnd)+;
+		//	stereotypes+=STEREOTYPE_STRING* ('end' ends+=AssociationEnd) ('end' ends+=AssociationEnd) ('end'
+		//	ends+=AssociationEnd)+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'association' name=STRING? stereotype=Stereotype? ('end' ends+=AssociationEnd) ('end' ends+=AssociationEnd) ('end'
-		//ends+=AssociationEnd)+
+		//'association' name=STRING? stereotypes+=STEREOTYPE_STRING* ('end' ends+=AssociationEnd) ('end' ends+=AssociationEnd)
+		//('end' ends+=AssociationEnd)+
 		public Group getGroup() { return cGroup; }
 		
 		//'association'
@@ -249,11 +387,11 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
 		
-		//stereotype=Stereotype?
-		public Assignment getStereotypeAssignment_2() { return cStereotypeAssignment_2; }
+		//stereotypes+=STEREOTYPE_STRING*
+		public Assignment getStereotypesAssignment_2() { return cStereotypesAssignment_2; }
 		
-		//Stereotype
-		public RuleCall getStereotypeStereotypeParserRuleCall_2_0() { return cStereotypeStereotypeParserRuleCall_2_0; }
+		//STEREOTYPE_STRING
+		public RuleCall getStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0() { return cStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0; }
 		
 		//'end' ends+=AssociationEnd
 		public Group getGroup_3() { return cGroup_3; }
@@ -302,14 +440,24 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cEndTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cEndTypeClassCrossReference_3_0 = (CrossReference)cEndTypeAssignment_3.eContents().get(0);
 		private final RuleCall cEndTypeClassSTRINGTerminalRuleCall_3_0_1 = (RuleCall)cEndTypeClassCrossReference_3_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cLeftCurlyBracketKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cConstraintsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cConstraintsSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cConstraintsAssignment_4_1.eContents().get(0);
+		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
+		private final Keyword cCommaKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
+		private final Assignment cConstraintsAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
+		private final RuleCall cConstraintsSTRINGTerminalRuleCall_4_2_1_0 = (RuleCall)cConstraintsAssignment_4_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
 		
 		//AssociationEnd:
 		//	name=STRING?
 		//	multiplicity=Multiplicity
-		//	':' endType=[Class|STRING];
+		//	':' endType=[Class|STRING] ('{' constraints+=STRING (',' constraints+=STRING)* '}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=STRING? multiplicity=Multiplicity ':' endType=[Class|STRING]
+		//name=STRING? multiplicity=Multiplicity ':' endType=[Class|STRING] ('{' constraints+=STRING (',' constraints+=STRING)*
+		//'}')?
 		public Group getGroup() { return cGroup; }
 		
 		//name=STRING?
@@ -335,6 +483,33 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getEndTypeClassSTRINGTerminalRuleCall_3_0_1() { return cEndTypeClassSTRINGTerminalRuleCall_3_0_1; }
+		
+		//('{' constraints+=STRING (',' constraints+=STRING)* '}')?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_4_0() { return cLeftCurlyBracketKeyword_4_0; }
+		
+		//constraints+=STRING
+		public Assignment getConstraintsAssignment_4_1() { return cConstraintsAssignment_4_1; }
+		
+		//STRING
+		public RuleCall getConstraintsSTRINGTerminalRuleCall_4_1_0() { return cConstraintsSTRINGTerminalRuleCall_4_1_0; }
+		
+		//(',' constraints+=STRING)*
+		public Group getGroup_4_2() { return cGroup_4_2; }
+		
+		//','
+		public Keyword getCommaKeyword_4_2_0() { return cCommaKeyword_4_2_0; }
+		
+		//constraints+=STRING
+		public Assignment getConstraintsAssignment_4_2_1() { return cConstraintsAssignment_4_2_1; }
+		
+		//STRING
+		public RuleCall getConstraintsSTRINGTerminalRuleCall_4_2_1_0() { return cConstraintsSTRINGTerminalRuleCall_4_2_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4_3() { return cRightCurlyBracketKeyword_4_3; }
 	}
 	public class MultiplicityElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.Multiplicity");
@@ -457,22 +632,25 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDependencyKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cFromKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cFromAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cFromClassCrossReference_3_0 = (CrossReference)cFromAssignment_3.eContents().get(0);
-		private final RuleCall cFromClassSTRINGTerminalRuleCall_3_0_1 = (RuleCall)cFromClassCrossReference_3_0.eContents().get(1);
-		private final Keyword cToKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cToAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cToClassCrossReference_5_0 = (CrossReference)cToAssignment_5.eContents().get(0);
-		private final RuleCall cToClassSTRINGTerminalRuleCall_5_0_1 = (RuleCall)cToClassCrossReference_5_0.eContents().get(1);
+		private final Assignment cStereotypesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0 = (RuleCall)cStereotypesAssignment_2.eContents().get(0);
+		private final Keyword cFromKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cFromAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cFromClassCrossReference_4_0 = (CrossReference)cFromAssignment_4.eContents().get(0);
+		private final RuleCall cFromClassSTRINGTerminalRuleCall_4_0_1 = (RuleCall)cFromClassCrossReference_4_0.eContents().get(1);
+		private final Keyword cToKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cToAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final CrossReference cToClassCrossReference_6_0 = (CrossReference)cToAssignment_6.eContents().get(0);
+		private final RuleCall cToClassSTRINGTerminalRuleCall_6_0_1 = (RuleCall)cToClassCrossReference_6_0.eContents().get(1);
 		
 		//DependencyLink:
 		//	'dependency' name=STRING?
+		//	stereotypes+=STEREOTYPE_STRING*
 		//	'from' from=[Class|STRING]
 		//	'to' to=[Class|STRING];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'dependency' name=STRING? 'from' from=[Class|STRING] 'to' to=[Class|STRING]
+		//'dependency' name=STRING? stereotypes+=STEREOTYPE_STRING* 'from' from=[Class|STRING] 'to' to=[Class|STRING]
 		public Group getGroup() { return cGroup; }
 		
 		//'dependency'
@@ -484,29 +662,230 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
 		
+		//stereotypes+=STEREOTYPE_STRING*
+		public Assignment getStereotypesAssignment_2() { return cStereotypesAssignment_2; }
+		
+		//STEREOTYPE_STRING
+		public RuleCall getStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0() { return cStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0; }
+		
 		//'from'
-		public Keyword getFromKeyword_2() { return cFromKeyword_2; }
+		public Keyword getFromKeyword_3() { return cFromKeyword_3; }
 		
 		//from=[Class|STRING]
-		public Assignment getFromAssignment_3() { return cFromAssignment_3; }
+		public Assignment getFromAssignment_4() { return cFromAssignment_4; }
 		
 		//[Class|STRING]
-		public CrossReference getFromClassCrossReference_3_0() { return cFromClassCrossReference_3_0; }
+		public CrossReference getFromClassCrossReference_4_0() { return cFromClassCrossReference_4_0; }
 		
 		//STRING
-		public RuleCall getFromClassSTRINGTerminalRuleCall_3_0_1() { return cFromClassSTRINGTerminalRuleCall_3_0_1; }
+		public RuleCall getFromClassSTRINGTerminalRuleCall_4_0_1() { return cFromClassSTRINGTerminalRuleCall_4_0_1; }
 		
 		//'to'
-		public Keyword getToKeyword_4() { return cToKeyword_4; }
+		public Keyword getToKeyword_5() { return cToKeyword_5; }
 		
 		//to=[Class|STRING]
-		public Assignment getToAssignment_5() { return cToAssignment_5; }
+		public Assignment getToAssignment_6() { return cToAssignment_6; }
 		
 		//[Class|STRING]
-		public CrossReference getToClassCrossReference_5_0() { return cToClassCrossReference_5_0; }
+		public CrossReference getToClassCrossReference_6_0() { return cToClassCrossReference_6_0; }
 		
 		//STRING
-		public RuleCall getToClassSTRINGTerminalRuleCall_5_0_1() { return cToClassSTRINGTerminalRuleCall_5_0_1; }
+		public RuleCall getToClassSTRINGTerminalRuleCall_6_0_1() { return cToClassSTRINGTerminalRuleCall_6_0_1; }
+	}
+	public class DerivationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.Derivation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDerivationKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cStereotypesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0 = (RuleCall)cStereotypesAssignment_2.eContents().get(0);
+		private final Keyword cClassKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cClassAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cClassClassDerivationEndParserRuleCall_4_0 = (RuleCall)cClassAssignment_4.eContents().get(0);
+		private final Keyword cRelationKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cPartAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cPartRelationDerivationEndParserRuleCall_6_0 = (RuleCall)cPartAssignment_6.eContents().get(0);
+		
+		//Derivation:
+		//	'derivation' name=STRING?
+		//	stereotypes+=STEREOTYPE_STRING*
+		//	'class' class=ClassDerivationEnd
+		//	'relation' part=RelationDerivationEnd;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'derivation' name=STRING? stereotypes+=STEREOTYPE_STRING* 'class' class=ClassDerivationEnd 'relation'
+		//part=RelationDerivationEnd
+		public Group getGroup() { return cGroup; }
+		
+		//'derivation'
+		public Keyword getDerivationKeyword_0() { return cDerivationKeyword_0; }
+		
+		//name=STRING?
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
+		
+		//stereotypes+=STEREOTYPE_STRING*
+		public Assignment getStereotypesAssignment_2() { return cStereotypesAssignment_2; }
+		
+		//STEREOTYPE_STRING
+		public RuleCall getStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0() { return cStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0; }
+		
+		//'class'
+		public Keyword getClassKeyword_3() { return cClassKeyword_3; }
+		
+		//class=ClassDerivationEnd
+		public Assignment getClassAssignment_4() { return cClassAssignment_4; }
+		
+		//ClassDerivationEnd
+		public RuleCall getClassClassDerivationEndParserRuleCall_4_0() { return cClassClassDerivationEndParserRuleCall_4_0; }
+		
+		//'relation'
+		public Keyword getRelationKeyword_5() { return cRelationKeyword_5; }
+		
+		//part=RelationDerivationEnd
+		public Assignment getPartAssignment_6() { return cPartAssignment_6; }
+		
+		//RelationDerivationEnd
+		public RuleCall getPartRelationDerivationEndParserRuleCall_6_0() { return cPartRelationDerivationEndParserRuleCall_6_0; }
+	}
+	public class ClassDerivationEndElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.ClassDerivationEnd");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cMultiplicityAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cMultiplicityMultiplicityParserRuleCall_0_0 = (RuleCall)cMultiplicityAssignment_0.eContents().get(0);
+		private final Assignment cEndTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cEndTypeClassCrossReference_1_0 = (CrossReference)cEndTypeAssignment_1.eContents().get(0);
+		private final RuleCall cEndTypeClassSTRINGTerminalRuleCall_1_0_1 = (RuleCall)cEndTypeClassCrossReference_1_0.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cConstraintsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cConstraintsSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cConstraintsAssignment_2_1.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cConstraintsAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cConstraintsSTRINGTerminalRuleCall_2_2_1_0 = (RuleCall)cConstraintsAssignment_2_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		
+		//ClassDerivationEnd:
+		//	multiplicity=Multiplicity
+		//	endType=[Class|STRING] ('{' constraints+=STRING (',' constraints+=STRING)* '}')?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//multiplicity=Multiplicity endType=[Class|STRING] ('{' constraints+=STRING (',' constraints+=STRING)* '}')?
+		public Group getGroup() { return cGroup; }
+		
+		//multiplicity=Multiplicity
+		public Assignment getMultiplicityAssignment_0() { return cMultiplicityAssignment_0; }
+		
+		//Multiplicity
+		public RuleCall getMultiplicityMultiplicityParserRuleCall_0_0() { return cMultiplicityMultiplicityParserRuleCall_0_0; }
+		
+		//endType=[Class|STRING]
+		public Assignment getEndTypeAssignment_1() { return cEndTypeAssignment_1; }
+		
+		//[Class|STRING]
+		public CrossReference getEndTypeClassCrossReference_1_0() { return cEndTypeClassCrossReference_1_0; }
+		
+		//STRING
+		public RuleCall getEndTypeClassSTRINGTerminalRuleCall_1_0_1() { return cEndTypeClassSTRINGTerminalRuleCall_1_0_1; }
+		
+		//('{' constraints+=STRING (',' constraints+=STRING)* '}')?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
+		
+		//constraints+=STRING
+		public Assignment getConstraintsAssignment_2_1() { return cConstraintsAssignment_2_1; }
+		
+		//STRING
+		public RuleCall getConstraintsSTRINGTerminalRuleCall_2_1_0() { return cConstraintsSTRINGTerminalRuleCall_2_1_0; }
+		
+		//(',' constraints+=STRING)*
+		public Group getGroup_2_2() { return cGroup_2_2; }
+		
+		//','
+		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
+		
+		//constraints+=STRING
+		public Assignment getConstraintsAssignment_2_2_1() { return cConstraintsAssignment_2_2_1; }
+		
+		//STRING
+		public RuleCall getConstraintsSTRINGTerminalRuleCall_2_2_1_0() { return cConstraintsSTRINGTerminalRuleCall_2_2_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2_3() { return cRightCurlyBracketKeyword_2_3; }
+	}
+	public class RelationDerivationEndElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.RelationDerivationEnd");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cMultiplicityAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cMultiplicityMultiplicityParserRuleCall_0_0 = (RuleCall)cMultiplicityAssignment_0.eContents().get(0);
+		private final Assignment cEndTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cEndTypeAssociationCrossReference_1_0 = (CrossReference)cEndTypeAssignment_1.eContents().get(0);
+		private final RuleCall cEndTypeAssociationSTRINGTerminalRuleCall_1_0_1 = (RuleCall)cEndTypeAssociationCrossReference_1_0.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cConstraintsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cConstraintsSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cConstraintsAssignment_2_1.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cConstraintsAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cConstraintsSTRINGTerminalRuleCall_2_2_1_0 = (RuleCall)cConstraintsAssignment_2_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		
+		//RelationDerivationEnd:
+		//	multiplicity=Multiplicity
+		//	endType=[Association|STRING] ('{' constraints+=STRING (',' constraints+=STRING)* '}')?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//multiplicity=Multiplicity endType=[Association|STRING] ('{' constraints+=STRING (',' constraints+=STRING)* '}')?
+		public Group getGroup() { return cGroup; }
+		
+		//multiplicity=Multiplicity
+		public Assignment getMultiplicityAssignment_0() { return cMultiplicityAssignment_0; }
+		
+		//Multiplicity
+		public RuleCall getMultiplicityMultiplicityParserRuleCall_0_0() { return cMultiplicityMultiplicityParserRuleCall_0_0; }
+		
+		//endType=[Association|STRING]
+		public Assignment getEndTypeAssignment_1() { return cEndTypeAssignment_1; }
+		
+		//[Association|STRING]
+		public CrossReference getEndTypeAssociationCrossReference_1_0() { return cEndTypeAssociationCrossReference_1_0; }
+		
+		//STRING
+		public RuleCall getEndTypeAssociationSTRINGTerminalRuleCall_1_0_1() { return cEndTypeAssociationSTRINGTerminalRuleCall_1_0_1; }
+		
+		//('{' constraints+=STRING (',' constraints+=STRING)* '}')?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
+		
+		//constraints+=STRING
+		public Assignment getConstraintsAssignment_2_1() { return cConstraintsAssignment_2_1; }
+		
+		//STRING
+		public RuleCall getConstraintsSTRINGTerminalRuleCall_2_1_0() { return cConstraintsSTRINGTerminalRuleCall_2_1_0; }
+		
+		//(',' constraints+=STRING)*
+		public Group getGroup_2_2() { return cGroup_2_2; }
+		
+		//','
+		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
+		
+		//constraints+=STRING
+		public Assignment getConstraintsAssignment_2_2_1() { return cConstraintsAssignment_2_2_1; }
+		
+		//STRING
+		public RuleCall getConstraintsSTRINGTerminalRuleCall_2_2_1_0() { return cConstraintsSTRINGTerminalRuleCall_2_2_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2_3() { return cRightCurlyBracketKeyword_2_3; }
 	}
 	public class GeneralizationSetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.GeneralizationSet");
@@ -560,37 +939,27 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		//Generalization
 		public RuleCall getGeneralizationsGeneralizationParserRuleCall_3_0() { return cGeneralizationsGeneralizationParserRuleCall_3_0; }
 	}
-	public class StereotypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.Stereotype");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameSTEREOTYPE_STRINGTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
-		
-		//Stereotype:
-		//	name=STEREOTYPE_STRING;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//name=STEREOTYPE_STRING
-		public Assignment getNameAssignment() { return cNameAssignment; }
-		
-		//STEREOTYPE_STRING
-		public RuleCall getNameSTEREOTYPE_STRINGTerminalRuleCall_0() { return cNameSTEREOTYPE_STRINGTerminalRuleCall_0; }
-	}
 	
 	
 	private final ModelElements pModel;
 	private final ModelElementElements pModelElement;
 	private final ClassElements pClass;
+	private final AttributeElements pAttribute;
 	private final RelationshipElements pRelationship;
 	private final AssociationElements pAssociation;
+	private final BinaryAssociationElements pBinaryAssociation;
 	private final RegularAssociationElements pRegularAssociation;
+	private final ParthoodAssociationElements pParthoodAssociation;
 	private final NaryAssociationElements pNaryAssociation;
 	private final AssociationEndElements pAssociationEnd;
 	private final MultiplicityElements pMultiplicity;
 	private final CARDINALITYElements pCARDINALITY;
 	private final GeneralizationElements pGeneralization;
 	private final DependencyLinkElements pDependencyLink;
+	private final DerivationElements pDerivation;
+	private final ClassDerivationEndElements pClassDerivationEnd;
+	private final RelationDerivationEndElements pRelationDerivationEnd;
 	private final GeneralizationSetElements pGeneralizationSet;
-	private final StereotypeElements pStereotype;
 	private final TerminalRule tSTEREOTYPE_STRING;
 	
 	private final Grammar grammar;
@@ -605,17 +974,22 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		this.pModel = new ModelElements();
 		this.pModelElement = new ModelElementElements();
 		this.pClass = new ClassElements();
+		this.pAttribute = new AttributeElements();
 		this.pRelationship = new RelationshipElements();
 		this.pAssociation = new AssociationElements();
+		this.pBinaryAssociation = new BinaryAssociationElements();
 		this.pRegularAssociation = new RegularAssociationElements();
+		this.pParthoodAssociation = new ParthoodAssociationElements();
 		this.pNaryAssociation = new NaryAssociationElements();
 		this.pAssociationEnd = new AssociationEndElements();
 		this.pMultiplicity = new MultiplicityElements();
 		this.pCARDINALITY = new CARDINALITYElements();
 		this.pGeneralization = new GeneralizationElements();
 		this.pDependencyLink = new DependencyLinkElements();
+		this.pDerivation = new DerivationElements();
+		this.pClassDerivationEnd = new ClassDerivationEndElements();
+		this.pRelationDerivationEnd = new RelationDerivationEndElements();
 		this.pGeneralizationSet = new GeneralizationSetElements();
-		this.pStereotype = new StereotypeElements();
 		this.tSTEREOTYPE_STRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.STEREOTYPE_STRING");
 	}
 	
@@ -647,7 +1021,7 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	elments+=ModelElement*;
+	//	elements+=ModelElement*;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -668,7 +1042,8 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Class:
 	//	isAbstract?='abstract'? 'class' name=STRING
-	//	stereotype=Stereotype?;
+	//	stereotypes+=STEREOTYPE_STRING*
+	//	attributes+=Attribute*;
 	public ClassElements getClassAccess() {
 		return pClass;
 	}
@@ -677,8 +1052,18 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		return getClassAccess().getRule();
 	}
 	
+	//Attribute:
+	//	'att' name=STRING multiplicity=Multiplicity ':' attType=[Class|STRING];
+	public AttributeElements getAttributeAccess() {
+		return pAttribute;
+	}
+	
+	public ParserRule getAttributeRule() {
+		return getAttributeAccess().getRule();
+	}
+	
 	//Relationship:
-	//	Association | Generalization | DependencyLink;
+	//	Association | Generalization | DependencyLink | Derivation;
 	public RelationshipElements getRelationshipAccess() {
 		return pRelationship;
 	}
@@ -688,7 +1073,7 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Association:
-	//	RegularAssociation | NaryAssociation;
+	//	BinaryAssociation | NaryAssociation;
 	public AssociationElements getAssociationAccess() {
 		return pAssociation;
 	}
@@ -697,9 +1082,19 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		return getAssociationAccess().getRule();
 	}
 	
+	//BinaryAssociation:
+	//	RegularAssociation | ParthoodAssociation;
+	public BinaryAssociationElements getBinaryAssociationAccess() {
+		return pBinaryAssociation;
+	}
+	
+	public ParserRule getBinaryAssociationRule() {
+		return getBinaryAssociationAccess().getRule();
+	}
+	
 	//RegularAssociation:
 	//	'association' name=STRING?
-	//	stereotype=Stereotype?
+	//	stereotypes+=STEREOTYPE_STRING*
 	//	'from' from=AssociationEnd
 	//	'to' to=AssociationEnd;
 	public RegularAssociationElements getRegularAssociationAccess() {
@@ -710,9 +1105,23 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		return getRegularAssociationAccess().getRule();
 	}
 	
+	//ParthoodAssociation:
+	//	'association' name=STRING?
+	//	stereotypes+=STEREOTYPE_STRING*
+	//	'whole' whole=AssociationEnd
+	//	'part' part=AssociationEnd;
+	public ParthoodAssociationElements getParthoodAssociationAccess() {
+		return pParthoodAssociation;
+	}
+	
+	public ParserRule getParthoodAssociationRule() {
+		return getParthoodAssociationAccess().getRule();
+	}
+	
 	//NaryAssociation:
 	//	'association' name=STRING?
-	//	stereotype=Stereotype? ('end' ends+=AssociationEnd) ('end' ends+=AssociationEnd) ('end' ends+=AssociationEnd)+;
+	//	stereotypes+=STEREOTYPE_STRING* ('end' ends+=AssociationEnd) ('end' ends+=AssociationEnd) ('end'
+	//	ends+=AssociationEnd)+;
 	public NaryAssociationElements getNaryAssociationAccess() {
 		return pNaryAssociation;
 	}
@@ -724,7 +1133,7 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 	//AssociationEnd:
 	//	name=STRING?
 	//	multiplicity=Multiplicity
-	//	':' endType=[Class|STRING];
+	//	':' endType=[Class|STRING] ('{' constraints+=STRING (',' constraints+=STRING)* '}')?;
 	public AssociationEndElements getAssociationEndAccess() {
 		return pAssociationEnd;
 	}
@@ -767,6 +1176,7 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DependencyLink:
 	//	'dependency' name=STRING?
+	//	stereotypes+=STEREOTYPE_STRING*
 	//	'from' from=[Class|STRING]
 	//	'to' to=[Class|STRING];
 	public DependencyLinkElements getDependencyLinkAccess() {
@@ -775,6 +1185,41 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDependencyLinkRule() {
 		return getDependencyLinkAccess().getRule();
+	}
+	
+	//Derivation:
+	//	'derivation' name=STRING?
+	//	stereotypes+=STEREOTYPE_STRING*
+	//	'class' class=ClassDerivationEnd
+	//	'relation' part=RelationDerivationEnd;
+	public DerivationElements getDerivationAccess() {
+		return pDerivation;
+	}
+	
+	public ParserRule getDerivationRule() {
+		return getDerivationAccess().getRule();
+	}
+	
+	//ClassDerivationEnd:
+	//	multiplicity=Multiplicity
+	//	endType=[Class|STRING] ('{' constraints+=STRING (',' constraints+=STRING)* '}')?;
+	public ClassDerivationEndElements getClassDerivationEndAccess() {
+		return pClassDerivationEnd;
+	}
+	
+	public ParserRule getClassDerivationEndRule() {
+		return getClassDerivationEndAccess().getRule();
+	}
+	
+	//RelationDerivationEnd:
+	//	multiplicity=Multiplicity
+	//	endType=[Association|STRING] ('{' constraints+=STRING (',' constraints+=STRING)* '}')?;
+	public RelationDerivationEndElements getRelationDerivationEndAccess() {
+		return pRelationDerivationEnd;
+	}
+	
+	public ParserRule getRelationDerivationEndRule() {
+		return getRelationDerivationEndAccess().getRule();
 	}
 	
 	//GeneralizationSet:
@@ -786,16 +1231,6 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getGeneralizationSetRule() {
 		return getGeneralizationSetAccess().getRule();
-	}
-	
-	//Stereotype:
-	//	name=STEREOTYPE_STRING;
-	public StereotypeElements getStereotypeAccess() {
-		return pStereotype;
-	}
-	
-	public ParserRule getStereotypeRule() {
-		return getStereotypeAccess().getRule();
 	}
 	
 	//terminal STEREOTYPE_STRING:

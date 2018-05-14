@@ -5,7 +5,11 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive.impl;
 
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Association;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.GeneralizationSet;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model;
@@ -14,9 +18,10 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchiveFactory;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.Stereotype;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -81,16 +86,21 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
       case OntoUMLArchivePackage.MODEL: return createModel();
       case OntoUMLArchivePackage.MODEL_ELEMENT: return createModelElement();
       case OntoUMLArchivePackage.CLASS: return createClass();
+      case OntoUMLArchivePackage.ATTRIBUTE: return createAttribute();
       case OntoUMLArchivePackage.RELATIONSHIP: return createRelationship();
       case OntoUMLArchivePackage.ASSOCIATION: return createAssociation();
+      case OntoUMLArchivePackage.BINARY_ASSOCIATION: return createBinaryAssociation();
       case OntoUMLArchivePackage.REGULAR_ASSOCIATION: return createRegularAssociation();
+      case OntoUMLArchivePackage.PARTHOOD_ASSOCIATION: return createParthoodAssociation();
       case OntoUMLArchivePackage.NARY_ASSOCIATION: return createNaryAssociation();
       case OntoUMLArchivePackage.ASSOCIATION_END: return createAssociationEnd();
       case OntoUMLArchivePackage.MULTIPLICITY: return createMultiplicity();
       case OntoUMLArchivePackage.GENERALIZATION: return createGeneralization();
       case OntoUMLArchivePackage.DEPENDENCY_LINK: return createDependencyLink();
+      case OntoUMLArchivePackage.DERIVATION: return createDerivation();
+      case OntoUMLArchivePackage.CLASS_DERIVATION_END: return createClassDerivationEnd();
+      case OntoUMLArchivePackage.RELATION_DERIVATION_END: return createRelationDerivationEnd();
       case OntoUMLArchivePackage.GENERALIZATION_SET: return createGeneralizationSet();
-      case OntoUMLArchivePackage.STEREOTYPE: return createStereotype();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -134,6 +144,17 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
+  public Attribute createAttribute()
+  {
+    AttributeImpl attribute = new AttributeImpl();
+    return attribute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Relationship createRelationship()
   {
     RelationshipImpl relationship = new RelationshipImpl();
@@ -156,10 +177,32 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
+  public BinaryAssociation createBinaryAssociation()
+  {
+    BinaryAssociationImpl binaryAssociation = new BinaryAssociationImpl();
+    return binaryAssociation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public RegularAssociation createRegularAssociation()
   {
     RegularAssociationImpl regularAssociation = new RegularAssociationImpl();
     return regularAssociation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ParthoodAssociation createParthoodAssociation()
+  {
+    ParthoodAssociationImpl parthoodAssociation = new ParthoodAssociationImpl();
+    return parthoodAssociation;
   }
 
   /**
@@ -222,10 +265,10 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public GeneralizationSet createGeneralizationSet()
+  public Derivation createDerivation()
   {
-    GeneralizationSetImpl generalizationSet = new GeneralizationSetImpl();
-    return generalizationSet;
+    DerivationImpl derivation = new DerivationImpl();
+    return derivation;
   }
 
   /**
@@ -233,10 +276,32 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stereotype createStereotype()
+  public ClassDerivationEnd createClassDerivationEnd()
   {
-    StereotypeImpl stereotype = new StereotypeImpl();
-    return stereotype;
+    ClassDerivationEndImpl classDerivationEnd = new ClassDerivationEndImpl();
+    return classDerivationEnd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RelationDerivationEnd createRelationDerivationEnd()
+  {
+    RelationDerivationEndImpl relationDerivationEnd = new RelationDerivationEndImpl();
+    return relationDerivationEnd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GeneralizationSet createGeneralizationSet()
+  {
+    GeneralizationSetImpl generalizationSet = new GeneralizationSetImpl();
+    return generalizationSet;
   }
 
   /**

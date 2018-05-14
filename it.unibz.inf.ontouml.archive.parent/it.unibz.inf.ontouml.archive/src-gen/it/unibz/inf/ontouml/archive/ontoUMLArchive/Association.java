@@ -3,6 +3,7 @@
  */
 package it.unibz.inf.ontouml.archive.ontoUMLArchive;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +14,7 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Association#getStereotype <em>Stereotype</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Association#getStereotypes <em>Stereotypes</em>}</li>
  * </ul>
  *
  * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getAssociation()
@@ -23,29 +24,19 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive;
 public interface Association extends Relationship
 {
   /**
-   * Returns the value of the '<em><b>Stereotype</b></em>' containment reference.
+   * Returns the value of the '<em><b>Stereotypes</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Stereotype</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Stereotypes</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Stereotype</em>' containment reference.
-   * @see #setStereotype(Stereotype)
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getAssociation_Stereotype()
-   * @model containment="true"
+   * @return the value of the '<em>Stereotypes</em>' attribute list.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getAssociation_Stereotypes()
+   * @model unique="false"
    * @generated
    */
-  Stereotype getStereotype();
-
-  /**
-   * Sets the value of the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Association#getStereotype <em>Stereotype</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Stereotype</em>' containment reference.
-   * @see #getStereotype()
-   * @generated
-   */
-  void setStereotype(Stereotype value);
+  EList<String> getStereotypes();
 
 } // Association

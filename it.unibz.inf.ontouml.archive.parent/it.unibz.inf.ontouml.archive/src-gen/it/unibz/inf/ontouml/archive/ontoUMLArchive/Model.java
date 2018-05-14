@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getElments <em>Elments</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getModel()
@@ -26,19 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Elments</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
    * The list contents are of type {@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Elments</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Elments</em>' containment reference list.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getModel_Elments()
+   * @return the value of the '<em>Elements</em>' containment reference list.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getModel_Elements()
    * @model containment="true"
    * @generated
    */
-  EList<ModelElement> getElments();
+  EList<ModelElement> getElements();
 
 } // Model

@@ -3,10 +3,44 @@
  */
 package it.unibz.inf.ontouml.archive.ui.contentassist
 
+import it.unibz.inf.ontouml.archive.OntoUMLArchiveUtils
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class OntoUMLArchiveProposalProvider extends AbstractOntoUMLArchiveProposalProvider {
+
+	override completeClass_Stereotypes(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.completeClass_Stereotypes(model, assignment, context, acceptor)
+		for (str : OntoUMLArchiveUtils.expectedClassStereotypes) {
+			acceptor.accept(createCompletionProposal('''<<«str»>>''', context))
+		}
+	}
+	
+	override completeRegularAssociation_Stereotypes(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.completeRegularAssociation_Stereotypes(model, assignment, context, acceptor)
+		for (str : OntoUMLArchiveUtils.expectedRegularAssociationStereotypes) {
+			acceptor.accept(createCompletionProposal('''<<«str»>>''', context))
+		}
+	}
+	
+	override completeParthoodAssociation_Stereotypes(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.completeParthoodAssociation_Stereotypes(model, assignment, context, acceptor)
+		for (str : OntoUMLArchiveUtils.expectedParthoodAssociationStereotypes) {
+			acceptor.accept(createCompletionProposal('''<<«str»>>''', context))
+		}
+	}
+	
+//	override completeClass_Stereotype(EObject e, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+//		
+//		for (str : OntoUMLArchiveUtils.expectedClassStereotypes) {
+//			acceptor.accept(createCompletionProposal(str, context))
+//		}
+//	}
+	
 }

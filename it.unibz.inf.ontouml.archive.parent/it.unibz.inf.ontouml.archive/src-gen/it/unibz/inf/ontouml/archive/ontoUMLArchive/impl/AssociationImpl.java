@@ -5,15 +5,14 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive.impl;
 
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Association;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.Stereotype;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationImpl#getStereotype <em>Stereotype</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationImpl#getStereotypes <em>Stereotypes</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,14 +30,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class AssociationImpl extends RelationshipImpl implements Association
 {
   /**
-   * The cached value of the '{@link #getStereotype() <em>Stereotype</em>}' containment reference.
+   * The cached value of the '{@link #getStereotypes() <em>Stereotypes</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStereotype()
+   * @see #getStereotypes()
    * @generated
    * @ordered
    */
-  protected Stereotype stereotype;
+  protected EList<String> stereotypes;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,63 +65,13 @@ public class AssociationImpl extends RelationshipImpl implements Association
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stereotype getStereotype()
+  public EList<String> getStereotypes()
   {
-    return stereotype;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetStereotype(Stereotype newStereotype, NotificationChain msgs)
-  {
-    Stereotype oldStereotype = stereotype;
-    stereotype = newStereotype;
-    if (eNotificationRequired())
+    if (stereotypes == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.ASSOCIATION__STEREOTYPE, oldStereotype, newStereotype);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      stereotypes = new EDataTypeEList<String>(String.class, this, OntoUMLArchivePackage.ASSOCIATION__STEREOTYPES);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStereotype(Stereotype newStereotype)
-  {
-    if (newStereotype != stereotype)
-    {
-      NotificationChain msgs = null;
-      if (stereotype != null)
-        msgs = ((InternalEObject)stereotype).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OntoUMLArchivePackage.ASSOCIATION__STEREOTYPE, null, msgs);
-      if (newStereotype != null)
-        msgs = ((InternalEObject)newStereotype).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OntoUMLArchivePackage.ASSOCIATION__STEREOTYPE, null, msgs);
-      msgs = basicSetStereotype(newStereotype, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.ASSOCIATION__STEREOTYPE, newStereotype, newStereotype));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case OntoUMLArchivePackage.ASSOCIATION__STEREOTYPE:
-        return basicSetStereotype(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    return stereotypes;
   }
 
   /**
@@ -135,8 +84,8 @@ public class AssociationImpl extends RelationshipImpl implements Association
   {
     switch (featureID)
     {
-      case OntoUMLArchivePackage.ASSOCIATION__STEREOTYPE:
-        return getStereotype();
+      case OntoUMLArchivePackage.ASSOCIATION__STEREOTYPES:
+        return getStereotypes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -146,13 +95,15 @@ public class AssociationImpl extends RelationshipImpl implements Association
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case OntoUMLArchivePackage.ASSOCIATION__STEREOTYPE:
-        setStereotype((Stereotype)newValue);
+      case OntoUMLArchivePackage.ASSOCIATION__STEREOTYPES:
+        getStereotypes().clear();
+        getStereotypes().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,8 +119,8 @@ public class AssociationImpl extends RelationshipImpl implements Association
   {
     switch (featureID)
     {
-      case OntoUMLArchivePackage.ASSOCIATION__STEREOTYPE:
-        setStereotype((Stereotype)null);
+      case OntoUMLArchivePackage.ASSOCIATION__STEREOTYPES:
+        getStereotypes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -185,10 +136,27 @@ public class AssociationImpl extends RelationshipImpl implements Association
   {
     switch (featureID)
     {
-      case OntoUMLArchivePackage.ASSOCIATION__STEREOTYPE:
-        return stereotype != null;
+      case OntoUMLArchivePackage.ASSOCIATION__STEREOTYPES:
+        return stereotypes != null && !stereotypes.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (stereotypes: ");
+    result.append(stereotypes);
+    result.append(')');
+    return result.toString();
   }
 
 } //AssociationImpl

@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ontoUMLArchive" nsURI="http://www.unibz.it/inf/ontouml/archive/OntoUMLArchive"
     nsPrefix="ontoUMLArchive">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elments" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//ModelElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement">
@@ -11,18 +11,33 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stereotype" eType="#//Stereotype"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stereotypes" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multiplicity" eType="#//Multiplicity"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attType" eType="#//Class"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Relationship" eSuperTypes="#//ModelElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Association" eSuperTypes="#//Relationship">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stereotype" eType="#//Stereotype"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stereotypes" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RegularAssociation" eSuperTypes="#//Association">
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryAssociation" eSuperTypes="#//Association"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RegularAssociation" eSuperTypes="#//BinaryAssociation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//AssociationEnd"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//AssociationEnd"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParthoodAssociation" eSuperTypes="#//BinaryAssociation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whole" eType="#//AssociationEnd"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="part" eType="#//AssociationEnd"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NaryAssociation" eSuperTypes="#//Association">
@@ -34,6 +49,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="multiplicity" eType="#//Multiplicity"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="endType" eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constraints" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Multiplicity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -44,16 +61,37 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sub" eType="#//Class"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DependencyLink" eSuperTypes="#//Relationship">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stereotypes" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//Class"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//Class"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Derivation" eSuperTypes="#//Relationship">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stereotypes" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="class" eType="#//ClassDerivationEnd"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="part" eType="#//RelationDerivationEnd"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClassDerivationEnd">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multiplicity" eType="#//Multiplicity"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endType" eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constraints" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationDerivationEnd">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multiplicity" eType="#//Multiplicity"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endType" eType="#//Association"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constraints" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneralizationSet" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isDisjoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isComplete" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="generalizations" upperBound="-1"
         eType="#//Generalization" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Stereotype">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

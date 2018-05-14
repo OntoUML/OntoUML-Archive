@@ -5,7 +5,11 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive.util;
 
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Association;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.GeneralizationSet;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model;
@@ -13,9 +17,10 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.Stereotype;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -107,6 +112,13 @@ public class OntoUMLArchiveSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OntoUMLArchivePackage.ATTRIBUTE:
+      {
+        Attribute attribute = (Attribute)theEObject;
+        T result = caseAttribute(attribute);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OntoUMLArchivePackage.RELATIONSHIP:
       {
         Relationship relationship = (Relationship)theEObject;
@@ -124,13 +136,35 @@ public class OntoUMLArchiveSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OntoUMLArchivePackage.BINARY_ASSOCIATION:
+      {
+        BinaryAssociation binaryAssociation = (BinaryAssociation)theEObject;
+        T result = caseBinaryAssociation(binaryAssociation);
+        if (result == null) result = caseAssociation(binaryAssociation);
+        if (result == null) result = caseRelationship(binaryAssociation);
+        if (result == null) result = caseModelElement(binaryAssociation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OntoUMLArchivePackage.REGULAR_ASSOCIATION:
       {
         RegularAssociation regularAssociation = (RegularAssociation)theEObject;
         T result = caseRegularAssociation(regularAssociation);
+        if (result == null) result = caseBinaryAssociation(regularAssociation);
         if (result == null) result = caseAssociation(regularAssociation);
         if (result == null) result = caseRelationship(regularAssociation);
         if (result == null) result = caseModelElement(regularAssociation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OntoUMLArchivePackage.PARTHOOD_ASSOCIATION:
+      {
+        ParthoodAssociation parthoodAssociation = (ParthoodAssociation)theEObject;
+        T result = caseParthoodAssociation(parthoodAssociation);
+        if (result == null) result = caseBinaryAssociation(parthoodAssociation);
+        if (result == null) result = caseAssociation(parthoodAssociation);
+        if (result == null) result = caseRelationship(parthoodAssociation);
+        if (result == null) result = caseModelElement(parthoodAssociation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -176,18 +210,34 @@ public class OntoUMLArchiveSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OntoUMLArchivePackage.DERIVATION:
+      {
+        Derivation derivation = (Derivation)theEObject;
+        T result = caseDerivation(derivation);
+        if (result == null) result = caseRelationship(derivation);
+        if (result == null) result = caseModelElement(derivation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OntoUMLArchivePackage.CLASS_DERIVATION_END:
+      {
+        ClassDerivationEnd classDerivationEnd = (ClassDerivationEnd)theEObject;
+        T result = caseClassDerivationEnd(classDerivationEnd);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OntoUMLArchivePackage.RELATION_DERIVATION_END:
+      {
+        RelationDerivationEnd relationDerivationEnd = (RelationDerivationEnd)theEObject;
+        T result = caseRelationDerivationEnd(relationDerivationEnd);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OntoUMLArchivePackage.GENERALIZATION_SET:
       {
         GeneralizationSet generalizationSet = (GeneralizationSet)theEObject;
         T result = caseGeneralizationSet(generalizationSet);
         if (result == null) result = caseModelElement(generalizationSet);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OntoUMLArchivePackage.STEREOTYPE:
-      {
-        Stereotype stereotype = (Stereotype)theEObject;
-        T result = caseStereotype(stereotype);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -244,6 +294,22 @@ public class OntoUMLArchiveSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAttribute(Attribute object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Relationship</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -276,6 +342,22 @@ public class OntoUMLArchiveSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Binary Association</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Binary Association</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBinaryAssociation(BinaryAssociation object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Regular Association</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -287,6 +369,22 @@ public class OntoUMLArchiveSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRegularAssociation(RegularAssociation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parthood Association</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parthood Association</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParthoodAssociation(ParthoodAssociation object)
   {
     return null;
   }
@@ -372,6 +470,54 @@ public class OntoUMLArchiveSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Derivation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Derivation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDerivation(Derivation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Class Derivation End</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Class Derivation End</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseClassDerivationEnd(ClassDerivationEnd object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Relation Derivation End</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Relation Derivation End</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRelationDerivationEnd(RelationDerivationEnd object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Generalization Set</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -383,22 +529,6 @@ public class OntoUMLArchiveSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseGeneralizationSet(GeneralizationSet object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Stereotype</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Stereotype</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStereotype(Stereotype object)
   {
     return null;
   }

@@ -11,12 +11,14 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.eclipse.xtext.testing.validation.ValidationTestHelper
 
 @RunWith(XtextRunner)
 @InjectWith(OntoUMLArchiveInjectorProvider)
 class OntoUMLArchiveParsingTest {
-	@Inject
-	ParseHelper<Model> parseHelper
+	
+	@Inject extension ParseHelper<Model> //parseHelper
+	@Inject extension ValidationTestHelper
 	
 	@Test
 	def void loadModel() {
@@ -25,5 +27,17 @@ class OntoUMLArchiveParsingTest {
 //		''')
 //		Assert.assertNotNull(result)
 //		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void testConstraintDeclaration() {
+		val m = '''
+			class "A"; class "B";
+			association 
+				from [1..*] : "A" {""}
+				to [1..*] : "B" {"","",""};
+		'''.parse
+		Assert.assertNotNull(m)
+		m.assertNoErrors
 	}
 }

@@ -3,6 +3,16 @@
  */
 package it.unibz.inf.ontouml.archive.validation
 
+import org.eclipse.xtext.validation.Check
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement
+import it.unibz.inf.ontouml.archive.OntoUMLArchiveUtils
+import com.google.inject.Inject
+import org.eclipse.xtext.validation.CheckType
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Class
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +21,56 @@ package it.unibz.inf.ontouml.archive.validation
  */
 class OntoUMLArchiveValidator extends AbstractOntoUMLArchiveValidator {
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					OntoUMLArchivePackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	@Inject extension OntoUMLArchiveUtils
+	
+	public static val DUPLICATED_NAME = "it.unibz.inf.ontouml.archive.validation.DUPLICATED_NAME"
+	public static val REFLEXIVE_GENERALIZATION = "it.unibz.inf.ontouml.archive.validation.REFLEXIVE_GENERALIZATION"
+	public static val UNEXPECTED_STEREOTYPE = "it.unibz.inf.ontouml.archive.validation.UNEXPECTED_STEREOTYPE"
+	
+	@Check(CheckType.NORMAL)
+	def checkNameDuplicatedName(ModelElement e) {
+		if(!e.name.empty && e.containerModel.modelElements.exists[ it!=e && it.name==e.name ])
+			error('''Model elements should not have duplicated names.''',
+					e, OntoUMLArchivePackage.eINSTANCE.modelElement_Name,
+					DUPLICATED_NAME)
+	}
+	
+	@Check
+	def checkGeneralizationEnds(Generalization g) {
+		if(g.super == g.sub)
+			error('''Generalizations are not reflexive.''', g, 
+					OntoUMLArchivePackage.eINSTANCE.generalization_Super, 
+					REFLEXIVE_GENERALIZATION)
+	}
+	
+	@Check
+	def checkUnexpectedClassStereotypes(Class c) {
+		for (str : c.stereotypes) {
+			if(!OntoUMLArchiveUtils.expectedClassStereotypes.contains(str))
+				warning('''Unexpected class stereotype''', c,
+						OntoUMLArchivePackage.eINSTANCE.class_Stereotypes, 
+						c.stereotypes.indexOf(str), UNEXPECTED_STEREOTYPE)
+		}
+	}
+	
+	@Check
+	def checkUnexpectedRegularAssociationStereotypes(RegularAssociation a) {
+		for (str : a.stereotypes) {
+			if(!OntoUMLArchiveUtils.expectedRegularAssociationStereotypes.contains(str))
+				warning('''Unexpected class stereotype''', a,
+						OntoUMLArchivePackage.eINSTANCE.association_Stereotypes, 
+						a.stereotypes.indexOf(str), UNEXPECTED_STEREOTYPE)
+		}
+	}
+	
+	@Check
+	def checkUnexpectedParthoodAssociationStereotypes(ParthoodAssociation a) {
+		for (str : a.stereotypes) {
+			if(!OntoUMLArchiveUtils.expectedParthoodAssociationStereotypes.contains(str))
+				warning('''Unexpected class stereotype''', a,
+						OntoUMLArchivePackage.eINSTANCE.association_Stereotypes, 
+						a.stereotypes.indexOf(str), UNEXPECTED_STEREOTYPE)
+		}
+	}
 	
 }

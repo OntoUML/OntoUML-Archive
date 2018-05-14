@@ -3,6 +3,7 @@
  */
 package it.unibz.inf.ontouml.archive.ontoUMLArchive;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +15,8 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive;
  * </p>
  * <ul>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Class#isIsAbstract <em>Is Abstract</em>}</li>
- *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Class#getStereotype <em>Stereotype</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Class#getStereotypes <em>Stereotypes</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Class#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
  * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getClass_()
@@ -50,29 +52,35 @@ public interface Class extends ModelElement
   void setIsAbstract(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Stereotype</b></em>' containment reference.
+   * Returns the value of the '<em><b>Stereotypes</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Stereotype</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Stereotypes</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Stereotype</em>' containment reference.
-   * @see #setStereotype(Stereotype)
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getClass_Stereotype()
+   * @return the value of the '<em>Stereotypes</em>' attribute list.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getClass_Stereotypes()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getStereotypes();
+
+  /**
+   * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
+   * The list contents are of type {@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Attributes</em>' containment reference list.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getClass_Attributes()
    * @model containment="true"
    * @generated
    */
-  Stereotype getStereotype();
-
-  /**
-   * Sets the value of the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Class#getStereotype <em>Stereotype</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Stereotype</em>' containment reference.
-   * @see #getStereotype()
-   * @generated
-   */
-  void setStereotype(Stereotype value);
+  EList<Attribute> getAttributes();
 
 } // Class

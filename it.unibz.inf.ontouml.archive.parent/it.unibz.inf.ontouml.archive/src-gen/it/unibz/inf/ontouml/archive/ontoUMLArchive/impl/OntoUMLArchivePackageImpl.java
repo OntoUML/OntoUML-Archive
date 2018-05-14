@@ -5,7 +5,11 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive.impl;
 
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Association;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.GeneralizationSet;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model;
@@ -14,9 +18,10 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchiveFactory;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.Stereotype;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -59,6 +64,13 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass attributeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass relationshipEClass = null;
 
   /**
@@ -73,7 +85,21 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass binaryAssociationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass regularAssociationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parthoodAssociationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -115,14 +141,28 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass generalizationSetEClass = null;
+  private EClass derivationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass stereotypeEClass = null;
+  private EClass classDerivationEndEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass relationDerivationEndEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass generalizationSetEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -202,7 +242,7 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Elments()
+  public EReference getModel_Elements()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -252,9 +292,59 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClass_Stereotype()
+  public EAttribute getClass_Stereotypes()
   {
-    return (EReference)classEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)classEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getClass_Attributes()
+  {
+    return (EReference)classEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAttribute()
+  {
+    return attributeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAttribute_Name()
+  {
+    return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAttribute_Multiplicity()
+  {
+    return (EReference)attributeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAttribute_AttType()
+  {
+    return (EReference)attributeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -282,9 +372,19 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssociation_Stereotype()
+  public EAttribute getAssociation_Stereotypes()
   {
-    return (EReference)associationEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)associationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBinaryAssociation()
+  {
+    return binaryAssociationEClass;
   }
 
   /**
@@ -315,6 +415,36 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
   public EReference getRegularAssociation_To()
   {
     return (EReference)regularAssociationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getParthoodAssociation()
+  {
+    return parthoodAssociationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParthoodAssociation_Whole()
+  {
+    return (EReference)parthoodAssociationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParthoodAssociation_Part()
+  {
+    return (EReference)parthoodAssociationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -375,6 +505,16 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
   public EReference getAssociationEnd_EndType()
   {
     return (EReference)associationEndEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAssociationEnd_Constraints()
+  {
+    return (EAttribute)associationEndEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -452,9 +592,19 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDependencyLink_Stereotypes()
+  {
+    return (EAttribute)dependencyLinkEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getDependencyLink_From()
   {
-    return (EReference)dependencyLinkEClass.getEStructuralFeatures().get(0);
+    return (EReference)dependencyLinkEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -464,7 +614,127 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    */
   public EReference getDependencyLink_To()
   {
-    return (EReference)dependencyLinkEClass.getEStructuralFeatures().get(1);
+    return (EReference)dependencyLinkEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDerivation()
+  {
+    return derivationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDerivation_Stereotypes()
+  {
+    return (EAttribute)derivationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDerivation_Class()
+  {
+    return (EReference)derivationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDerivation_Part()
+  {
+    return (EReference)derivationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getClassDerivationEnd()
+  {
+    return classDerivationEndEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getClassDerivationEnd_Multiplicity()
+  {
+    return (EReference)classDerivationEndEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getClassDerivationEnd_EndType()
+  {
+    return (EReference)classDerivationEndEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getClassDerivationEnd_Constraints()
+  {
+    return (EAttribute)classDerivationEndEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRelationDerivationEnd()
+  {
+    return relationDerivationEndEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRelationDerivationEnd_Multiplicity()
+  {
+    return (EReference)relationDerivationEndEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRelationDerivationEnd_EndType()
+  {
+    return (EReference)relationDerivationEndEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRelationDerivationEnd_Constraints()
+  {
+    return (EAttribute)relationDerivationEndEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -512,26 +782,6 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getStereotype()
-  {
-    return stereotypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getStereotype_Name()
-  {
-    return (EAttribute)stereotypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public OntoUMLArchiveFactory getOntoUMLArchiveFactory()
   {
     return (OntoUMLArchiveFactory)getEFactoryInstance();
@@ -558,23 +808,35 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__ELMENTS);
+    createEReference(modelEClass, MODEL__ELEMENTS);
 
     modelElementEClass = createEClass(MODEL_ELEMENT);
     createEAttribute(modelElementEClass, MODEL_ELEMENT__NAME);
 
     classEClass = createEClass(CLASS);
     createEAttribute(classEClass, CLASS__IS_ABSTRACT);
-    createEReference(classEClass, CLASS__STEREOTYPE);
+    createEAttribute(classEClass, CLASS__STEREOTYPES);
+    createEReference(classEClass, CLASS__ATTRIBUTES);
+
+    attributeEClass = createEClass(ATTRIBUTE);
+    createEAttribute(attributeEClass, ATTRIBUTE__NAME);
+    createEReference(attributeEClass, ATTRIBUTE__MULTIPLICITY);
+    createEReference(attributeEClass, ATTRIBUTE__ATT_TYPE);
 
     relationshipEClass = createEClass(RELATIONSHIP);
 
     associationEClass = createEClass(ASSOCIATION);
-    createEReference(associationEClass, ASSOCIATION__STEREOTYPE);
+    createEAttribute(associationEClass, ASSOCIATION__STEREOTYPES);
+
+    binaryAssociationEClass = createEClass(BINARY_ASSOCIATION);
 
     regularAssociationEClass = createEClass(REGULAR_ASSOCIATION);
     createEReference(regularAssociationEClass, REGULAR_ASSOCIATION__FROM);
     createEReference(regularAssociationEClass, REGULAR_ASSOCIATION__TO);
+
+    parthoodAssociationEClass = createEClass(PARTHOOD_ASSOCIATION);
+    createEReference(parthoodAssociationEClass, PARTHOOD_ASSOCIATION__WHOLE);
+    createEReference(parthoodAssociationEClass, PARTHOOD_ASSOCIATION__PART);
 
     naryAssociationEClass = createEClass(NARY_ASSOCIATION);
     createEReference(naryAssociationEClass, NARY_ASSOCIATION__ENDS);
@@ -583,6 +845,7 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     createEAttribute(associationEndEClass, ASSOCIATION_END__NAME);
     createEReference(associationEndEClass, ASSOCIATION_END__MULTIPLICITY);
     createEReference(associationEndEClass, ASSOCIATION_END__END_TYPE);
+    createEAttribute(associationEndEClass, ASSOCIATION_END__CONSTRAINTS);
 
     multiplicityEClass = createEClass(MULTIPLICITY);
     createEAttribute(multiplicityEClass, MULTIPLICITY__LOWER);
@@ -593,16 +856,29 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     createEReference(generalizationEClass, GENERALIZATION__SUB);
 
     dependencyLinkEClass = createEClass(DEPENDENCY_LINK);
+    createEAttribute(dependencyLinkEClass, DEPENDENCY_LINK__STEREOTYPES);
     createEReference(dependencyLinkEClass, DEPENDENCY_LINK__FROM);
     createEReference(dependencyLinkEClass, DEPENDENCY_LINK__TO);
+
+    derivationEClass = createEClass(DERIVATION);
+    createEAttribute(derivationEClass, DERIVATION__STEREOTYPES);
+    createEReference(derivationEClass, DERIVATION__CLASS);
+    createEReference(derivationEClass, DERIVATION__PART);
+
+    classDerivationEndEClass = createEClass(CLASS_DERIVATION_END);
+    createEReference(classDerivationEndEClass, CLASS_DERIVATION_END__MULTIPLICITY);
+    createEReference(classDerivationEndEClass, CLASS_DERIVATION_END__END_TYPE);
+    createEAttribute(classDerivationEndEClass, CLASS_DERIVATION_END__CONSTRAINTS);
+
+    relationDerivationEndEClass = createEClass(RELATION_DERIVATION_END);
+    createEReference(relationDerivationEndEClass, RELATION_DERIVATION_END__MULTIPLICITY);
+    createEReference(relationDerivationEndEClass, RELATION_DERIVATION_END__END_TYPE);
+    createEAttribute(relationDerivationEndEClass, RELATION_DERIVATION_END__CONSTRAINTS);
 
     generalizationSetEClass = createEClass(GENERALIZATION_SET);
     createEAttribute(generalizationSetEClass, GENERALIZATION_SET__IS_DISJOINT);
     createEAttribute(generalizationSetEClass, GENERALIZATION_SET__IS_COMPLETE);
     createEReference(generalizationSetEClass, GENERALIZATION_SET__GENERALIZATIONS);
-
-    stereotypeEClass = createEClass(STEREOTYPE);
-    createEAttribute(stereotypeEClass, STEREOTYPE__NAME);
   }
 
   /**
@@ -637,31 +913,46 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     classEClass.getESuperTypes().add(this.getModelElement());
     relationshipEClass.getESuperTypes().add(this.getModelElement());
     associationEClass.getESuperTypes().add(this.getRelationship());
-    regularAssociationEClass.getESuperTypes().add(this.getAssociation());
+    binaryAssociationEClass.getESuperTypes().add(this.getAssociation());
+    regularAssociationEClass.getESuperTypes().add(this.getBinaryAssociation());
+    parthoodAssociationEClass.getESuperTypes().add(this.getBinaryAssociation());
     naryAssociationEClass.getESuperTypes().add(this.getAssociation());
     generalizationEClass.getESuperTypes().add(this.getRelationship());
     dependencyLinkEClass.getESuperTypes().add(this.getRelationship());
+    derivationEClass.getESuperTypes().add(this.getRelationship());
     generalizationSetEClass.getESuperTypes().add(this.getModelElement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Elments(), this.getModelElement(), null, "elments", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Elements(), this.getModelElement(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modelElementEClass, ModelElement.class, "ModelElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModelElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(classEClass, it.unibz.inf.ontouml.archive.ontoUMLArchive.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClass_IsAbstract(), ecorePackage.getEBoolean(), "isAbstract", null, 0, 1, it.unibz.inf.ontouml.archive.ontoUMLArchive.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getClass_Stereotype(), this.getStereotype(), null, "stereotype", null, 0, 1, it.unibz.inf.ontouml.archive.ontoUMLArchive.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getClass_Stereotypes(), ecorePackage.getEString(), "stereotypes", null, 0, -1, it.unibz.inf.ontouml.archive.ontoUMLArchive.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClass_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, it.unibz.inf.ontouml.archive.ontoUMLArchive.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAttribute_Multiplicity(), this.getMultiplicity(), null, "multiplicity", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAttribute_AttType(), this.getClass_(), null, "attType", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(relationshipEClass, Relationship.class, "Relationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(associationEClass, Association.class, "Association", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAssociation_Stereotype(), this.getStereotype(), null, "stereotype", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssociation_Stereotypes(), ecorePackage.getEString(), "stereotypes", null, 0, -1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(binaryAssociationEClass, BinaryAssociation.class, "BinaryAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(regularAssociationEClass, RegularAssociation.class, "RegularAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRegularAssociation_From(), this.getAssociationEnd(), null, "from", null, 0, 1, RegularAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRegularAssociation_To(), this.getAssociationEnd(), null, "to", null, 0, 1, RegularAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parthoodAssociationEClass, ParthoodAssociation.class, "ParthoodAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParthoodAssociation_Whole(), this.getAssociationEnd(), null, "whole", null, 0, 1, ParthoodAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParthoodAssociation_Part(), this.getAssociationEnd(), null, "part", null, 0, 1, ParthoodAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(naryAssociationEClass, NaryAssociation.class, "NaryAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNaryAssociation_Ends(), this.getAssociationEnd(), null, "ends", null, 0, -1, NaryAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -670,6 +961,7 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     initEAttribute(getAssociationEnd_Name(), ecorePackage.getEString(), "name", null, 0, 1, AssociationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssociationEnd_Multiplicity(), this.getMultiplicity(), null, "multiplicity", null, 0, 1, AssociationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssociationEnd_EndType(), this.getClass_(), null, "endType", null, 0, 1, AssociationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssociationEnd_Constraints(), ecorePackage.getEString(), "constraints", null, 0, -1, AssociationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(multiplicityEClass, Multiplicity.class, "Multiplicity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMultiplicity_Lower(), ecorePackage.getEInt(), "lower", null, 0, 1, Multiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -680,16 +972,29 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     initEReference(getGeneralization_Sub(), this.getClass_(), null, "sub", null, 0, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dependencyLinkEClass, DependencyLink.class, "DependencyLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDependencyLink_Stereotypes(), ecorePackage.getEString(), "stereotypes", null, 0, -1, DependencyLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDependencyLink_From(), this.getClass_(), null, "from", null, 0, 1, DependencyLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDependencyLink_To(), this.getClass_(), null, "to", null, 0, 1, DependencyLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(derivationEClass, Derivation.class, "Derivation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDerivation_Stereotypes(), ecorePackage.getEString(), "stereotypes", null, 0, -1, Derivation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDerivation_Class(), this.getClassDerivationEnd(), null, "class", null, 0, 1, Derivation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDerivation_Part(), this.getRelationDerivationEnd(), null, "part", null, 0, 1, Derivation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(classDerivationEndEClass, ClassDerivationEnd.class, "ClassDerivationEnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getClassDerivationEnd_Multiplicity(), this.getMultiplicity(), null, "multiplicity", null, 0, 1, ClassDerivationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClassDerivationEnd_EndType(), this.getClass_(), null, "endType", null, 0, 1, ClassDerivationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getClassDerivationEnd_Constraints(), ecorePackage.getEString(), "constraints", null, 0, -1, ClassDerivationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(relationDerivationEndEClass, RelationDerivationEnd.class, "RelationDerivationEnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRelationDerivationEnd_Multiplicity(), this.getMultiplicity(), null, "multiplicity", null, 0, 1, RelationDerivationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelationDerivationEnd_EndType(), this.getAssociation(), null, "endType", null, 0, 1, RelationDerivationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRelationDerivationEnd_Constraints(), ecorePackage.getEString(), "constraints", null, 0, -1, RelationDerivationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(generalizationSetEClass, GeneralizationSet.class, "GeneralizationSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getGeneralizationSet_IsDisjoint(), ecorePackage.getEBoolean(), "isDisjoint", null, 0, 1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getGeneralizationSet_IsComplete(), ecorePackage.getEBoolean(), "isComplete", null, 0, 1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGeneralizationSet_Generalizations(), this.getGeneralization(), null, "generalizations", null, 0, -1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(stereotypeEClass, Stereotype.class, "Stereotype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStereotype_Name(), ecorePackage.getEString(), "name", null, 0, 1, Stereotype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

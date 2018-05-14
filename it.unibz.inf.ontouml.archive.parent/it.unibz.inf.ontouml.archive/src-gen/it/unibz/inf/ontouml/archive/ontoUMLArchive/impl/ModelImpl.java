@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ModelImpl#getElments <em>Elments</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ModelImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +37,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getElments() <em>Elments</em>}' containment reference list.
+   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElments()
+   * @see #getElements()
    * @generated
    * @ordered
    */
-  protected EList<ModelElement> elments;
+  protected EList<ModelElement> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +72,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ModelElement> getElments()
+  public EList<ModelElement> getElements()
   {
-    if (elments == null)
+    if (elements == null)
     {
-      elments = new EObjectContainmentEList<ModelElement>(ModelElement.class, this, OntoUMLArchivePackage.MODEL__ELMENTS);
+      elements = new EObjectContainmentEList<ModelElement>(ModelElement.class, this, OntoUMLArchivePackage.MODEL__ELEMENTS);
     }
-    return elments;
+    return elements;
   }
 
   /**
@@ -91,8 +91,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case OntoUMLArchivePackage.MODEL__ELMENTS:
-        return ((InternalEList<?>)getElments()).basicRemove(otherEnd, msgs);
+      case OntoUMLArchivePackage.MODEL__ELEMENTS:
+        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +107,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case OntoUMLArchivePackage.MODEL__ELMENTS:
-        return getElments();
+      case OntoUMLArchivePackage.MODEL__ELEMENTS:
+        return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +124,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case OntoUMLArchivePackage.MODEL__ELMENTS:
-        getElments().clear();
-        getElments().addAll((Collection<? extends ModelElement>)newValue);
+      case OntoUMLArchivePackage.MODEL__ELEMENTS:
+        getElements().clear();
+        getElements().addAll((Collection<? extends ModelElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +142,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case OntoUMLArchivePackage.MODEL__ELMENTS:
-        getElments().clear();
+      case OntoUMLArchivePackage.MODEL__ELEMENTS:
+        getElements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,8 +159,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case OntoUMLArchivePackage.MODEL__ELMENTS:
-        return elments != null && !elments.isEmpty();
+      case OntoUMLArchivePackage.MODEL__ELEMENTS:
+        return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }

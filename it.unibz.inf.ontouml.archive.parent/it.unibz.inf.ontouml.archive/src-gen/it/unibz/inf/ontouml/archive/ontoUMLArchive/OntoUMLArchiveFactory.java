@@ -51,6 +51,15 @@ public interface OntoUMLArchiveFactory extends EFactory
   Class createClass();
 
   /**
+   * Returns a new object of class '<em>Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Attribute</em>'.
+   * @generated
+   */
+  Attribute createAttribute();
+
+  /**
    * Returns a new object of class '<em>Relationship</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -69,6 +78,15 @@ public interface OntoUMLArchiveFactory extends EFactory
   Association createAssociation();
 
   /**
+   * Returns a new object of class '<em>Binary Association</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Binary Association</em>'.
+   * @generated
+   */
+  BinaryAssociation createBinaryAssociation();
+
+  /**
    * Returns a new object of class '<em>Regular Association</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -76,6 +94,15 @@ public interface OntoUMLArchiveFactory extends EFactory
    * @generated
    */
   RegularAssociation createRegularAssociation();
+
+  /**
+   * Returns a new object of class '<em>Parthood Association</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parthood Association</em>'.
+   * @generated
+   */
+  ParthoodAssociation createParthoodAssociation();
 
   /**
    * Returns a new object of class '<em>Nary Association</em>'.
@@ -123,6 +150,33 @@ public interface OntoUMLArchiveFactory extends EFactory
   DependencyLink createDependencyLink();
 
   /**
+   * Returns a new object of class '<em>Derivation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Derivation</em>'.
+   * @generated
+   */
+  Derivation createDerivation();
+
+  /**
+   * Returns a new object of class '<em>Class Derivation End</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Class Derivation End</em>'.
+   * @generated
+   */
+  ClassDerivationEnd createClassDerivationEnd();
+
+  /**
+   * Returns a new object of class '<em>Relation Derivation End</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Relation Derivation End</em>'.
+   * @generated
+   */
+  RelationDerivationEnd createRelationDerivationEnd();
+
+  /**
    * Returns a new object of class '<em>Generalization Set</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -130,15 +184,6 @@ public interface OntoUMLArchiveFactory extends EFactory
    * @generated
    */
   GeneralizationSet createGeneralizationSet();
-
-  /**
-   * Returns a new object of class '<em>Stereotype</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Stereotype</em>'.
-   * @generated
-   */
-  Stereotype createStereotype();
 
   /**
    * Returns the package supported by this factory.

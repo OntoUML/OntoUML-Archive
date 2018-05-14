@@ -3,6 +3,8 @@
  */
 package it.unibz.inf.ontouml.archive.ontoUMLArchive;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getName <em>Name</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getEndType <em>End Type</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getConstraints <em>Constraints</em>}</li>
  * </ul>
  *
  * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getAssociationEnd()
@@ -102,5 +105,21 @@ public interface AssociationEnd extends EObject
    * @generated
    */
   void setEndType(it.unibz.inf.ontouml.archive.ontoUMLArchive.Class value);
+
+  /**
+   * Returns the value of the '<em><b>Constraints</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Constraints</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Constraints</em>' attribute list.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getAssociationEnd_Constraints()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getConstraints();
 
 } // AssociationEnd

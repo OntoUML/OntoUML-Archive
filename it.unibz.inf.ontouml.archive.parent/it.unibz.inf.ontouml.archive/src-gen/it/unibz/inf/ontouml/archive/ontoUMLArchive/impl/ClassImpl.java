@@ -3,16 +3,24 @@
  */
 package it.unibz.inf.ontouml.archive.ontoUMLArchive.impl;
 
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.Stereotype;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +31,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ClassImpl#isIsAbstract <em>Is Abstract</em>}</li>
- *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ClassImpl#getStereotype <em>Stereotype</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ClassImpl#getStereotypes <em>Stereotypes</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ClassImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,14 +60,24 @@ public class ClassImpl extends ModelElementImpl implements it.unibz.inf.ontouml.
   protected boolean isAbstract = IS_ABSTRACT_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getStereotype() <em>Stereotype</em>}' containment reference.
+   * The cached value of the '{@link #getStereotypes() <em>Stereotypes</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStereotype()
+   * @see #getStereotypes()
    * @generated
    * @ordered
    */
-  protected Stereotype stereotype;
+  protected EList<String> stereotypes;
+
+  /**
+   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAttributes()
+   * @generated
+   * @ordered
+   */
+  protected EList<Attribute> attributes;
 
   /**
    * <!-- begin-user-doc -->
@@ -109,9 +128,13 @@ public class ClassImpl extends ModelElementImpl implements it.unibz.inf.ontouml.
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stereotype getStereotype()
+  public EList<String> getStereotypes()
   {
-    return stereotype;
+    if (stereotypes == null)
+    {
+      stereotypes = new EDataTypeEList<String>(String.class, this, OntoUMLArchivePackage.CLASS__STEREOTYPES);
+    }
+    return stereotypes;
   }
 
   /**
@@ -119,37 +142,13 @@ public class ClassImpl extends ModelElementImpl implements it.unibz.inf.ontouml.
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetStereotype(Stereotype newStereotype, NotificationChain msgs)
+  public EList<Attribute> getAttributes()
   {
-    Stereotype oldStereotype = stereotype;
-    stereotype = newStereotype;
-    if (eNotificationRequired())
+    if (attributes == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.CLASS__STEREOTYPE, oldStereotype, newStereotype);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, OntoUMLArchivePackage.CLASS__ATTRIBUTES);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStereotype(Stereotype newStereotype)
-  {
-    if (newStereotype != stereotype)
-    {
-      NotificationChain msgs = null;
-      if (stereotype != null)
-        msgs = ((InternalEObject)stereotype).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OntoUMLArchivePackage.CLASS__STEREOTYPE, null, msgs);
-      if (newStereotype != null)
-        msgs = ((InternalEObject)newStereotype).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OntoUMLArchivePackage.CLASS__STEREOTYPE, null, msgs);
-      msgs = basicSetStereotype(newStereotype, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.CLASS__STEREOTYPE, newStereotype, newStereotype));
+    return attributes;
   }
 
   /**
@@ -162,8 +161,8 @@ public class ClassImpl extends ModelElementImpl implements it.unibz.inf.ontouml.
   {
     switch (featureID)
     {
-      case OntoUMLArchivePackage.CLASS__STEREOTYPE:
-        return basicSetStereotype(null, msgs);
+      case OntoUMLArchivePackage.CLASS__ATTRIBUTES:
+        return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -180,8 +179,10 @@ public class ClassImpl extends ModelElementImpl implements it.unibz.inf.ontouml.
     {
       case OntoUMLArchivePackage.CLASS__IS_ABSTRACT:
         return isIsAbstract();
-      case OntoUMLArchivePackage.CLASS__STEREOTYPE:
-        return getStereotype();
+      case OntoUMLArchivePackage.CLASS__STEREOTYPES:
+        return getStereotypes();
+      case OntoUMLArchivePackage.CLASS__ATTRIBUTES:
+        return getAttributes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -191,6 +192,7 @@ public class ClassImpl extends ModelElementImpl implements it.unibz.inf.ontouml.
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -199,8 +201,13 @@ public class ClassImpl extends ModelElementImpl implements it.unibz.inf.ontouml.
       case OntoUMLArchivePackage.CLASS__IS_ABSTRACT:
         setIsAbstract((Boolean)newValue);
         return;
-      case OntoUMLArchivePackage.CLASS__STEREOTYPE:
-        setStereotype((Stereotype)newValue);
+      case OntoUMLArchivePackage.CLASS__STEREOTYPES:
+        getStereotypes().clear();
+        getStereotypes().addAll((Collection<? extends String>)newValue);
+        return;
+      case OntoUMLArchivePackage.CLASS__ATTRIBUTES:
+        getAttributes().clear();
+        getAttributes().addAll((Collection<? extends Attribute>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -219,8 +226,11 @@ public class ClassImpl extends ModelElementImpl implements it.unibz.inf.ontouml.
       case OntoUMLArchivePackage.CLASS__IS_ABSTRACT:
         setIsAbstract(IS_ABSTRACT_EDEFAULT);
         return;
-      case OntoUMLArchivePackage.CLASS__STEREOTYPE:
-        setStereotype((Stereotype)null);
+      case OntoUMLArchivePackage.CLASS__STEREOTYPES:
+        getStereotypes().clear();
+        return;
+      case OntoUMLArchivePackage.CLASS__ATTRIBUTES:
+        getAttributes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -238,8 +248,10 @@ public class ClassImpl extends ModelElementImpl implements it.unibz.inf.ontouml.
     {
       case OntoUMLArchivePackage.CLASS__IS_ABSTRACT:
         return isAbstract != IS_ABSTRACT_EDEFAULT;
-      case OntoUMLArchivePackage.CLASS__STEREOTYPE:
-        return stereotype != null;
+      case OntoUMLArchivePackage.CLASS__STEREOTYPES:
+        return stereotypes != null && !stereotypes.isEmpty();
+      case OntoUMLArchivePackage.CLASS__ATTRIBUTES:
+        return attributes != null && !attributes.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -257,6 +269,8 @@ public class ClassImpl extends ModelElementImpl implements it.unibz.inf.ontouml.
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (isAbstract: ");
     result.append(isAbstract);
+    result.append(", stereotypes: ");
+    result.append(stereotypes);
     result.append(')');
     return result.toString();
   }

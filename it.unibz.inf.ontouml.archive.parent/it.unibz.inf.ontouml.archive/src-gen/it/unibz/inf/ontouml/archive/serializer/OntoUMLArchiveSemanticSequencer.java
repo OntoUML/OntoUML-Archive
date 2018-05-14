@@ -5,15 +5,19 @@ package it.unibz.inf.ontouml.archive.serializer;
 
 import com.google.inject.Inject;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.GeneralizationSet;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.Stereotype;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
 import it.unibz.inf.ontouml.archive.services.OntoUMLArchiveGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -43,11 +47,20 @@ public class OntoUMLArchiveSemanticSequencer extends AbstractDelegatingSemanticS
 			case OntoUMLArchivePackage.ASSOCIATION_END:
 				sequence_AssociationEnd(context, (AssociationEnd) semanticObject); 
 				return; 
+			case OntoUMLArchivePackage.ATTRIBUTE:
+				sequence_Attribute(context, (Attribute) semanticObject); 
+				return; 
 			case OntoUMLArchivePackage.CLASS:
 				sequence_Class(context, (it.unibz.inf.ontouml.archive.ontoUMLArchive.Class) semanticObject); 
 				return; 
+			case OntoUMLArchivePackage.CLASS_DERIVATION_END:
+				sequence_ClassDerivationEnd(context, (ClassDerivationEnd) semanticObject); 
+				return; 
 			case OntoUMLArchivePackage.DEPENDENCY_LINK:
 				sequence_DependencyLink(context, (DependencyLink) semanticObject); 
+				return; 
+			case OntoUMLArchivePackage.DERIVATION:
+				sequence_Derivation(context, (Derivation) semanticObject); 
 				return; 
 			case OntoUMLArchivePackage.GENERALIZATION:
 				sequence_Generalization(context, (Generalization) semanticObject); 
@@ -64,11 +77,14 @@ public class OntoUMLArchiveSemanticSequencer extends AbstractDelegatingSemanticS
 			case OntoUMLArchivePackage.NARY_ASSOCIATION:
 				sequence_NaryAssociation(context, (NaryAssociation) semanticObject); 
 				return; 
+			case OntoUMLArchivePackage.PARTHOOD_ASSOCIATION:
+				sequence_ParthoodAssociation(context, (ParthoodAssociation) semanticObject); 
+				return; 
 			case OntoUMLArchivePackage.REGULAR_ASSOCIATION:
 				sequence_RegularAssociation(context, (RegularAssociation) semanticObject); 
 				return; 
-			case OntoUMLArchivePackage.STEREOTYPE:
-				sequence_Stereotype(context, (Stereotype) semanticObject); 
+			case OntoUMLArchivePackage.RELATION_DERIVATION_END:
+				sequence_RelationDerivationEnd(context, (RelationDerivationEnd) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -80,9 +96,45 @@ public class OntoUMLArchiveSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     AssociationEnd returns AssociationEnd
 	 *
 	 * Constraint:
-	 *     (name=STRING? multiplicity=Multiplicity endType=[Class|STRING])
+	 *     (name=STRING? multiplicity=Multiplicity endType=[Class|STRING] (constraints+=STRING constraints+=STRING*)?)
 	 */
 	protected void sequence_AssociationEnd(ISerializationContext context, AssociationEnd semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Attribute returns Attribute
+	 *
+	 * Constraint:
+	 *     (name=STRING multiplicity=Multiplicity attType=[Class|STRING])
+	 */
+	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OntoUMLArchivePackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OntoUMLArchivePackage.Literals.ATTRIBUTE__NAME));
+			if (transientValues.isValueTransient(semanticObject, OntoUMLArchivePackage.Literals.ATTRIBUTE__MULTIPLICITY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OntoUMLArchivePackage.Literals.ATTRIBUTE__MULTIPLICITY));
+			if (transientValues.isValueTransient(semanticObject, OntoUMLArchivePackage.Literals.ATTRIBUTE__ATT_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OntoUMLArchivePackage.Literals.ATTRIBUTE__ATT_TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAttributeAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getAttributeAccess().getMultiplicityMultiplicityParserRuleCall_2_0(), semanticObject.getMultiplicity());
+		feeder.accept(grammarAccess.getAttributeAccess().getAttTypeClassSTRINGTerminalRuleCall_4_0_1(), semanticObject.eGet(OntoUMLArchivePackage.Literals.ATTRIBUTE__ATT_TYPE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ClassDerivationEnd returns ClassDerivationEnd
+	 *
+	 * Constraint:
+	 *     (multiplicity=Multiplicity endType=[Class|STRING] (constraints+=STRING constraints+=STRING*)?)
+	 */
+	protected void sequence_ClassDerivationEnd(ISerializationContext context, ClassDerivationEnd semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -93,7 +145,7 @@ public class OntoUMLArchiveSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     Class returns Class
 	 *
 	 * Constraint:
-	 *     (isAbstract?='abstract'? name=STRING stereotype=Stereotype?)
+	 *     (isAbstract?='abstract'? name=STRING stereotypes+=STEREOTYPE_STRING* attributes+=Attribute*)
 	 */
 	protected void sequence_Class(ISerializationContext context, it.unibz.inf.ontouml.archive.ontoUMLArchive.Class semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -107,9 +159,23 @@ public class OntoUMLArchiveSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     DependencyLink returns DependencyLink
 	 *
 	 * Constraint:
-	 *     (name=STRING? from=[Class|STRING] to=[Class|STRING])
+	 *     (name=STRING? stereotypes+=STEREOTYPE_STRING* from=[Class|STRING] to=[Class|STRING])
 	 */
 	protected void sequence_DependencyLink(ISerializationContext context, DependencyLink semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ModelElement returns Derivation
+	 *     Relationship returns Derivation
+	 *     Derivation returns Derivation
+	 *
+	 * Constraint:
+	 *     (name=STRING? stereotypes+=STEREOTYPE_STRING* class=ClassDerivationEnd part=RelationDerivationEnd)
+	 */
+	protected void sequence_Derivation(ISerializationContext context, Derivation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -146,7 +212,7 @@ public class OntoUMLArchiveSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     elments+=ModelElement+
+	 *     elements+=ModelElement+
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -182,9 +248,25 @@ public class OntoUMLArchiveSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     NaryAssociation returns NaryAssociation
 	 *
 	 * Constraint:
-	 *     (name=STRING? stereotype=Stereotype? ends+=AssociationEnd ends+=AssociationEnd ends+=AssociationEnd+)
+	 *     (name=STRING? stereotypes+=STEREOTYPE_STRING* ends+=AssociationEnd ends+=AssociationEnd ends+=AssociationEnd+)
 	 */
 	protected void sequence_NaryAssociation(ISerializationContext context, NaryAssociation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ModelElement returns ParthoodAssociation
+	 *     Relationship returns ParthoodAssociation
+	 *     Association returns ParthoodAssociation
+	 *     BinaryAssociation returns ParthoodAssociation
+	 *     ParthoodAssociation returns ParthoodAssociation
+	 *
+	 * Constraint:
+	 *     (name=STRING? stereotypes+=STEREOTYPE_STRING* whole=AssociationEnd part=AssociationEnd)
+	 */
+	protected void sequence_ParthoodAssociation(ISerializationContext context, ParthoodAssociation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -194,10 +276,11 @@ public class OntoUMLArchiveSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     ModelElement returns RegularAssociation
 	 *     Relationship returns RegularAssociation
 	 *     Association returns RegularAssociation
+	 *     BinaryAssociation returns RegularAssociation
 	 *     RegularAssociation returns RegularAssociation
 	 *
 	 * Constraint:
-	 *     (name=STRING? stereotype=Stereotype? from=AssociationEnd to=AssociationEnd)
+	 *     (name=STRING? stereotypes+=STEREOTYPE_STRING* from=AssociationEnd to=AssociationEnd)
 	 */
 	protected void sequence_RegularAssociation(ISerializationContext context, RegularAssociation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -206,19 +289,13 @@ public class OntoUMLArchiveSemanticSequencer extends AbstractDelegatingSemanticS
 	
 	/**
 	 * Contexts:
-	 *     Stereotype returns Stereotype
+	 *     RelationDerivationEnd returns RelationDerivationEnd
 	 *
 	 * Constraint:
-	 *     name=STEREOTYPE_STRING
+	 *     (multiplicity=Multiplicity endType=[Association|STRING] (constraints+=STRING constraints+=STRING*)?)
 	 */
-	protected void sequence_Stereotype(ISerializationContext context, Stereotype semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OntoUMLArchivePackage.Literals.STEREOTYPE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OntoUMLArchivePackage.Literals.STEREOTYPE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStereotypeAccess().getNameSTEREOTYPE_STRINGTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
+	protected void sequence_RelationDerivationEnd(ISerializationContext context, RelationDerivationEnd semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -24,6 +24,21 @@ class OntoUMLArchiveValueConverter extends DefaultTerminalConverters {
 		}
 	}
 	
+//	@ValueConverter(rule = "CONSTRAINT_STRING")
+//	def IValueConverter<String> ConstraintString(){
+//		return new IValueConverter<String>(){
+//			
+//			override toString(String value) throws ValueConverterException {
+//				'''{«value»}'''
+//			}
+//			
+//			override toValue(String string, INode node) throws ValueConverterException {
+//				string.replaceAll("{","").replaceAll("}","")
+//			}
+//			
+//		}
+//	}
+	
 	@ValueConverter(rule = "CARDINALITY")
 	def IValueConverter<Integer> Cardinality(){
 		return new IValueConverter<Integer>(){

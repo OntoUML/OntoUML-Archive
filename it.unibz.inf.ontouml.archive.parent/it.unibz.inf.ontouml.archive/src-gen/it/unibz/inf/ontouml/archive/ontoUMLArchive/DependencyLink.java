@@ -3,6 +3,7 @@
  */
 package it.unibz.inf.ontouml.archive.ontoUMLArchive;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,7 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink#getStereotypes <em>Stereotypes</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink#getFrom <em>From</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink#getTo <em>To</em>}</li>
  * </ul>
@@ -23,6 +25,22 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive;
  */
 public interface DependencyLink extends Relationship
 {
+  /**
+   * Returns the value of the '<em><b>Stereotypes</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Stereotypes</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Stereotypes</em>' attribute list.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getDependencyLink_Stereotypes()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getStereotypes();
+
   /**
    * Returns the value of the '<em><b>From</b></em>' reference.
    * <!-- begin-user-doc -->

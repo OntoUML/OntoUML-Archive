@@ -6,12 +6,18 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive.impl;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.DependencyLinkImpl#getStereotypes <em>Stereotypes</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.DependencyLinkImpl#getFrom <em>From</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.DependencyLinkImpl#getTo <em>To</em>}</li>
  * </ul>
@@ -29,6 +36,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class DependencyLinkImpl extends RelationshipImpl implements DependencyLink
 {
+  /**
+   * The cached value of the '{@link #getStereotypes() <em>Stereotypes</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStereotypes()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> stereotypes;
+
   /**
    * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
    * <!-- begin-user-doc -->
@@ -68,6 +85,20 @@ public class DependencyLinkImpl extends RelationshipImpl implements DependencyLi
   protected EClass eStaticClass()
   {
     return OntoUMLArchivePackage.Literals.DEPENDENCY_LINK;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getStereotypes()
+  {
+    if (stereotypes == null)
+    {
+      stereotypes = new EDataTypeEList<String>(String.class, this, OntoUMLArchivePackage.DEPENDENCY_LINK__STEREOTYPES);
+    }
+    return stereotypes;
   }
 
   /**
@@ -166,6 +197,8 @@ public class DependencyLinkImpl extends RelationshipImpl implements DependencyLi
   {
     switch (featureID)
     {
+      case OntoUMLArchivePackage.DEPENDENCY_LINK__STEREOTYPES:
+        return getStereotypes();
       case OntoUMLArchivePackage.DEPENDENCY_LINK__FROM:
         if (resolve) return getFrom();
         return basicGetFrom();
@@ -181,11 +214,16 @@ public class DependencyLinkImpl extends RelationshipImpl implements DependencyLi
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case OntoUMLArchivePackage.DEPENDENCY_LINK__STEREOTYPES:
+        getStereotypes().clear();
+        getStereotypes().addAll((Collection<? extends String>)newValue);
+        return;
       case OntoUMLArchivePackage.DEPENDENCY_LINK__FROM:
         setFrom((it.unibz.inf.ontouml.archive.ontoUMLArchive.Class)newValue);
         return;
@@ -206,6 +244,9 @@ public class DependencyLinkImpl extends RelationshipImpl implements DependencyLi
   {
     switch (featureID)
     {
+      case OntoUMLArchivePackage.DEPENDENCY_LINK__STEREOTYPES:
+        getStereotypes().clear();
+        return;
       case OntoUMLArchivePackage.DEPENDENCY_LINK__FROM:
         setFrom((it.unibz.inf.ontouml.archive.ontoUMLArchive.Class)null);
         return;
@@ -226,12 +267,31 @@ public class DependencyLinkImpl extends RelationshipImpl implements DependencyLi
   {
     switch (featureID)
     {
+      case OntoUMLArchivePackage.DEPENDENCY_LINK__STEREOTYPES:
+        return stereotypes != null && !stereotypes.isEmpty();
       case OntoUMLArchivePackage.DEPENDENCY_LINK__FROM:
         return from != null;
       case OntoUMLArchivePackage.DEPENDENCY_LINK__TO:
         return to != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (stereotypes: ");
+    result.append(stereotypes);
+    result.append(')');
+    return result.toString();
   }
 
 } //DependencyLinkImpl

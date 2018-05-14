@@ -5,7 +5,11 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive.util;
 
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Association;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.GeneralizationSet;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model;
@@ -13,9 +17,10 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.Stereotype;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -103,6 +108,11 @@ public class OntoUMLArchiveAdapterFactory extends AdapterFactoryImpl
         return createClassAdapter();
       }
       @Override
+      public Adapter caseAttribute(Attribute object)
+      {
+        return createAttributeAdapter();
+      }
+      @Override
       public Adapter caseRelationship(Relationship object)
       {
         return createRelationshipAdapter();
@@ -113,9 +123,19 @@ public class OntoUMLArchiveAdapterFactory extends AdapterFactoryImpl
         return createAssociationAdapter();
       }
       @Override
+      public Adapter caseBinaryAssociation(BinaryAssociation object)
+      {
+        return createBinaryAssociationAdapter();
+      }
+      @Override
       public Adapter caseRegularAssociation(RegularAssociation object)
       {
         return createRegularAssociationAdapter();
+      }
+      @Override
+      public Adapter caseParthoodAssociation(ParthoodAssociation object)
+      {
+        return createParthoodAssociationAdapter();
       }
       @Override
       public Adapter caseNaryAssociation(NaryAssociation object)
@@ -143,14 +163,24 @@ public class OntoUMLArchiveAdapterFactory extends AdapterFactoryImpl
         return createDependencyLinkAdapter();
       }
       @Override
+      public Adapter caseDerivation(Derivation object)
+      {
+        return createDerivationAdapter();
+      }
+      @Override
+      public Adapter caseClassDerivationEnd(ClassDerivationEnd object)
+      {
+        return createClassDerivationEndAdapter();
+      }
+      @Override
+      public Adapter caseRelationDerivationEnd(RelationDerivationEnd object)
+      {
+        return createRelationDerivationEndAdapter();
+      }
+      @Override
       public Adapter caseGeneralizationSet(GeneralizationSet object)
       {
         return createGeneralizationSetAdapter();
-      }
-      @Override
-      public Adapter caseStereotype(Stereotype object)
-      {
-        return createStereotypeAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -220,6 +250,21 @@ public class OntoUMLArchiveAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute
+   * @generated
+   */
+  public Adapter createAttributeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship <em>Relationship</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -250,6 +295,21 @@ public class OntoUMLArchiveAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation <em>Binary Association</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation
+   * @generated
+   */
+  public Adapter createBinaryAssociationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation <em>Regular Association</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -260,6 +320,21 @@ public class OntoUMLArchiveAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRegularAssociationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation <em>Parthood Association</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation
+   * @generated
+   */
+  public Adapter createParthoodAssociationAdapter()
   {
     return null;
   }
@@ -340,6 +415,51 @@ public class OntoUMLArchiveAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation <em>Derivation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation
+   * @generated
+   */
+  public Adapter createDerivationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd <em>Class Derivation End</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd
+   * @generated
+   */
+  public Adapter createClassDerivationEndAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd <em>Relation Derivation End</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd
+   * @generated
+   */
+  public Adapter createRelationDerivationEndAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.GeneralizationSet <em>Generalization Set</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -350,21 +470,6 @@ public class OntoUMLArchiveAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createGeneralizationSetAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Stereotype <em>Stereotype</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Stereotype
-   * @generated
-   */
-  public Adapter createStereotypeAdapter()
   {
     return null;
   }

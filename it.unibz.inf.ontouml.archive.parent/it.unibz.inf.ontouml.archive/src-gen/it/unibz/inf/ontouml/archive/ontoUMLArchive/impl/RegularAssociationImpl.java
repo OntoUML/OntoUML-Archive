@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class RegularAssociationImpl extends AssociationImpl implements RegularAssociation
+public class RegularAssociationImpl extends BinaryAssociationImpl implements RegularAssociation
 {
   /**
    * The cached value of the '{@link #getFrom() <em>From</em>}' containment reference.

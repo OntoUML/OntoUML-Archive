@@ -68,13 +68,13 @@ public interface OntoUMLArchivePackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Elments</b></em>' containment reference list.
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__ELMENTS = 0;
+  int MODEL__ELEMENTS = 0;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -142,13 +142,22 @@ public interface OntoUMLArchivePackage extends EPackage
   int CLASS__IS_ABSTRACT = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Stereotype</b></em>' containment reference.
+   * The feature id for the '<em><b>Stereotypes</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS__STEREOTYPE = MODEL_ELEMENT_FEATURE_COUNT + 1;
+  int CLASS__STEREOTYPES = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS__ATTRIBUTES = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Class</em>' class.
@@ -157,7 +166,53 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLASS_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
+  int CLASS_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AttributeImpl <em>Attribute</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AttributeImpl
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getAttribute()
+   * @generated
+   */
+  int ATTRIBUTE = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__MULTIPLICITY = 1;
+
+  /**
+   * The feature id for the '<em><b>Att Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__ATT_TYPE = 2;
+
+  /**
+   * The number of structural features of the '<em>Attribute</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RelationshipImpl <em>Relationship</em>}' class.
@@ -167,7 +222,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getRelationship()
    * @generated
    */
-  int RELATIONSHIP = 3;
+  int RELATIONSHIP = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -195,7 +250,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getAssociation()
    * @generated
    */
-  int ASSOCIATION = 4;
+  int ASSOCIATION = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -207,13 +262,13 @@ public interface OntoUMLArchivePackage extends EPackage
   int ASSOCIATION__NAME = RELATIONSHIP__NAME;
 
   /**
-   * The feature id for the '<em><b>Stereotype</b></em>' containment reference.
+   * The feature id for the '<em><b>Stereotypes</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSOCIATION__STEREOTYPE = RELATIONSHIP_FEATURE_COUNT + 0;
+  int ASSOCIATION__STEREOTYPES = RELATIONSHIP_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Association</em>' class.
@@ -225,14 +280,14 @@ public interface OntoUMLArchivePackage extends EPackage
   int ASSOCIATION_FEATURE_COUNT = RELATIONSHIP_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RegularAssociationImpl <em>Regular Association</em>}' class.
+   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.BinaryAssociationImpl <em>Binary Association</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RegularAssociationImpl
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getRegularAssociation()
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.BinaryAssociationImpl
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getBinaryAssociation()
    * @generated
    */
-  int REGULAR_ASSOCIATION = 5;
+  int BINARY_ASSOCIATION = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -241,16 +296,53 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int REGULAR_ASSOCIATION__NAME = ASSOCIATION__NAME;
+  int BINARY_ASSOCIATION__NAME = ASSOCIATION__NAME;
 
   /**
-   * The feature id for the '<em><b>Stereotype</b></em>' containment reference.
+   * The feature id for the '<em><b>Stereotypes</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REGULAR_ASSOCIATION__STEREOTYPE = ASSOCIATION__STEREOTYPE;
+  int BINARY_ASSOCIATION__STEREOTYPES = ASSOCIATION__STEREOTYPES;
+
+  /**
+   * The number of structural features of the '<em>Binary Association</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RegularAssociationImpl <em>Regular Association</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RegularAssociationImpl
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getRegularAssociation()
+   * @generated
+   */
+  int REGULAR_ASSOCIATION = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REGULAR_ASSOCIATION__NAME = BINARY_ASSOCIATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Stereotypes</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REGULAR_ASSOCIATION__STEREOTYPES = BINARY_ASSOCIATION__STEREOTYPES;
 
   /**
    * The feature id for the '<em><b>From</b></em>' containment reference.
@@ -259,7 +351,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int REGULAR_ASSOCIATION__FROM = ASSOCIATION_FEATURE_COUNT + 0;
+  int REGULAR_ASSOCIATION__FROM = BINARY_ASSOCIATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>To</b></em>' containment reference.
@@ -268,7 +360,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int REGULAR_ASSOCIATION__TO = ASSOCIATION_FEATURE_COUNT + 1;
+  int REGULAR_ASSOCIATION__TO = BINARY_ASSOCIATION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Regular Association</em>' class.
@@ -277,7 +369,62 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int REGULAR_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 2;
+  int REGULAR_ASSOCIATION_FEATURE_COUNT = BINARY_ASSOCIATION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ParthoodAssociationImpl <em>Parthood Association</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ParthoodAssociationImpl
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getParthoodAssociation()
+   * @generated
+   */
+  int PARTHOOD_ASSOCIATION = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARTHOOD_ASSOCIATION__NAME = BINARY_ASSOCIATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Stereotypes</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARTHOOD_ASSOCIATION__STEREOTYPES = BINARY_ASSOCIATION__STEREOTYPES;
+
+  /**
+   * The feature id for the '<em><b>Whole</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARTHOOD_ASSOCIATION__WHOLE = BINARY_ASSOCIATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Part</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARTHOOD_ASSOCIATION__PART = BINARY_ASSOCIATION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Parthood Association</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARTHOOD_ASSOCIATION_FEATURE_COUNT = BINARY_ASSOCIATION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.NaryAssociationImpl <em>Nary Association</em>}' class.
@@ -287,7 +434,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getNaryAssociation()
    * @generated
    */
-  int NARY_ASSOCIATION = 6;
+  int NARY_ASSOCIATION = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -299,13 +446,13 @@ public interface OntoUMLArchivePackage extends EPackage
   int NARY_ASSOCIATION__NAME = ASSOCIATION__NAME;
 
   /**
-   * The feature id for the '<em><b>Stereotype</b></em>' containment reference.
+   * The feature id for the '<em><b>Stereotypes</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NARY_ASSOCIATION__STEREOTYPE = ASSOCIATION__STEREOTYPE;
+  int NARY_ASSOCIATION__STEREOTYPES = ASSOCIATION__STEREOTYPES;
 
   /**
    * The feature id for the '<em><b>Ends</b></em>' containment reference list.
@@ -333,7 +480,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getAssociationEnd()
    * @generated
    */
-  int ASSOCIATION_END = 7;
+  int ASSOCIATION_END = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -363,13 +510,22 @@ public interface OntoUMLArchivePackage extends EPackage
   int ASSOCIATION_END__END_TYPE = 2;
 
   /**
+   * The feature id for the '<em><b>Constraints</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSOCIATION_END__CONSTRAINTS = 3;
+
+  /**
    * The number of structural features of the '<em>Association End</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSOCIATION_END_FEATURE_COUNT = 3;
+  int ASSOCIATION_END_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.MultiplicityImpl <em>Multiplicity</em>}' class.
@@ -379,7 +535,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getMultiplicity()
    * @generated
    */
-  int MULTIPLICITY = 8;
+  int MULTIPLICITY = 11;
 
   /**
    * The feature id for the '<em><b>Lower</b></em>' attribute.
@@ -416,7 +572,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getGeneralization()
    * @generated
    */
-  int GENERALIZATION = 9;
+  int GENERALIZATION = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -462,7 +618,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getDependencyLink()
    * @generated
    */
-  int DEPENDENCY_LINK = 10;
+  int DEPENDENCY_LINK = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -474,13 +630,22 @@ public interface OntoUMLArchivePackage extends EPackage
   int DEPENDENCY_LINK__NAME = RELATIONSHIP__NAME;
 
   /**
+   * The feature id for the '<em><b>Stereotypes</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDENCY_LINK__STEREOTYPES = RELATIONSHIP_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>From</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEPENDENCY_LINK__FROM = RELATIONSHIP_FEATURE_COUNT + 0;
+  int DEPENDENCY_LINK__FROM = RELATIONSHIP_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>To</b></em>' reference.
@@ -489,7 +654,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEPENDENCY_LINK__TO = RELATIONSHIP_FEATURE_COUNT + 1;
+  int DEPENDENCY_LINK__TO = RELATIONSHIP_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Dependency Link</em>' class.
@@ -498,7 +663,154 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEPENDENCY_LINK_FEATURE_COUNT = RELATIONSHIP_FEATURE_COUNT + 2;
+  int DEPENDENCY_LINK_FEATURE_COUNT = RELATIONSHIP_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.DerivationImpl <em>Derivation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.DerivationImpl
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getDerivation()
+   * @generated
+   */
+  int DERIVATION = 14;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DERIVATION__NAME = RELATIONSHIP__NAME;
+
+  /**
+   * The feature id for the '<em><b>Stereotypes</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DERIVATION__STEREOTYPES = RELATIONSHIP_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Class</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DERIVATION__CLASS = RELATIONSHIP_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Part</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DERIVATION__PART = RELATIONSHIP_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Derivation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DERIVATION_FEATURE_COUNT = RELATIONSHIP_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ClassDerivationEndImpl <em>Class Derivation End</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ClassDerivationEndImpl
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getClassDerivationEnd()
+   * @generated
+   */
+  int CLASS_DERIVATION_END = 15;
+
+  /**
+   * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS_DERIVATION_END__MULTIPLICITY = 0;
+
+  /**
+   * The feature id for the '<em><b>End Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS_DERIVATION_END__END_TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Constraints</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS_DERIVATION_END__CONSTRAINTS = 2;
+
+  /**
+   * The number of structural features of the '<em>Class Derivation End</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS_DERIVATION_END_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RelationDerivationEndImpl <em>Relation Derivation End</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RelationDerivationEndImpl
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getRelationDerivationEnd()
+   * @generated
+   */
+  int RELATION_DERIVATION_END = 16;
+
+  /**
+   * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATION_DERIVATION_END__MULTIPLICITY = 0;
+
+  /**
+   * The feature id for the '<em><b>End Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATION_DERIVATION_END__END_TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Constraints</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATION_DERIVATION_END__CONSTRAINTS = 2;
+
+  /**
+   * The number of structural features of the '<em>Relation Derivation End</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATION_DERIVATION_END_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.GeneralizationSetImpl <em>Generalization Set</em>}' class.
@@ -508,7 +820,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getGeneralizationSet()
    * @generated
    */
-  int GENERALIZATION_SET = 11;
+  int GENERALIZATION_SET = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -555,34 +867,6 @@ public interface OntoUMLArchivePackage extends EPackage
    */
   int GENERALIZATION_SET_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
-  /**
-   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.StereotypeImpl <em>Stereotype</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.StereotypeImpl
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getStereotype()
-   * @generated
-   */
-  int STEREOTYPE = 12;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STEREOTYPE__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Stereotype</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STEREOTYPE_FEATURE_COUNT = 1;
-
 
   /**
    * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model <em>Model</em>}'.
@@ -595,15 +879,15 @@ public interface OntoUMLArchivePackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the containment reference list '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getElments <em>Elments</em>}'.
+   * Returns the meta object for the containment reference list '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elments</em>'.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getElments()
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getElements()
    * @see #getModel()
    * @generated
    */
-  EReference getModel_Elments();
+  EReference getModel_Elements();
 
   /**
    * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement <em>Model Element</em>}'.
@@ -648,15 +932,69 @@ public interface OntoUMLArchivePackage extends EPackage
   EAttribute getClass_IsAbstract();
 
   /**
-   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Class#getStereotype <em>Stereotype</em>}'.
+   * Returns the meta object for the attribute list '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Class#getStereotypes <em>Stereotypes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Stereotype</em>'.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Class#getStereotype()
+   * @return the meta object for the attribute list '<em>Stereotypes</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Class#getStereotypes()
    * @see #getClass_()
    * @generated
    */
-  EReference getClass_Stereotype();
+  EAttribute getClass_Stereotypes();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Class#getAttributes <em>Attributes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Attributes</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Class#getAttributes()
+   * @see #getClass_()
+   * @generated
+   */
+  EReference getClass_Attributes();
+
+  /**
+   * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Attribute</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute
+   * @generated
+   */
+  EClass getAttribute();
+
+  /**
+   * Returns the meta object for the attribute '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute#getName()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute#getMultiplicity <em>Multiplicity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Multiplicity</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute#getMultiplicity()
+   * @see #getAttribute()
+   * @generated
+   */
+  EReference getAttribute_Multiplicity();
+
+  /**
+   * Returns the meta object for the reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute#getAttType <em>Att Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Att Type</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute#getAttType()
+   * @see #getAttribute()
+   * @generated
+   */
+  EReference getAttribute_AttType();
 
   /**
    * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship <em>Relationship</em>}'.
@@ -679,15 +1017,25 @@ public interface OntoUMLArchivePackage extends EPackage
   EClass getAssociation();
 
   /**
-   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Association#getStereotype <em>Stereotype</em>}'.
+   * Returns the meta object for the attribute list '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Association#getStereotypes <em>Stereotypes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Stereotype</em>'.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Association#getStereotype()
+   * @return the meta object for the attribute list '<em>Stereotypes</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Association#getStereotypes()
    * @see #getAssociation()
    * @generated
    */
-  EReference getAssociation_Stereotype();
+  EAttribute getAssociation_Stereotypes();
+
+  /**
+   * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation <em>Binary Association</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Binary Association</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation
+   * @generated
+   */
+  EClass getBinaryAssociation();
 
   /**
    * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation <em>Regular Association</em>}'.
@@ -720,6 +1068,38 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    */
   EReference getRegularAssociation_To();
+
+  /**
+   * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation <em>Parthood Association</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parthood Association</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation
+   * @generated
+   */
+  EClass getParthoodAssociation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation#getWhole <em>Whole</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Whole</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation#getWhole()
+   * @see #getParthoodAssociation()
+   * @generated
+   */
+  EReference getParthoodAssociation_Whole();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation#getPart <em>Part</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Part</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation#getPart()
+   * @see #getParthoodAssociation()
+   * @generated
+   */
+  EReference getParthoodAssociation_Part();
 
   /**
    * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation <em>Nary Association</em>}'.
@@ -784,6 +1164,17 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    */
   EReference getAssociationEnd_EndType();
+
+  /**
+   * Returns the meta object for the attribute list '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getConstraints <em>Constraints</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Constraints</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getConstraints()
+   * @see #getAssociationEnd()
+   * @generated
+   */
+  EAttribute getAssociationEnd_Constraints();
 
   /**
    * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity <em>Multiplicity</em>}'.
@@ -860,6 +1251,17 @@ public interface OntoUMLArchivePackage extends EPackage
   EClass getDependencyLink();
 
   /**
+   * Returns the meta object for the attribute list '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink#getStereotypes <em>Stereotypes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Stereotypes</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink#getStereotypes()
+   * @see #getDependencyLink()
+   * @generated
+   */
+  EAttribute getDependencyLink_Stereotypes();
+
+  /**
    * Returns the meta object for the reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink#getFrom <em>From</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -880,6 +1282,135 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    */
   EReference getDependencyLink_To();
+
+  /**
+   * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation <em>Derivation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Derivation</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation
+   * @generated
+   */
+  EClass getDerivation();
+
+  /**
+   * Returns the meta object for the attribute list '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation#getStereotypes <em>Stereotypes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Stereotypes</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation#getStereotypes()
+   * @see #getDerivation()
+   * @generated
+   */
+  EAttribute getDerivation_Stereotypes();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation#getClass_ <em>Class</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Class</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation#getClass_()
+   * @see #getDerivation()
+   * @generated
+   */
+  EReference getDerivation_Class();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation#getPart <em>Part</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Part</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation#getPart()
+   * @see #getDerivation()
+   * @generated
+   */
+  EReference getDerivation_Part();
+
+  /**
+   * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd <em>Class Derivation End</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Class Derivation End</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd
+   * @generated
+   */
+  EClass getClassDerivationEnd();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd#getMultiplicity <em>Multiplicity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Multiplicity</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd#getMultiplicity()
+   * @see #getClassDerivationEnd()
+   * @generated
+   */
+  EReference getClassDerivationEnd_Multiplicity();
+
+  /**
+   * Returns the meta object for the reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd#getEndType <em>End Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>End Type</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd#getEndType()
+   * @see #getClassDerivationEnd()
+   * @generated
+   */
+  EReference getClassDerivationEnd_EndType();
+
+  /**
+   * Returns the meta object for the attribute list '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd#getConstraints <em>Constraints</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Constraints</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd#getConstraints()
+   * @see #getClassDerivationEnd()
+   * @generated
+   */
+  EAttribute getClassDerivationEnd_Constraints();
+
+  /**
+   * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd <em>Relation Derivation End</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Relation Derivation End</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd
+   * @generated
+   */
+  EClass getRelationDerivationEnd();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd#getMultiplicity <em>Multiplicity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Multiplicity</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd#getMultiplicity()
+   * @see #getRelationDerivationEnd()
+   * @generated
+   */
+  EReference getRelationDerivationEnd_Multiplicity();
+
+  /**
+   * Returns the meta object for the reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd#getEndType <em>End Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>End Type</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd#getEndType()
+   * @see #getRelationDerivationEnd()
+   * @generated
+   */
+  EReference getRelationDerivationEnd_EndType();
+
+  /**
+   * Returns the meta object for the attribute list '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd#getConstraints <em>Constraints</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Constraints</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd#getConstraints()
+   * @see #getRelationDerivationEnd()
+   * @generated
+   */
+  EAttribute getRelationDerivationEnd_Constraints();
 
   /**
    * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.GeneralizationSet <em>Generalization Set</em>}'.
@@ -925,27 +1456,6 @@ public interface OntoUMLArchivePackage extends EPackage
   EReference getGeneralizationSet_Generalizations();
 
   /**
-   * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Stereotype <em>Stereotype</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Stereotype</em>'.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Stereotype
-   * @generated
-   */
-  EClass getStereotype();
-
-  /**
-   * Returns the meta object for the attribute '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Stereotype#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Stereotype#getName()
-   * @see #getStereotype()
-   * @generated
-   */
-  EAttribute getStereotype_Name();
-
-  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -979,12 +1489,12 @@ public interface OntoUMLArchivePackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Elments</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__ELMENTS = eINSTANCE.getModel_Elments();
+    EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
 
     /**
      * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ModelElementImpl <em>Model Element</em>}' class.
@@ -1023,12 +1533,54 @@ public interface OntoUMLArchivePackage extends EPackage
     EAttribute CLASS__IS_ABSTRACT = eINSTANCE.getClass_IsAbstract();
 
     /**
-     * The meta object literal for the '<em><b>Stereotype</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Stereotypes</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLASS__STEREOTYPE = eINSTANCE.getClass_Stereotype();
+    EAttribute CLASS__STEREOTYPES = eINSTANCE.getClass_Stereotypes();
+
+    /**
+     * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CLASS__ATTRIBUTES = eINSTANCE.getClass_Attributes();
+
+    /**
+     * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AttributeImpl <em>Attribute</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AttributeImpl
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getAttribute()
+     * @generated
+     */
+    EClass ATTRIBUTE = eINSTANCE.getAttribute();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Multiplicity</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ATTRIBUTE__MULTIPLICITY = eINSTANCE.getAttribute_Multiplicity();
+
+    /**
+     * The meta object literal for the '<em><b>Att Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ATTRIBUTE__ATT_TYPE = eINSTANCE.getAttribute_AttType();
 
     /**
      * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RelationshipImpl <em>Relationship</em>}' class.
@@ -1051,12 +1603,22 @@ public interface OntoUMLArchivePackage extends EPackage
     EClass ASSOCIATION = eINSTANCE.getAssociation();
 
     /**
-     * The meta object literal for the '<em><b>Stereotype</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Stereotypes</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ASSOCIATION__STEREOTYPE = eINSTANCE.getAssociation_Stereotype();
+    EAttribute ASSOCIATION__STEREOTYPES = eINSTANCE.getAssociation_Stereotypes();
+
+    /**
+     * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.BinaryAssociationImpl <em>Binary Association</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.BinaryAssociationImpl
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getBinaryAssociation()
+     * @generated
+     */
+    EClass BINARY_ASSOCIATION = eINSTANCE.getBinaryAssociation();
 
     /**
      * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RegularAssociationImpl <em>Regular Association</em>}' class.
@@ -1083,6 +1645,32 @@ public interface OntoUMLArchivePackage extends EPackage
      * @generated
      */
     EReference REGULAR_ASSOCIATION__TO = eINSTANCE.getRegularAssociation_To();
+
+    /**
+     * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ParthoodAssociationImpl <em>Parthood Association</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ParthoodAssociationImpl
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getParthoodAssociation()
+     * @generated
+     */
+    EClass PARTHOOD_ASSOCIATION = eINSTANCE.getParthoodAssociation();
+
+    /**
+     * The meta object literal for the '<em><b>Whole</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARTHOOD_ASSOCIATION__WHOLE = eINSTANCE.getParthoodAssociation_Whole();
+
+    /**
+     * The meta object literal for the '<em><b>Part</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARTHOOD_ASSOCIATION__PART = eINSTANCE.getParthoodAssociation_Part();
 
     /**
      * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.NaryAssociationImpl <em>Nary Association</em>}' class.
@@ -1135,6 +1723,14 @@ public interface OntoUMLArchivePackage extends EPackage
      * @generated
      */
     EReference ASSOCIATION_END__END_TYPE = eINSTANCE.getAssociationEnd_EndType();
+
+    /**
+     * The meta object literal for the '<em><b>Constraints</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSOCIATION_END__CONSTRAINTS = eINSTANCE.getAssociationEnd_Constraints();
 
     /**
      * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.MultiplicityImpl <em>Multiplicity</em>}' class.
@@ -1199,6 +1795,14 @@ public interface OntoUMLArchivePackage extends EPackage
     EClass DEPENDENCY_LINK = eINSTANCE.getDependencyLink();
 
     /**
+     * The meta object literal for the '<em><b>Stereotypes</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEPENDENCY_LINK__STEREOTYPES = eINSTANCE.getDependencyLink_Stereotypes();
+
+    /**
      * The meta object literal for the '<em><b>From</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1213,6 +1817,108 @@ public interface OntoUMLArchivePackage extends EPackage
      * @generated
      */
     EReference DEPENDENCY_LINK__TO = eINSTANCE.getDependencyLink_To();
+
+    /**
+     * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.DerivationImpl <em>Derivation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.DerivationImpl
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getDerivation()
+     * @generated
+     */
+    EClass DERIVATION = eINSTANCE.getDerivation();
+
+    /**
+     * The meta object literal for the '<em><b>Stereotypes</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DERIVATION__STEREOTYPES = eINSTANCE.getDerivation_Stereotypes();
+
+    /**
+     * The meta object literal for the '<em><b>Class</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DERIVATION__CLASS = eINSTANCE.getDerivation_Class();
+
+    /**
+     * The meta object literal for the '<em><b>Part</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DERIVATION__PART = eINSTANCE.getDerivation_Part();
+
+    /**
+     * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ClassDerivationEndImpl <em>Class Derivation End</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ClassDerivationEndImpl
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getClassDerivationEnd()
+     * @generated
+     */
+    EClass CLASS_DERIVATION_END = eINSTANCE.getClassDerivationEnd();
+
+    /**
+     * The meta object literal for the '<em><b>Multiplicity</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CLASS_DERIVATION_END__MULTIPLICITY = eINSTANCE.getClassDerivationEnd_Multiplicity();
+
+    /**
+     * The meta object literal for the '<em><b>End Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CLASS_DERIVATION_END__END_TYPE = eINSTANCE.getClassDerivationEnd_EndType();
+
+    /**
+     * The meta object literal for the '<em><b>Constraints</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CLASS_DERIVATION_END__CONSTRAINTS = eINSTANCE.getClassDerivationEnd_Constraints();
+
+    /**
+     * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RelationDerivationEndImpl <em>Relation Derivation End</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RelationDerivationEndImpl
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getRelationDerivationEnd()
+     * @generated
+     */
+    EClass RELATION_DERIVATION_END = eINSTANCE.getRelationDerivationEnd();
+
+    /**
+     * The meta object literal for the '<em><b>Multiplicity</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RELATION_DERIVATION_END__MULTIPLICITY = eINSTANCE.getRelationDerivationEnd_Multiplicity();
+
+    /**
+     * The meta object literal for the '<em><b>End Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RELATION_DERIVATION_END__END_TYPE = eINSTANCE.getRelationDerivationEnd_EndType();
+
+    /**
+     * The meta object literal for the '<em><b>Constraints</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RELATION_DERIVATION_END__CONSTRAINTS = eINSTANCE.getRelationDerivationEnd_Constraints();
 
     /**
      * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.GeneralizationSetImpl <em>Generalization Set</em>}' class.
@@ -1247,24 +1953,6 @@ public interface OntoUMLArchivePackage extends EPackage
      * @generated
      */
     EReference GENERALIZATION_SET__GENERALIZATIONS = eINSTANCE.getGeneralizationSet_Generalizations();
-
-    /**
-     * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.StereotypeImpl <em>Stereotype</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.StereotypeImpl
-     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getStereotype()
-     * @generated
-     */
-    EClass STEREOTYPE = eINSTANCE.getStereotype();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STEREOTYPE__NAME = eINSTANCE.getStereotype_Name();
 
   }
 

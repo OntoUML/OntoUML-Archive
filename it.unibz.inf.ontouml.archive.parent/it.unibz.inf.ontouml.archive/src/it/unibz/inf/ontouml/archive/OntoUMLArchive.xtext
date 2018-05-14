@@ -5,7 +5,7 @@ generate ontoUMLArchive "http://www.unibz.it/inf/ontouml/archive/OntoUMLArchive"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Model:
-	elments+=ModelElement*
+	elements+=ModelElement*
 ;
 	
 ModelElement:
@@ -14,27 +14,43 @@ ModelElement:
 
 Class:
 	(isAbstract?='abstract')? 'class' name=STRING
-	stereotype=Stereotype?
+	stereotypes+=STEREOTYPE_STRING*
+	attributes+=Attribute*
+;
+
+Attribute:
+	'att' name=STRING multiplicity=Multiplicity ':' attType=[Class|STRING]
 ;
 
 Relationship:
-	Association | Generalization | DependencyLink
+	Association | Generalization | DependencyLink | Derivation
 ;
 
 Association:
-	RegularAssociation | NaryAssociation
+	BinaryAssociation | NaryAssociation
+;
+
+BinaryAssociation:
+	RegularAssociation | ParthoodAssociation
 ;
 
 RegularAssociation:
 	'association' name=STRING?
-	stereotype=Stereotype?
+	stereotypes+=STEREOTYPE_STRING*
 	'from' from=AssociationEnd
 	'to' to=AssociationEnd
 ;
 
+ParthoodAssociation:
+	'association' name=STRING?
+	stereotypes+=STEREOTYPE_STRING*
+	'whole' whole=AssociationEnd
+	'part' part=AssociationEnd
+;
+
 NaryAssociation:
 	'association' name=STRING?
-	stereotype=Stereotype?
+	stereotypes+=STEREOTYPE_STRING*
 	('end' ends+=AssociationEnd)
 	('end' ends+=AssociationEnd)
 	('end' ends+=AssociationEnd)+
@@ -44,6 +60,8 @@ AssociationEnd:
 	name=STRING?
 	multiplicity=Multiplicity
 	':' endType=[Class|STRING]
+	//constraints+=CONSTRAINT_STRING*
+	('{' constraints+=STRING (',' constraints+=STRING)* '}')?
 ;
 
 Multiplicity:
@@ -62,20 +80,57 @@ Generalization:
 
 DependencyLink:
 	'dependency' name=STRING?
+	stereotypes+=STEREOTYPE_STRING*
 	'from' from=[Class|STRING]
 	'to' to=[Class|STRING]
 ;
+
+Derivation:
+	'derivation' name=STRING?
+	stereotypes+=STEREOTYPE_STRING*
+	'class' class=ClassDerivationEnd
+	'relation' part=RelationDerivationEnd
+;
+
+ClassDerivationEnd:
+	multiplicity=Multiplicity
+	endType=[Class|STRING]
+//	constraints+=CONSTRAINT_STRING*
+	('{' constraints+=STRING (',' constraints+=STRING)* '}')?
+;
+
+RelationDerivationEnd:
+	multiplicity=Multiplicity
+	endType=[Association|STRING]
+//	constraints+=CONSTRAINT_STRING*
+	('{' constraints+=STRING (',' constraints+=STRING)* '}')?
+;
+
 
 GeneralizationSet:
 	'genset' (isDisjoint?='disjoint'? & isComplete?='complete'?) name=STRING?
 	generalizations+=Generalization+
 ;
 
-Stereotype:
-	name=STEREOTYPE_STRING
-;
-
 terminal STEREOTYPE_STRING returns ecore::EString:
 	"<<" ('a'..'z'|'A'..'Z'|' ') ('a'..'z'|'A'..'Z'|' ')* ">>"
 ;
+
+//terminal CONSTRAINT_STRING returns ecore::EString:
+////	"{" ('a'..'z'|'A'..'Z'|' ') ('a'..'z'|'A'..'Z'|' '|'=')* "}"
+//	'{' (!'}')* '}'
+//;
+
+//terminal CONSTRAINT_STRING returns ecore::EString:
+//	"{" -> "}"
+//;
+//terminal fragment ESCAPED_CHAR:
+//	'\\' ('n' | 't' | 'r' | '\\')
+//;
+//
+//terminal CONSTRAINT_STRING returns ecore::EString:
+////	'{' (ESCAPED_CHAR | !('\\' | '}'))* '}'
+//	'{' (!'}')* '}'
+//;
+
 	
