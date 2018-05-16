@@ -22,8 +22,15 @@ class OntoUMLArchiveProposalProvider extends AbstractOntoUMLArchiveProposalProvi
 		}
 	}
 	
-	override completeBinaryAssociation_Stereotypes(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		super.completeBinaryAssociation_Stereotypes(model, assignment, context, acceptor)
+	override completeDirectedAssociation_Stereotypes(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.completeDirectedAssociation_Stereotypes(model, assignment, context, acceptor)
+		for (str : OntoUMLArchiveUtils.expectedBinaryAssociationStereotypes) {
+			acceptor.accept(createCompletionProposal('''<<«str»>>''', context))
+		}
+	}
+	
+	override completeUndirectedAssociation_Stereotypes(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.completeUndirectedAssociation_Stereotypes(model, assignment, context, acceptor)
 		for (str : OntoUMLArchiveUtils.expectedBinaryAssociationStereotypes) {
 			acceptor.accept(createCompletionProposal('''<<«str»>>''', context))
 		}

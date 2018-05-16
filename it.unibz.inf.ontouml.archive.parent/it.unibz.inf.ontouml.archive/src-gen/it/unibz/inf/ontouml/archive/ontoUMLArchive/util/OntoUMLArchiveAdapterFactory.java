@@ -10,6 +10,7 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.GeneralizationSet;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model;
@@ -19,6 +20,7 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -124,6 +126,16 @@ public class OntoUMLArchiveAdapterFactory extends AdapterFactoryImpl
       public Adapter caseBinaryAssociation(BinaryAssociation object)
       {
         return createBinaryAssociationAdapter();
+      }
+      @Override
+      public Adapter caseDirectedAssociation(DirectedAssociation object)
+      {
+        return createDirectedAssociationAdapter();
+      }
+      @Override
+      public Adapter caseUndirectedAssociation(UndirectedAssociation object)
+      {
+        return createUndirectedAssociationAdapter();
       }
       @Override
       public Adapter caseNaryAssociation(NaryAssociation object)
@@ -293,6 +305,36 @@ public class OntoUMLArchiveAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBinaryAssociationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation <em>Directed Association</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation
+   * @generated
+   */
+  public Adapter createDirectedAssociationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation <em>Undirected Association</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation
+   * @generated
+   */
+  public Adapter createUndirectedAssociationAdapter()
   {
     return null;
   }

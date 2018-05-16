@@ -78,23 +78,97 @@ ruleModel returns [EObject current=null]
 }:
 	(
 		(
+			otherlv_0='publication'
 			{
-				newCompositeNode(grammarAccess.getModelAccess().getElementsModelElementParserRuleCall_0());
+				newLeafNode(otherlv_0, grammarAccess.getModelAccess().getPublicationKeyword_0_0());
 			}
-			lv_elements_0_0=ruleModelElement
+			(
+				(
+					lv_publicationTitle_1_0=RULE_STRING
+					{
+						newLeafNode(lv_publicationTitle_1_0, grammarAccess.getModelAccess().getPublicationTitleSTRINGTerminalRuleCall_0_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getModelRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"publicationTitle",
+							lv_publicationTitle_1_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+		)?
+		(
+			otherlv_2='authors'
 			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getModelRule());
+				newLeafNode(otherlv_2, grammarAccess.getModelAccess().getAuthorsKeyword_1_0());
+			}
+			(
+				(
+					lv_authors_3_0=RULE_STRING
+					{
+						newLeafNode(lv_authors_3_0, grammarAccess.getModelAccess().getAuthorsSTRINGTerminalRuleCall_1_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getModelRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"authors",
+							lv_authors_3_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+		)?
+		(
+			otherlv_4='ontology'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getModelAccess().getOntologyKeyword_2_0());
+			}
+			(
+				(
+					lv_ontologyName_5_0=RULE_STRING
+					{
+						newLeafNode(lv_ontologyName_5_0, grammarAccess.getModelAccess().getOntologyNameSTRINGTerminalRuleCall_2_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getModelRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"ontologyName",
+							lv_ontologyName_5_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getModelAccess().getElementsModelElementParserRuleCall_3_0());
 				}
-				add(
-					$current,
-					"elements",
-					lv_elements_0_0,
-					"it.unibz.inf.ontouml.archive.OntoUMLArchive.ModelElement");
-				afterParserOrEnumRuleCall();
-			}
-		)
-	)*
+				lv_elements_6_0=ruleModelElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getModelRule());
+					}
+					add(
+						$current,
+						"elements",
+						lv_elements_6_0,
+						"it.unibz.inf.ontouml.archive.OntoUMLArchive.ModelElement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
 ;
 
 // Entry rule entryRuleModelElement
@@ -184,19 +258,20 @@ ruleClass returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_2_0=RULE_STRING
 				{
-					newLeafNode(lv_name_2_0, grammarAccess.getClassAccess().getNameSTRINGTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getClassAccess().getNameStringOrIDParserRuleCall_2_0());
 				}
+				lv_name_2_0=ruleStringOrID
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getClassRule());
+						$current = createModelElementForParent(grammarAccess.getClassRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"name",
 						lv_name_2_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"it.unibz.inf.ontouml.archive.OntoUMLArchive.StringOrID");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -308,9 +383,12 @@ ruleAttribute returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getAttributeRule());
 					}
 				}
-				otherlv_4=RULE_STRING
 				{
-					newLeafNode(otherlv_4, grammarAccess.getAttributeAccess().getAttTypeClassCrossReference_4_0());
+					newCompositeNode(grammarAccess.getAttributeAccess().getAttTypeClassCrossReference_4_0());
+				}
+				ruleStringOrID
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -423,25 +501,62 @@ ruleBinaryAssociation returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		{
+			newCompositeNode(grammarAccess.getBinaryAssociationAccess().getDirectedAssociationParserRuleCall_0());
+		}
+		this_DirectedAssociation_0=ruleDirectedAssociation
+		{
+			$current = $this_DirectedAssociation_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getBinaryAssociationAccess().getUndirectedAssociationParserRuleCall_1());
+		}
+		this_UndirectedAssociation_1=ruleUndirectedAssociation
+		{
+			$current = $this_UndirectedAssociation_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleDirectedAssociation
+entryRuleDirectedAssociation returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDirectedAssociationRule()); }
+	iv_ruleDirectedAssociation=ruleDirectedAssociation
+	{ $current=$iv_ruleDirectedAssociation.current; }
+	EOF;
+
+// Rule DirectedAssociation
+ruleDirectedAssociation returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
 		otherlv_0='association'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getBinaryAssociationAccess().getAssociationKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getDirectedAssociationAccess().getAssociationKeyword_0());
 		}
 		(
 			(
-				lv_name_1_0=RULE_STRING
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getBinaryAssociationAccess().getNameSTRINGTerminalRuleCall_1_0());
+					newCompositeNode(grammarAccess.getDirectedAssociationAccess().getNameStringOrIDParserRuleCall_1_0());
 				}
+				lv_name_1_0=ruleStringOrID
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getBinaryAssociationRule());
+						$current = createModelElementForParent(grammarAccess.getDirectedAssociationRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"name",
 						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"it.unibz.inf.ontouml.archive.OntoUMLArchive.StringOrID");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
@@ -449,11 +564,11 @@ ruleBinaryAssociation returns [EObject current=null]
 			(
 				lv_stereotypes_2_0=RULE_STEREOTYPE_STRING
 				{
-					newLeafNode(lv_stereotypes_2_0, grammarAccess.getBinaryAssociationAccess().getStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0());
+					newLeafNode(lv_stereotypes_2_0, grammarAccess.getDirectedAssociationAccess().getStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getBinaryAssociationRule());
+						$current = createModelElement(grammarAccess.getDirectedAssociationRule());
 					}
 					addWithLastConsumed(
 						$current,
@@ -465,17 +580,17 @@ ruleBinaryAssociation returns [EObject current=null]
 		)*
 		otherlv_3='from'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getBinaryAssociationAccess().getFromKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getDirectedAssociationAccess().getFromKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getBinaryAssociationAccess().getFromAssociationEndParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getDirectedAssociationAccess().getFromAssociationEndParserRuleCall_4_0());
 				}
 				lv_from_4_0=ruleAssociationEnd
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getBinaryAssociationRule());
+						$current = createModelElementForParent(grammarAccess.getDirectedAssociationRule());
 					}
 					set(
 						$current,
@@ -488,22 +603,128 @@ ruleBinaryAssociation returns [EObject current=null]
 		)
 		otherlv_5='to'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getBinaryAssociationAccess().getToKeyword_5());
+			newLeafNode(otherlv_5, grammarAccess.getDirectedAssociationAccess().getToKeyword_5());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getBinaryAssociationAccess().getToAssociationEndParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getDirectedAssociationAccess().getToAssociationEndParserRuleCall_6_0());
 				}
 				lv_to_6_0=ruleAssociationEnd
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getBinaryAssociationRule());
+						$current = createModelElementForParent(grammarAccess.getDirectedAssociationRule());
 					}
 					set(
 						$current,
 						"to",
 						lv_to_6_0,
+						"it.unibz.inf.ontouml.archive.OntoUMLArchive.AssociationEnd");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleUndirectedAssociation
+entryRuleUndirectedAssociation returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getUndirectedAssociationRule()); }
+	iv_ruleUndirectedAssociation=ruleUndirectedAssociation
+	{ $current=$iv_ruleUndirectedAssociation.current; }
+	EOF;
+
+// Rule UndirectedAssociation
+ruleUndirectedAssociation returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='association'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getUndirectedAssociationAccess().getAssociationKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getUndirectedAssociationAccess().getNameStringOrIDParserRuleCall_1_0());
+				}
+				lv_name_1_0=ruleStringOrID
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getUndirectedAssociationRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_1_0,
+						"it.unibz.inf.ontouml.archive.OntoUMLArchive.StringOrID");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				lv_stereotypes_2_0=RULE_STEREOTYPE_STRING
+				{
+					newLeafNode(lv_stereotypes_2_0, grammarAccess.getUndirectedAssociationAccess().getStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getUndirectedAssociationRule());
+					}
+					addWithLastConsumed(
+						$current,
+						"stereotypes",
+						lv_stereotypes_2_0,
+						"it.unibz.inf.ontouml.archive.OntoUMLArchive.STEREOTYPE_STRING");
+				}
+			)
+		)*
+		otherlv_3='end'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getUndirectedAssociationAccess().getEndKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getUndirectedAssociationAccess().getEndAAssociationEndParserRuleCall_4_0());
+				}
+				lv_endA_4_0=ruleAssociationEnd
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getUndirectedAssociationRule());
+					}
+					set(
+						$current,
+						"endA",
+						lv_endA_4_0,
+						"it.unibz.inf.ontouml.archive.OntoUMLArchive.AssociationEnd");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_5='end'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getUndirectedAssociationAccess().getEndKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getUndirectedAssociationAccess().getEndBAssociationEndParserRuleCall_6_0());
+				}
+				lv_endB_6_0=ruleAssociationEnd
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getUndirectedAssociationRule());
+					}
+					set(
+						$current,
+						"endB",
+						lv_endB_6_0,
 						"it.unibz.inf.ontouml.archive.OntoUMLArchive.AssociationEnd");
 					afterParserOrEnumRuleCall();
 				}
@@ -534,19 +755,20 @@ ruleNaryAssociation returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_1_0=RULE_STRING
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getNaryAssociationAccess().getNameSTRINGTerminalRuleCall_1_0());
+					newCompositeNode(grammarAccess.getNaryAssociationAccess().getNameStringOrIDParserRuleCall_1_0());
 				}
+				lv_name_1_0=ruleStringOrID
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getNaryAssociationRule());
+						$current = createModelElementForParent(grammarAccess.getNaryAssociationRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"name",
 						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"it.unibz.inf.ontouml.archive.OntoUMLArchive.StringOrID");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
@@ -683,19 +905,20 @@ ruleAssociationEnd returns [EObject current=null]
 		)?
 		(
 			(
-				lv_name_1_0=RULE_STRING
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getAssociationEndAccess().getNameSTRINGTerminalRuleCall_1_0());
+					newCompositeNode(grammarAccess.getAssociationEndAccess().getNameStringOrIDParserRuleCall_1_0());
 				}
+				lv_name_1_0=ruleStringOrID
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAssociationEndRule());
+						$current = createModelElementForParent(grammarAccess.getAssociationEndRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"name",
 						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"it.unibz.inf.ontouml.archive.OntoUMLArchive.StringOrID");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
@@ -717,7 +940,7 @@ ruleAssociationEnd returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)?
 		otherlv_3=':'
 		{
 			newLeafNode(otherlv_3, grammarAccess.getAssociationEndAccess().getColonKeyword_3());
@@ -729,9 +952,12 @@ ruleAssociationEnd returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getAssociationEndRule());
 					}
 				}
-				otherlv_4=RULE_STRING
 				{
-					newLeafNode(otherlv_4, grammarAccess.getAssociationEndAccess().getEndTypeClassCrossReference_4_0());
+					newCompositeNode(grammarAccess.getAssociationEndAccess().getEndTypeClassCrossReference_4_0());
+				}
+				ruleStringOrID
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -940,9 +1166,12 @@ ruleGeneralization returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getGeneralizationRule());
 					}
 				}
-				otherlv_3=RULE_STRING
 				{
-					newLeafNode(otherlv_3, grammarAccess.getGeneralizationAccess().getSuperClassCrossReference_3_0());
+					newCompositeNode(grammarAccess.getGeneralizationAccess().getSuperClassCrossReference_3_0());
+				}
+				ruleStringOrID
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -957,9 +1186,12 @@ ruleGeneralization returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getGeneralizationRule());
 					}
 				}
-				otherlv_5=RULE_STRING
 				{
-					newLeafNode(otherlv_5, grammarAccess.getGeneralizationAccess().getSubClassCrossReference_5_0());
+					newCompositeNode(grammarAccess.getGeneralizationAccess().getSubClassCrossReference_5_0());
+				}
+				ruleStringOrID
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1033,9 +1265,12 @@ ruleDependencyLink returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getDependencyLinkRule());
 					}
 				}
-				otherlv_4=RULE_STRING
 				{
-					newLeafNode(otherlv_4, grammarAccess.getDependencyLinkAccess().getFromClassCrossReference_4_0());
+					newCompositeNode(grammarAccess.getDependencyLinkAccess().getFromClassCrossReference_4_0());
+				}
+				ruleStringOrID
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1050,9 +1285,12 @@ ruleDependencyLink returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getDependencyLinkRule());
 					}
 				}
-				otherlv_6=RULE_STRING
 				{
-					newLeafNode(otherlv_6, grammarAccess.getDependencyLinkAccess().getToClassCrossReference_6_0());
+					newCompositeNode(grammarAccess.getDependencyLinkAccess().getToClassCrossReference_6_0());
+				}
+				ruleStringOrID
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1081,19 +1319,20 @@ ruleDerivation returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_1_0=RULE_STRING
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getDerivationAccess().getNameSTRINGTerminalRuleCall_1_0());
+					newCompositeNode(grammarAccess.getDerivationAccess().getNameStringOrIDParserRuleCall_1_0());
 				}
+				lv_name_1_0=ruleStringOrID
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDerivationRule());
+						$current = createModelElementForParent(grammarAccess.getDerivationRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"name",
 						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"it.unibz.inf.ontouml.archive.OntoUMLArchive.StringOrID");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
@@ -1198,7 +1437,7 @@ ruleClassDerivationEnd returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)?
 		(
 			(
 				{
@@ -1206,9 +1445,12 @@ ruleClassDerivationEnd returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getClassDerivationEndRule());
 					}
 				}
-				otherlv_1=RULE_STRING
 				{
-					newLeafNode(otherlv_1, grammarAccess.getClassDerivationEndAccess().getEndTypeClassCrossReference_1_0());
+					newCompositeNode(grammarAccess.getClassDerivationEndAccess().getEndTypeClassCrossReference_1_0());
+				}
+				ruleStringOrID
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1301,7 +1543,7 @@ ruleRelationDerivationEnd returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)?
 		(
 			(
 				{
@@ -1309,9 +1551,12 @@ ruleRelationDerivationEnd returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getRelationDerivationEndRule());
 					}
 				}
-				otherlv_1=RULE_STRING
 				{
-					newLeafNode(otherlv_1, grammarAccess.getRelationDerivationEndAccess().getEndTypeAssociationCrossReference_1_0());
+					newCompositeNode(grammarAccess.getRelationDerivationEndAccess().getEndTypeAssociationCrossReference_1_0());
+				}
+				ruleStringOrID
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1452,19 +1697,20 @@ ruleGeneralizationSet returns [EObject current=null]
 		)
 		(
 			(
-				lv_name_4_0=RULE_STRING
 				{
-					newLeafNode(lv_name_4_0, grammarAccess.getGeneralizationSetAccess().getNameSTRINGTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getGeneralizationSetAccess().getNameStringOrIDParserRuleCall_2_0());
 				}
+				lv_name_4_0=ruleStringOrID
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getGeneralizationSetRule());
+						$current = createModelElementForParent(grammarAccess.getGeneralizationSetRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"name",
 						lv_name_4_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"it.unibz.inf.ontouml.archive.OntoUMLArchive.StringOrID");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
@@ -1487,6 +1733,40 @@ ruleGeneralizationSet returns [EObject current=null]
 				}
 			)
 		)+
+	)
+;
+
+// Entry rule entryRuleStringOrID
+entryRuleStringOrID returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getStringOrIDRule()); }
+	iv_ruleStringOrID=ruleStringOrID
+	{ $current=$iv_ruleStringOrID.current.getText(); }
+	EOF;
+
+// Rule StringOrID
+ruleStringOrID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_STRING_0=RULE_STRING
+		{
+			$current.merge(this_STRING_0);
+		}
+		{
+			newLeafNode(this_STRING_0, grammarAccess.getStringOrIDAccess().getSTRINGTerminalRuleCall_0());
+		}
+		    |
+		this_ID_1=RULE_ID
+		{
+			$current.merge(this_ID_1);
+		}
+		{
+			newLeafNode(this_ID_1, grammarAccess.getStringOrIDAccess().getIDTerminalRuleCall_1());
+		}
 	)
 ;
 

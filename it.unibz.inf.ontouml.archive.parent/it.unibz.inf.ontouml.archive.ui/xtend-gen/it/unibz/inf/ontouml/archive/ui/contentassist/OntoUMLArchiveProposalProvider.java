@@ -32,8 +32,21 @@ public class OntoUMLArchiveProposalProvider extends AbstractOntoUMLArchivePropos
   }
   
   @Override
-  public void completeBinaryAssociation_Stereotypes(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-    super.completeBinaryAssociation_Stereotypes(model, assignment, context, acceptor);
+  public void completeDirectedAssociation_Stereotypes(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    super.completeDirectedAssociation_Stereotypes(model, assignment, context, acceptor);
+    Set<String> _expectedBinaryAssociationStereotypes = OntoUMLArchiveUtils.getExpectedBinaryAssociationStereotypes();
+    for (final String str : _expectedBinaryAssociationStereotypes) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("<<");
+      _builder.append(str);
+      _builder.append(">>");
+      acceptor.accept(this.createCompletionProposal(_builder.toString(), context));
+    }
+  }
+  
+  @Override
+  public void completeUndirectedAssociation_Stereotypes(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    super.completeUndirectedAssociation_Stereotypes(model, assignment, context, acceptor);
     Set<String> _expectedBinaryAssociationStereotypes = OntoUMLArchiveUtils.getExpectedBinaryAssociationStereotypes();
     for (final String str : _expectedBinaryAssociationStereotypes) {
       StringConcatenation _builder = new StringConcatenation();

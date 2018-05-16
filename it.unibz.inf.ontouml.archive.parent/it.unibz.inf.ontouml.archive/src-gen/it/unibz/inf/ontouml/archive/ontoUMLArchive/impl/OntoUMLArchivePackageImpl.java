@@ -11,6 +11,7 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.GeneralizationSet;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model;
@@ -21,6 +22,7 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchiveFactory;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -86,6 +88,20 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * @generated
    */
   private EClass binaryAssociationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass directedAssociationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass undirectedAssociationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -235,9 +251,39 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getModel_PublicationTitle()
+  {
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getModel_Authors()
+  {
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getModel_OntologyName()
+  {
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getModel_Elements()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return (EReference)modelEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -385,9 +431,9 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBinaryAssociation_From()
+  public EClass getDirectedAssociation()
   {
-    return (EReference)binaryAssociationEClass.getEStructuralFeatures().get(0);
+    return directedAssociationEClass;
   }
 
   /**
@@ -395,9 +441,49 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBinaryAssociation_To()
+  public EReference getDirectedAssociation_From()
   {
-    return (EReference)binaryAssociationEClass.getEStructuralFeatures().get(1);
+    return (EReference)directedAssociationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDirectedAssociation_To()
+  {
+    return (EReference)directedAssociationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUndirectedAssociation()
+  {
+    return undirectedAssociationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUndirectedAssociation_EndA()
+  {
+    return (EReference)undirectedAssociationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUndirectedAssociation_EndB()
+  {
+    return (EReference)undirectedAssociationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -781,6 +867,9 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
+    createEAttribute(modelEClass, MODEL__PUBLICATION_TITLE);
+    createEAttribute(modelEClass, MODEL__AUTHORS);
+    createEAttribute(modelEClass, MODEL__ONTOLOGY_NAME);
     createEReference(modelEClass, MODEL__ELEMENTS);
 
     modelElementEClass = createEClass(MODEL_ELEMENT);
@@ -802,8 +891,14 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     createEAttribute(associationEClass, ASSOCIATION__STEREOTYPES);
 
     binaryAssociationEClass = createEClass(BINARY_ASSOCIATION);
-    createEReference(binaryAssociationEClass, BINARY_ASSOCIATION__FROM);
-    createEReference(binaryAssociationEClass, BINARY_ASSOCIATION__TO);
+
+    directedAssociationEClass = createEClass(DIRECTED_ASSOCIATION);
+    createEReference(directedAssociationEClass, DIRECTED_ASSOCIATION__FROM);
+    createEReference(directedAssociationEClass, DIRECTED_ASSOCIATION__TO);
+
+    undirectedAssociationEClass = createEClass(UNDIRECTED_ASSOCIATION);
+    createEReference(undirectedAssociationEClass, UNDIRECTED_ASSOCIATION__END_A);
+    createEReference(undirectedAssociationEClass, UNDIRECTED_ASSOCIATION__END_B);
 
     naryAssociationEClass = createEClass(NARY_ASSOCIATION);
     createEReference(naryAssociationEClass, NARY_ASSOCIATION__ENDS);
@@ -885,6 +980,8 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     relationshipEClass.getESuperTypes().add(this.getModelElement());
     associationEClass.getESuperTypes().add(this.getRelationship());
     binaryAssociationEClass.getESuperTypes().add(this.getAssociation());
+    directedAssociationEClass.getESuperTypes().add(this.getBinaryAssociation());
+    undirectedAssociationEClass.getESuperTypes().add(this.getBinaryAssociation());
     naryAssociationEClass.getESuperTypes().add(this.getAssociation());
     generalizationEClass.getESuperTypes().add(this.getRelationship());
     dependencyLinkEClass.getESuperTypes().add(this.getRelationship());
@@ -893,6 +990,9 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModel_PublicationTitle(), ecorePackage.getEString(), "publicationTitle", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getModel_Authors(), ecorePackage.getEString(), "authors", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getModel_OntologyName(), ecorePackage.getEString(), "ontologyName", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Elements(), this.getModelElement(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modelElementEClass, ModelElement.class, "ModelElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -914,8 +1014,14 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     initEAttribute(getAssociation_Stereotypes(), ecorePackage.getEString(), "stereotypes", null, 0, -1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(binaryAssociationEClass, BinaryAssociation.class, "BinaryAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBinaryAssociation_From(), this.getAssociationEnd(), null, "from", null, 0, 1, BinaryAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBinaryAssociation_To(), this.getAssociationEnd(), null, "to", null, 0, 1, BinaryAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(directedAssociationEClass, DirectedAssociation.class, "DirectedAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDirectedAssociation_From(), this.getAssociationEnd(), null, "from", null, 0, 1, DirectedAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDirectedAssociation_To(), this.getAssociationEnd(), null, "to", null, 0, 1, DirectedAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(undirectedAssociationEClass, UndirectedAssociation.class, "UndirectedAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUndirectedAssociation_EndA(), this.getAssociationEnd(), null, "endA", null, 0, 1, UndirectedAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUndirectedAssociation_EndB(), this.getAssociationEnd(), null, "endB", null, 0, 1, UndirectedAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(naryAssociationEClass, NaryAssociation.class, "NaryAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNaryAssociation_Ends(), this.getAssociationEnd(), null, "ends", null, 0, -1, NaryAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -9,6 +9,7 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -29,6 +31,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ModelImpl#getPublicationTitle <em>Publication Title</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ModelImpl#getAuthors <em>Authors</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ModelImpl#getOntologyName <em>Ontology Name</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ModelImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -36,6 +41,66 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
+  /**
+   * The default value of the '{@link #getPublicationTitle() <em>Publication Title</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPublicationTitle()
+   * @generated
+   * @ordered
+   */
+  protected static final String PUBLICATION_TITLE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPublicationTitle() <em>Publication Title</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPublicationTitle()
+   * @generated
+   * @ordered
+   */
+  protected String publicationTitle = PUBLICATION_TITLE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getAuthors() <em>Authors</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAuthors()
+   * @generated
+   * @ordered
+   */
+  protected static final String AUTHORS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAuthors() <em>Authors</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAuthors()
+   * @generated
+   * @ordered
+   */
+  protected String authors = AUTHORS_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getOntologyName() <em>Ontology Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOntologyName()
+   * @generated
+   * @ordered
+   */
+  protected static final String ONTOLOGY_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOntologyName() <em>Ontology Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOntologyName()
+   * @generated
+   * @ordered
+   */
+  protected String ontologyName = ONTOLOGY_NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -65,6 +130,75 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EClass eStaticClass()
   {
     return OntoUMLArchivePackage.Literals.MODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getPublicationTitle()
+  {
+    return publicationTitle;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPublicationTitle(String newPublicationTitle)
+  {
+    String oldPublicationTitle = publicationTitle;
+    publicationTitle = newPublicationTitle;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.MODEL__PUBLICATION_TITLE, oldPublicationTitle, publicationTitle));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getAuthors()
+  {
+    return authors;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAuthors(String newAuthors)
+  {
+    String oldAuthors = authors;
+    authors = newAuthors;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.MODEL__AUTHORS, oldAuthors, authors));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getOntologyName()
+  {
+    return ontologyName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOntologyName(String newOntologyName)
+  {
+    String oldOntologyName = ontologyName;
+    ontologyName = newOntologyName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.MODEL__ONTOLOGY_NAME, oldOntologyName, ontologyName));
   }
 
   /**
@@ -107,6 +241,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case OntoUMLArchivePackage.MODEL__PUBLICATION_TITLE:
+        return getPublicationTitle();
+      case OntoUMLArchivePackage.MODEL__AUTHORS:
+        return getAuthors();
+      case OntoUMLArchivePackage.MODEL__ONTOLOGY_NAME:
+        return getOntologyName();
       case OntoUMLArchivePackage.MODEL__ELEMENTS:
         return getElements();
     }
@@ -124,6 +264,15 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case OntoUMLArchivePackage.MODEL__PUBLICATION_TITLE:
+        setPublicationTitle((String)newValue);
+        return;
+      case OntoUMLArchivePackage.MODEL__AUTHORS:
+        setAuthors((String)newValue);
+        return;
+      case OntoUMLArchivePackage.MODEL__ONTOLOGY_NAME:
+        setOntologyName((String)newValue);
+        return;
       case OntoUMLArchivePackage.MODEL__ELEMENTS:
         getElements().clear();
         getElements().addAll((Collection<? extends ModelElement>)newValue);
@@ -142,6 +291,15 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case OntoUMLArchivePackage.MODEL__PUBLICATION_TITLE:
+        setPublicationTitle(PUBLICATION_TITLE_EDEFAULT);
+        return;
+      case OntoUMLArchivePackage.MODEL__AUTHORS:
+        setAuthors(AUTHORS_EDEFAULT);
+        return;
+      case OntoUMLArchivePackage.MODEL__ONTOLOGY_NAME:
+        setOntologyName(ONTOLOGY_NAME_EDEFAULT);
+        return;
       case OntoUMLArchivePackage.MODEL__ELEMENTS:
         getElements().clear();
         return;
@@ -159,10 +317,37 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case OntoUMLArchivePackage.MODEL__PUBLICATION_TITLE:
+        return PUBLICATION_TITLE_EDEFAULT == null ? publicationTitle != null : !PUBLICATION_TITLE_EDEFAULT.equals(publicationTitle);
+      case OntoUMLArchivePackage.MODEL__AUTHORS:
+        return AUTHORS_EDEFAULT == null ? authors != null : !AUTHORS_EDEFAULT.equals(authors);
+      case OntoUMLArchivePackage.MODEL__ONTOLOGY_NAME:
+        return ONTOLOGY_NAME_EDEFAULT == null ? ontologyName != null : !ONTOLOGY_NAME_EDEFAULT.equals(ontologyName);
       case OntoUMLArchivePackage.MODEL__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (publicationTitle: ");
+    result.append(publicationTitle);
+    result.append(", authors: ");
+    result.append(authors);
+    result.append(", ontologyName: ");
+    result.append(ontologyName);
+    result.append(')');
+    return result.toString();
   }
 
 } //ModelImpl

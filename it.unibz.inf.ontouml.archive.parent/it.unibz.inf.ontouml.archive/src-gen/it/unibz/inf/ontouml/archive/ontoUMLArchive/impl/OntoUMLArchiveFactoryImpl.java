@@ -11,6 +11,7 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.GeneralizationSet;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model;
@@ -21,6 +22,7 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchiveFactory;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -90,6 +92,8 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
       case OntoUMLArchivePackage.RELATIONSHIP: return createRelationship();
       case OntoUMLArchivePackage.ASSOCIATION: return createAssociation();
       case OntoUMLArchivePackage.BINARY_ASSOCIATION: return createBinaryAssociation();
+      case OntoUMLArchivePackage.DIRECTED_ASSOCIATION: return createDirectedAssociation();
+      case OntoUMLArchivePackage.UNDIRECTED_ASSOCIATION: return createUndirectedAssociation();
       case OntoUMLArchivePackage.NARY_ASSOCIATION: return createNaryAssociation();
       case OntoUMLArchivePackage.ASSOCIATION_END: return createAssociationEnd();
       case OntoUMLArchivePackage.MULTIPLICITY: return createMultiplicity();
@@ -213,6 +217,28 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
   {
     BinaryAssociationImpl binaryAssociation = new BinaryAssociationImpl();
     return binaryAssociation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DirectedAssociation createDirectedAssociation()
+  {
+    DirectedAssociationImpl directedAssociation = new DirectedAssociationImpl();
+    return directedAssociation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UndirectedAssociation createUndirectedAssociation()
+  {
+    UndirectedAssociationImpl undirectedAssociation = new UndirectedAssociationImpl();
+    return undirectedAssociation;
   }
 
   /**

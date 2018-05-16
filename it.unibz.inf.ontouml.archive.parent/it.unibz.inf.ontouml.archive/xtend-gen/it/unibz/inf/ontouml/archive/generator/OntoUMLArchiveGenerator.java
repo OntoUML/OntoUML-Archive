@@ -7,10 +7,12 @@ import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import it.unibz.inf.ontouml.archive.OntoUMLArchiveUtils;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation;
 import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -64,9 +66,15 @@ public class OntoUMLArchiveGenerator extends AbstractGenerator {
       }
     }
     if (!_matched) {
-      if ((e instanceof BinaryAssociation)) {
+      if ((e instanceof DirectedAssociation)) {
         _matched=true;
-        return this.binaryAssociationToPlantUML(((BinaryAssociation) e));
+        return this.directedAssociationToPlantUML(((DirectedAssociation) e));
+      }
+    }
+    if (!_matched) {
+      if ((e instanceof UndirectedAssociation)) {
+        _matched=true;
+        return this.undirectedAssociationToPlantUML(((UndirectedAssociation) e));
       }
     }
     return null;
@@ -74,6 +82,7 @@ public class OntoUMLArchiveGenerator extends AbstractGenerator {
   
   public String classToPlantUML(final it.unibz.inf.ontouml.archive.ontoUMLArchive.Class c) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("class ");
     {
       boolean _isIsAbstract = c.isIsAbstract();
       if (_isIsAbstract) {
@@ -104,41 +113,147 @@ public class OntoUMLArchiveGenerator extends AbstractGenerator {
     return _builder.toString();
   }
   
-  public String binaryAssociationToPlantUML(final BinaryAssociation a) {
+  public String directedAssociationToPlantUML(final DirectedAssociation a) {
     final StringBuilder str = new StringBuilder();
     str.append(a.getFrom().getEndType().getName().replaceAll(" ", "_"));
+    Multiplicity _multiplicity = a.getFrom().getMultiplicity();
+    boolean _tripleNotEquals = (_multiplicity != null);
+    if (_tripleNotEquals) {
+      int _lower = a.getFrom().getMultiplicity().getLower();
+      String _plus = (" \"" + Integer.valueOf(_lower));
+      String _plus_1 = (_plus + "..");
+      str.append(_plus_1);
+      int _upper = a.getFrom().getMultiplicity().getUpper();
+      boolean _equals = (_upper == (-1));
+      if (_equals) {
+        str.append("*\"");
+      } else {
+        int _upper_1 = a.getFrom().getMultiplicity().getUpper();
+        String _plus_2 = (Integer.valueOf(_upper_1) + "\"");
+        str.append(_plus_2);
+      }
+    }
     AggregationKind _aggregationKind = a.getFrom().getAggregationKind();
-    boolean _equals = Objects.equal(_aggregationKind, AggregationKind.COMPOSITE);
-    if (_equals) {
+    boolean _equals_1 = Objects.equal(_aggregationKind, AggregationKind.COMPOSITE);
+    if (_equals_1) {
       str.append(" *-");
     } else {
       AggregationKind _aggregationKind_1 = a.getFrom().getAggregationKind();
-      boolean _equals_1 = Objects.equal(_aggregationKind_1, AggregationKind.SHARED);
-      if (_equals_1) {
+      boolean _equals_2 = Objects.equal(_aggregationKind_1, AggregationKind.SHARED);
+      if (_equals_2) {
         str.append(" o-");
       } else {
         str.append(" -");
       }
     }
     AggregationKind _aggregationKind_2 = a.getTo().getAggregationKind();
-    boolean _equals_2 = Objects.equal(_aggregationKind_2, AggregationKind.COMPOSITE);
-    if (_equals_2) {
+    boolean _equals_3 = Objects.equal(_aggregationKind_2, AggregationKind.COMPOSITE);
+    if (_equals_3) {
       str.append("-* ");
     } else {
       AggregationKind _aggregationKind_3 = a.getTo().getAggregationKind();
-      boolean _equals_3 = Objects.equal(_aggregationKind_3, AggregationKind.SHARED);
-      if (_equals_3) {
+      boolean _equals_4 = Objects.equal(_aggregationKind_3, AggregationKind.SHARED);
+      if (_equals_4) {
         str.append("-o ");
       } else {
         str.append("- ");
       }
     }
+    Multiplicity _multiplicity_1 = a.getTo().getMultiplicity();
+    boolean _tripleNotEquals_1 = (_multiplicity_1 != null);
+    if (_tripleNotEquals_1) {
+      int _lower_1 = a.getTo().getMultiplicity().getLower();
+      String _plus_3 = (" \"" + Integer.valueOf(_lower_1));
+      String _plus_4 = (_plus_3 + "..");
+      str.append(_plus_4);
+      int _upper_2 = a.getTo().getMultiplicity().getUpper();
+      boolean _equals_5 = (_upper_2 == (-1));
+      if (_equals_5) {
+        str.append("*\"");
+      } else {
+        int _upper_3 = a.getTo().getMultiplicity().getUpper();
+        String _plus_5 = (Integer.valueOf(_upper_3) + "\"");
+        str.append(_plus_5);
+      }
+    }
     str.append(a.getTo().getEndType().getName().replaceAll(" ", "_"));
     if ((((a.getName() != null) && (!a.getName().isEmpty())) && (!Objects.equal(a.getName(), "unnamed")))) {
       String _name = a.getName();
-      String _plus = (": " + _name);
-      String _plus_1 = (_plus + " >");
+      String _plus_6 = (": " + _name);
+      String _plus_7 = (_plus_6 + " >");
+      str.append(_plus_7);
+    }
+    return str.toString();
+  }
+  
+  public String undirectedAssociationToPlantUML(final UndirectedAssociation a) {
+    final StringBuilder str = new StringBuilder();
+    str.append(a.getEndA().getEndType().getName().replaceAll(" ", "_"));
+    Multiplicity _multiplicity = a.getEndA().getMultiplicity();
+    boolean _tripleNotEquals = (_multiplicity != null);
+    if (_tripleNotEquals) {
+      int _lower = a.getEndA().getMultiplicity().getLower();
+      String _plus = (" \"" + Integer.valueOf(_lower));
+      String _plus_1 = (_plus + "..");
       str.append(_plus_1);
+      int _upper = a.getEndA().getMultiplicity().getUpper();
+      boolean _equals = (_upper == (-1));
+      if (_equals) {
+        str.append("*\"");
+      } else {
+        int _upper_1 = a.getEndA().getMultiplicity().getUpper();
+        String _plus_2 = (Integer.valueOf(_upper_1) + "\"");
+        str.append(_plus_2);
+      }
+    }
+    AggregationKind _aggregationKind = a.getEndA().getAggregationKind();
+    boolean _equals_1 = Objects.equal(_aggregationKind, AggregationKind.COMPOSITE);
+    if (_equals_1) {
+      str.append(" *-");
+    } else {
+      AggregationKind _aggregationKind_1 = a.getEndA().getAggregationKind();
+      boolean _equals_2 = Objects.equal(_aggregationKind_1, AggregationKind.SHARED);
+      if (_equals_2) {
+        str.append(" o-");
+      } else {
+        str.append(" -");
+      }
+    }
+    AggregationKind _aggregationKind_2 = a.getEndB().getAggregationKind();
+    boolean _equals_3 = Objects.equal(_aggregationKind_2, AggregationKind.COMPOSITE);
+    if (_equals_3) {
+      str.append("-* ");
+    } else {
+      AggregationKind _aggregationKind_3 = a.getEndB().getAggregationKind();
+      boolean _equals_4 = Objects.equal(_aggregationKind_3, AggregationKind.SHARED);
+      if (_equals_4) {
+        str.append("-o ");
+      } else {
+        str.append("- ");
+      }
+    }
+    Multiplicity _multiplicity_1 = a.getEndB().getMultiplicity();
+    boolean _tripleNotEquals_1 = (_multiplicity_1 != null);
+    if (_tripleNotEquals_1) {
+      int _lower_1 = a.getEndB().getMultiplicity().getLower();
+      String _plus_3 = (" \"" + Integer.valueOf(_lower_1));
+      String _plus_4 = (_plus_3 + "..");
+      str.append(_plus_4);
+      int _upper_2 = a.getEndB().getMultiplicity().getUpper();
+      boolean _equals_5 = (_upper_2 == (-1));
+      if (_equals_5) {
+        str.append("*\"");
+      } else {
+        int _upper_3 = a.getEndB().getMultiplicity().getUpper();
+        String _plus_5 = (Integer.valueOf(_upper_3) + "\"");
+        str.append(_plus_5);
+      }
+    }
+    str.append(a.getEndB().getEndType().getName().replaceAll(" ", "_"));
+    if ((((a.getName() != null) && (!a.getName().isEmpty())) && (!Objects.equal(a.getName(), "unnamed")))) {
+      String _name = a.getName();
+      String _plus_6 = (": " + _name);
+      str.append(_plus_6);
     }
     return str.toString();
   }

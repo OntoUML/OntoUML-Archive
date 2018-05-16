@@ -87,6 +87,24 @@ public interface OntoUMLArchiveFactory extends EFactory
   BinaryAssociation createBinaryAssociation();
 
   /**
+   * Returns a new object of class '<em>Directed Association</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Directed Association</em>'.
+   * @generated
+   */
+  DirectedAssociation createDirectedAssociation();
+
+  /**
+   * Returns a new object of class '<em>Undirected Association</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Undirected Association</em>'.
+   * @generated
+   */
+  UndirectedAssociation createUndirectedAssociation();
+
+  /**
    * Returns a new object of class '<em>Nary Association</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

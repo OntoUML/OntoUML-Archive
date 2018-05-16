@@ -10,6 +10,7 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.ClassDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.DependencyLink;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Derivation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.GeneralizationSet;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model;
@@ -19,6 +20,7 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -141,6 +143,28 @@ public class OntoUMLArchiveSwitch<T> extends Switch<T>
         if (result == null) result = caseAssociation(binaryAssociation);
         if (result == null) result = caseRelationship(binaryAssociation);
         if (result == null) result = caseModelElement(binaryAssociation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OntoUMLArchivePackage.DIRECTED_ASSOCIATION:
+      {
+        DirectedAssociation directedAssociation = (DirectedAssociation)theEObject;
+        T result = caseDirectedAssociation(directedAssociation);
+        if (result == null) result = caseBinaryAssociation(directedAssociation);
+        if (result == null) result = caseAssociation(directedAssociation);
+        if (result == null) result = caseRelationship(directedAssociation);
+        if (result == null) result = caseModelElement(directedAssociation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OntoUMLArchivePackage.UNDIRECTED_ASSOCIATION:
+      {
+        UndirectedAssociation undirectedAssociation = (UndirectedAssociation)theEObject;
+        T result = caseUndirectedAssociation(undirectedAssociation);
+        if (result == null) result = caseBinaryAssociation(undirectedAssociation);
+        if (result == null) result = caseAssociation(undirectedAssociation);
+        if (result == null) result = caseRelationship(undirectedAssociation);
+        if (result == null) result = caseModelElement(undirectedAssociation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -329,6 +353,38 @@ public class OntoUMLArchiveSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBinaryAssociation(BinaryAssociation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Directed Association</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Directed Association</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDirectedAssociation(DirectedAssociation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Undirected Association</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Undirected Association</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUndirectedAssociation(UndirectedAssociation object)
   {
     return null;
   }

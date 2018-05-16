@@ -69,13 +69,40 @@ public interface OntoUMLArchivePackage extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Publication Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__PUBLICATION_TITLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Authors</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__AUTHORS = 1;
+
+  /**
+   * The feature id for the '<em><b>Ontology Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__ONTOLOGY_NAME = 2;
+
+  /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__ELEMENTS = 0;
+  int MODEL__ELEMENTS = 3;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -84,7 +111,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int MODEL_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ModelElementImpl <em>Model Element</em>}' class.
@@ -309,13 +336,50 @@ public interface OntoUMLArchivePackage extends EPackage
   int BINARY_ASSOCIATION__STEREOTYPES = ASSOCIATION__STEREOTYPES;
 
   /**
+   * The number of structural features of the '<em>Binary Association</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.DirectedAssociationImpl <em>Directed Association</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.DirectedAssociationImpl
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getDirectedAssociation()
+   * @generated
+   */
+  int DIRECTED_ASSOCIATION = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECTED_ASSOCIATION__NAME = BINARY_ASSOCIATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Stereotypes</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECTED_ASSOCIATION__STEREOTYPES = BINARY_ASSOCIATION__STEREOTYPES;
+
+  /**
    * The feature id for the '<em><b>From</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINARY_ASSOCIATION__FROM = ASSOCIATION_FEATURE_COUNT + 0;
+  int DIRECTED_ASSOCIATION__FROM = BINARY_ASSOCIATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>To</b></em>' containment reference.
@@ -324,16 +388,71 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINARY_ASSOCIATION__TO = ASSOCIATION_FEATURE_COUNT + 1;
+  int DIRECTED_ASSOCIATION__TO = BINARY_ASSOCIATION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Binary Association</em>' class.
+   * The number of structural features of the '<em>Directed Association</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINARY_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 2;
+  int DIRECTED_ASSOCIATION_FEATURE_COUNT = BINARY_ASSOCIATION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.UndirectedAssociationImpl <em>Undirected Association</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.UndirectedAssociationImpl
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getUndirectedAssociation()
+   * @generated
+   */
+  int UNDIRECTED_ASSOCIATION = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNDIRECTED_ASSOCIATION__NAME = BINARY_ASSOCIATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Stereotypes</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNDIRECTED_ASSOCIATION__STEREOTYPES = BINARY_ASSOCIATION__STEREOTYPES;
+
+  /**
+   * The feature id for the '<em><b>End A</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNDIRECTED_ASSOCIATION__END_A = BINARY_ASSOCIATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>End B</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNDIRECTED_ASSOCIATION__END_B = BINARY_ASSOCIATION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Undirected Association</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNDIRECTED_ASSOCIATION_FEATURE_COUNT = BINARY_ASSOCIATION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.NaryAssociationImpl <em>Nary Association</em>}' class.
@@ -343,7 +462,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getNaryAssociation()
    * @generated
    */
-  int NARY_ASSOCIATION = 7;
+  int NARY_ASSOCIATION = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -389,7 +508,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getAssociationEnd()
    * @generated
    */
-  int ASSOCIATION_END = 8;
+  int ASSOCIATION_END = 10;
 
   /**
    * The feature id for the '<em><b>Aggregation Kind</b></em>' attribute.
@@ -453,7 +572,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getMultiplicity()
    * @generated
    */
-  int MULTIPLICITY = 9;
+  int MULTIPLICITY = 11;
 
   /**
    * The feature id for the '<em><b>Lower</b></em>' attribute.
@@ -490,7 +609,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getGeneralization()
    * @generated
    */
-  int GENERALIZATION = 10;
+  int GENERALIZATION = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -536,7 +655,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getDependencyLink()
    * @generated
    */
-  int DEPENDENCY_LINK = 11;
+  int DEPENDENCY_LINK = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -591,7 +710,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getDerivation()
    * @generated
    */
-  int DERIVATION = 12;
+  int DERIVATION = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -646,7 +765,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getClassDerivationEnd()
    * @generated
    */
-  int CLASS_DERIVATION_END = 13;
+  int CLASS_DERIVATION_END = 15;
 
   /**
    * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -692,7 +811,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getRelationDerivationEnd()
    * @generated
    */
-  int RELATION_DERIVATION_END = 14;
+  int RELATION_DERIVATION_END = 16;
 
   /**
    * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -738,7 +857,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getGeneralizationSet()
    * @generated
    */
-  int GENERALIZATION_SET = 15;
+  int GENERALIZATION_SET = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -793,7 +912,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getAggregationKind()
    * @generated
    */
-  int AGGREGATION_KIND = 16;
+  int AGGREGATION_KIND = 18;
 
 
   /**
@@ -805,6 +924,39 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    */
   EClass getModel();
+
+  /**
+   * Returns the meta object for the attribute '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getPublicationTitle <em>Publication Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Publication Title</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getPublicationTitle()
+   * @see #getModel()
+   * @generated
+   */
+  EAttribute getModel_PublicationTitle();
+
+  /**
+   * Returns the meta object for the attribute '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getAuthors <em>Authors</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Authors</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getAuthors()
+   * @see #getModel()
+   * @generated
+   */
+  EAttribute getModel_Authors();
+
+  /**
+   * Returns the meta object for the attribute '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getOntologyName <em>Ontology Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ontology Name</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getOntologyName()
+   * @see #getModel()
+   * @generated
+   */
+  EAttribute getModel_OntologyName();
 
   /**
    * Returns the meta object for the containment reference list '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getElements <em>Elements</em>}'.
@@ -966,26 +1118,68 @@ public interface OntoUMLArchivePackage extends EPackage
   EClass getBinaryAssociation();
 
   /**
-   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation#getFrom <em>From</em>}'.
+   * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation <em>Directed Association</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Directed Association</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation
+   * @generated
+   */
+  EClass getDirectedAssociation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation#getFrom <em>From</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>From</em>'.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation#getFrom()
-   * @see #getBinaryAssociation()
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation#getFrom()
+   * @see #getDirectedAssociation()
    * @generated
    */
-  EReference getBinaryAssociation_From();
+  EReference getDirectedAssociation_From();
 
   /**
-   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation#getTo <em>To</em>}'.
+   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation#getTo <em>To</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>To</em>'.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation#getTo()
-   * @see #getBinaryAssociation()
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation#getTo()
+   * @see #getDirectedAssociation()
    * @generated
    */
-  EReference getBinaryAssociation_To();
+  EReference getDirectedAssociation_To();
+
+  /**
+   * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation <em>Undirected Association</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Undirected Association</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation
+   * @generated
+   */
+  EClass getUndirectedAssociation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation#getEndA <em>End A</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>End A</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation#getEndA()
+   * @see #getUndirectedAssociation()
+   * @generated
+   */
+  EReference getUndirectedAssociation_EndA();
+
+  /**
+   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation#getEndB <em>End B</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>End B</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation#getEndB()
+   * @see #getUndirectedAssociation()
+   * @generated
+   */
+  EReference getUndirectedAssociation_EndB();
 
   /**
    * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation <em>Nary Association</em>}'.
@@ -1396,6 +1590,30 @@ public interface OntoUMLArchivePackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
+     * The meta object literal for the '<em><b>Publication Title</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL__PUBLICATION_TITLE = eINSTANCE.getModel_PublicationTitle();
+
+    /**
+     * The meta object literal for the '<em><b>Authors</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL__AUTHORS = eINSTANCE.getModel_Authors();
+
+    /**
+     * The meta object literal for the '<em><b>Ontology Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL__ONTOLOGY_NAME = eINSTANCE.getModel_OntologyName();
+
+    /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1528,12 +1746,22 @@ public interface OntoUMLArchivePackage extends EPackage
     EClass BINARY_ASSOCIATION = eINSTANCE.getBinaryAssociation();
 
     /**
+     * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.DirectedAssociationImpl <em>Directed Association</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.DirectedAssociationImpl
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getDirectedAssociation()
+     * @generated
+     */
+    EClass DIRECTED_ASSOCIATION = eINSTANCE.getDirectedAssociation();
+
+    /**
      * The meta object literal for the '<em><b>From</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINARY_ASSOCIATION__FROM = eINSTANCE.getBinaryAssociation_From();
+    EReference DIRECTED_ASSOCIATION__FROM = eINSTANCE.getDirectedAssociation_From();
 
     /**
      * The meta object literal for the '<em><b>To</b></em>' containment reference feature.
@@ -1541,7 +1769,33 @@ public interface OntoUMLArchivePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINARY_ASSOCIATION__TO = eINSTANCE.getBinaryAssociation_To();
+    EReference DIRECTED_ASSOCIATION__TO = eINSTANCE.getDirectedAssociation_To();
+
+    /**
+     * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.UndirectedAssociationImpl <em>Undirected Association</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.UndirectedAssociationImpl
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getUndirectedAssociation()
+     * @generated
+     */
+    EClass UNDIRECTED_ASSOCIATION = eINSTANCE.getUndirectedAssociation();
+
+    /**
+     * The meta object literal for the '<em><b>End A</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNDIRECTED_ASSOCIATION__END_A = eINSTANCE.getUndirectedAssociation_EndA();
+
+    /**
+     * The meta object literal for the '<em><b>End B</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNDIRECTED_ASSOCIATION__END_B = eINSTANCE.getUndirectedAssociation_EndB();
 
     /**
      * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.NaryAssociationImpl <em>Nary Association</em>}' class.

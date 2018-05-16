@@ -3,6 +3,9 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ontoUMLArchive" nsURI="http://www.unibz.it/inf/ontouml/archive/OntoUMLArchive"
     nsPrefix="ontoUMLArchive">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicationTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="authors" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ontologyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//ModelElement" containment="true"/>
   </eClassifiers>
@@ -27,10 +30,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stereotypes" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BinaryAssociation" eSuperTypes="#//Association">
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryAssociation" eSuperTypes="#//Association"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DirectedAssociation" eSuperTypes="#//BinaryAssociation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//AssociationEnd"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//AssociationEnd"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UndirectedAssociation" eSuperTypes="#//BinaryAssociation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endA" eType="#//AssociationEnd"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endB" eType="#//AssociationEnd"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NaryAssociation" eSuperTypes="#//Association">

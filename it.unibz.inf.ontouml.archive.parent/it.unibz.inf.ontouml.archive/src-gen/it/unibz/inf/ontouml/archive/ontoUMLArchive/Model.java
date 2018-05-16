@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getPublicationTitle <em>Publication Title</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getAuthors <em>Authors</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getOntologyName <em>Ontology Name</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -25,6 +28,84 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Publication Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Publication Title</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Publication Title</em>' attribute.
+   * @see #setPublicationTitle(String)
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getModel_PublicationTitle()
+   * @model
+   * @generated
+   */
+  String getPublicationTitle();
+
+  /**
+   * Sets the value of the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getPublicationTitle <em>Publication Title</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Publication Title</em>' attribute.
+   * @see #getPublicationTitle()
+   * @generated
+   */
+  void setPublicationTitle(String value);
+
+  /**
+   * Returns the value of the '<em><b>Authors</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Authors</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Authors</em>' attribute.
+   * @see #setAuthors(String)
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getModel_Authors()
+   * @model
+   * @generated
+   */
+  String getAuthors();
+
+  /**
+   * Sets the value of the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getAuthors <em>Authors</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Authors</em>' attribute.
+   * @see #getAuthors()
+   * @generated
+   */
+  void setAuthors(String value);
+
+  /**
+   * Returns the value of the '<em><b>Ontology Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ontology Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ontology Name</em>' attribute.
+   * @see #setOntologyName(String)
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getModel_OntologyName()
+   * @model
+   * @generated
+   */
+  String getOntologyName();
+
+  /**
+   * Sets the value of the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model#getOntologyName <em>Ontology Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ontology Name</em>' attribute.
+   * @see #getOntologyName()
+   * @generated
+   */
+  void setOntologyName(String value);
+
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
    * The list contents are of type {@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement}.
