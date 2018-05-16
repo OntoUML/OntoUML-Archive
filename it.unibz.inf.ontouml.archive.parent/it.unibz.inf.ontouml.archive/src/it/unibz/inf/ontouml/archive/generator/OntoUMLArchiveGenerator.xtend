@@ -12,9 +12,9 @@ import it.unibz.inf.ontouml.archive.OntoUMLArchiveUtils
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Class
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind
 
 /**
  * Generates code from your model files on save.
@@ -44,8 +44,7 @@ class OntoUMLArchiveGenerator extends AbstractGenerator {
 		switch(e) {
 			case e instanceof Class : return (e as Class).classToPlantUML()
 			case e instanceof Generalization : return (e as Generalization).generalizationToPlantUML()
-			case e instanceof RegularAssociation: return (e as RegularAssociation).regularAssociationToPlantUML()
-			case e instanceof ParthoodAssociation: return (e as ParthoodAssociation).parthoodAssociationToPlantUML()
+			case e instanceof BinaryAssociation: return (e as BinaryAssociation).binaryAssociationToPlantUML()
 		}
 	}
 	
@@ -57,15 +56,38 @@ class OntoUMLArchiveGenerator extends AbstractGenerator {
 		'''«g.getSuper.name.replaceAll(" ","_")» <|-- «g.sub.name.replaceAll(" ","_")»'''
 	}
 	
-	def String regularAssociationToPlantUML(RegularAssociation a) {
-		'''«a.from.endType.name.replaceAll(" ","_")» - «a.to.endType.name.replaceAll(" ","_")» «IF a.name!==null && !a.name.empty && a.name!="unnamed"»: «a.name» >«ENDIF»'''
+	def String binaryAssociationToPlantUML(BinaryAssociation a) {
+		val StringBuilder str = new StringBuilder
+		str.append(a.from.endType.name.replaceAll(" ","_"))
+		
+		if(a.from.aggregationKind==AggregationKind.COMPOSITE)
+			str.append(" *-")
+		else if(a.from.aggregationKind==AggregationKind.SHARED)
+			str.append(" o-")
+		else
+			str.append(" -")
+		
+		if(a.to.aggregationKind==AggregationKind.COMPOSITE)
+			str.append("-* ")
+		else if(a.to.aggregationKind==AggregationKind.SHARED)
+			str.append("-o ")
+		else
+			str.append("- ")
+		
+		str.append(a.to.endType.name.replaceAll(" ","_"))
+		
+		if(a.name!==null && !a.name.empty && a.name!="unnamed")
+			str.append(": "+a.name+" >")
+		return str.toString
+		
+//		''' «IF a.name!==null && !a.name.empty && a.name!="unnamed"»: «a.name» >«ENDIF»'''
 //		Driver - Car : drives > 
 //		Car *- Wheel : have 4 > 
 //		Car -- Person : < owns
 	}
 	
-	def String parthoodAssociationToPlantUML(ParthoodAssociation a) {
-		'''«a.whole.endType.name.replaceAll(" ","_")» *- «a.part.endType.name.replaceAll(" ","_")» «IF a.name!==null && !a.name.empty && a.name!="unnamed"»: «a.name» >«ENDIF»'''
-	}
+//	def String parthoodAssociationToPlantUML(ParthoodAssociation a) {
+//		'''«a.whole.endType.name.replaceAll(" ","_")» *- «a.part.endType.name.replaceAll(" ","_")» «IF a.name!==null && !a.name.empty && a.name!="unnamed"»: «a.name» >«ENDIF»'''
+//	}
 	
 }

@@ -3,6 +3,7 @@
  */
 package it.unibz.inf.ontouml.archive.ontoUMLArchive.impl;
 
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Association;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute;
@@ -18,13 +19,12 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchiveFactory;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -92,20 +92,6 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass regularAssociationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass parthoodAssociationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass naryAssociationEClass = null;
 
   /**
@@ -163,6 +149,13 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * @generated
    */
   private EClass generalizationSetEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum aggregationKindEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -392,9 +385,9 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRegularAssociation()
+  public EReference getBinaryAssociation_From()
   {
-    return regularAssociationEClass;
+    return (EReference)binaryAssociationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -402,49 +395,9 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRegularAssociation_From()
+  public EReference getBinaryAssociation_To()
   {
-    return (EReference)regularAssociationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getRegularAssociation_To()
-  {
-    return (EReference)regularAssociationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getParthoodAssociation()
-  {
-    return parthoodAssociationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getParthoodAssociation_Whole()
-  {
-    return (EReference)parthoodAssociationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getParthoodAssociation_Part()
-  {
-    return (EReference)parthoodAssociationEClass.getEStructuralFeatures().get(1);
+    return (EReference)binaryAssociationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -482,7 +435,7 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAssociationEnd_Name()
+  public EAttribute getAssociationEnd_AggregationKind()
   {
     return (EAttribute)associationEndEClass.getEStructuralFeatures().get(0);
   }
@@ -492,9 +445,9 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssociationEnd_Multiplicity()
+  public EAttribute getAssociationEnd_Name()
   {
-    return (EReference)associationEndEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)associationEndEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -502,7 +455,7 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssociationEnd_EndType()
+  public EReference getAssociationEnd_Multiplicity()
   {
     return (EReference)associationEndEClass.getEStructuralFeatures().get(2);
   }
@@ -512,9 +465,19 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getAssociationEnd_EndType()
+  {
+    return (EReference)associationEndEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getAssociationEnd_Constraints()
   {
-    return (EAttribute)associationEndEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)associationEndEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -782,6 +745,16 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getAggregationKind()
+  {
+    return aggregationKindEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public OntoUMLArchiveFactory getOntoUMLArchiveFactory()
   {
     return (OntoUMLArchiveFactory)getEFactoryInstance();
@@ -829,19 +802,14 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     createEAttribute(associationEClass, ASSOCIATION__STEREOTYPES);
 
     binaryAssociationEClass = createEClass(BINARY_ASSOCIATION);
-
-    regularAssociationEClass = createEClass(REGULAR_ASSOCIATION);
-    createEReference(regularAssociationEClass, REGULAR_ASSOCIATION__FROM);
-    createEReference(regularAssociationEClass, REGULAR_ASSOCIATION__TO);
-
-    parthoodAssociationEClass = createEClass(PARTHOOD_ASSOCIATION);
-    createEReference(parthoodAssociationEClass, PARTHOOD_ASSOCIATION__WHOLE);
-    createEReference(parthoodAssociationEClass, PARTHOOD_ASSOCIATION__PART);
+    createEReference(binaryAssociationEClass, BINARY_ASSOCIATION__FROM);
+    createEReference(binaryAssociationEClass, BINARY_ASSOCIATION__TO);
 
     naryAssociationEClass = createEClass(NARY_ASSOCIATION);
     createEReference(naryAssociationEClass, NARY_ASSOCIATION__ENDS);
 
     associationEndEClass = createEClass(ASSOCIATION_END);
+    createEAttribute(associationEndEClass, ASSOCIATION_END__AGGREGATION_KIND);
     createEAttribute(associationEndEClass, ASSOCIATION_END__NAME);
     createEReference(associationEndEClass, ASSOCIATION_END__MULTIPLICITY);
     createEReference(associationEndEClass, ASSOCIATION_END__END_TYPE);
@@ -879,6 +847,9 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     createEAttribute(generalizationSetEClass, GENERALIZATION_SET__IS_DISJOINT);
     createEAttribute(generalizationSetEClass, GENERALIZATION_SET__IS_COMPLETE);
     createEReference(generalizationSetEClass, GENERALIZATION_SET__GENERALIZATIONS);
+
+    // Create enums
+    aggregationKindEEnum = createEEnum(AGGREGATION_KIND);
   }
 
   /**
@@ -914,8 +885,6 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     relationshipEClass.getESuperTypes().add(this.getModelElement());
     associationEClass.getESuperTypes().add(this.getRelationship());
     binaryAssociationEClass.getESuperTypes().add(this.getAssociation());
-    regularAssociationEClass.getESuperTypes().add(this.getBinaryAssociation());
-    parthoodAssociationEClass.getESuperTypes().add(this.getBinaryAssociation());
     naryAssociationEClass.getESuperTypes().add(this.getAssociation());
     generalizationEClass.getESuperTypes().add(this.getRelationship());
     dependencyLinkEClass.getESuperTypes().add(this.getRelationship());
@@ -945,19 +914,14 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     initEAttribute(getAssociation_Stereotypes(), ecorePackage.getEString(), "stereotypes", null, 0, -1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(binaryAssociationEClass, BinaryAssociation.class, "BinaryAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(regularAssociationEClass, RegularAssociation.class, "RegularAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRegularAssociation_From(), this.getAssociationEnd(), null, "from", null, 0, 1, RegularAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRegularAssociation_To(), this.getAssociationEnd(), null, "to", null, 0, 1, RegularAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(parthoodAssociationEClass, ParthoodAssociation.class, "ParthoodAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getParthoodAssociation_Whole(), this.getAssociationEnd(), null, "whole", null, 0, 1, ParthoodAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getParthoodAssociation_Part(), this.getAssociationEnd(), null, "part", null, 0, 1, ParthoodAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinaryAssociation_From(), this.getAssociationEnd(), null, "from", null, 0, 1, BinaryAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinaryAssociation_To(), this.getAssociationEnd(), null, "to", null, 0, 1, BinaryAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(naryAssociationEClass, NaryAssociation.class, "NaryAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNaryAssociation_Ends(), this.getAssociationEnd(), null, "ends", null, 0, -1, NaryAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(associationEndEClass, AssociationEnd.class, "AssociationEnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAssociationEnd_AggregationKind(), this.getAggregationKind(), "aggregationKind", null, 0, 1, AssociationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAssociationEnd_Name(), ecorePackage.getEString(), "name", null, 0, 1, AssociationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssociationEnd_Multiplicity(), this.getMultiplicity(), null, "multiplicity", null, 0, 1, AssociationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssociationEnd_EndType(), this.getClass_(), null, "endType", null, 0, 1, AssociationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -995,6 +959,12 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     initEAttribute(getGeneralizationSet_IsDisjoint(), ecorePackage.getEBoolean(), "isDisjoint", null, 0, 1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getGeneralizationSet_IsComplete(), ecorePackage.getEBoolean(), "isComplete", null, 0, 1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGeneralizationSet_Generalizations(), this.getGeneralization(), null, "generalizations", null, 0, -1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    // Initialize enums and add enum literals
+    initEEnum(aggregationKindEEnum, AggregationKind.class, "AggregationKind");
+    addEEnumLiteral(aggregationKindEEnum, AggregationKind.NONE);
+    addEEnumLiteral(aggregationKindEEnum, AggregationKind.SHARED);
+    addEEnumLiteral(aggregationKindEEnum, AggregationKind.COMPOSITE);
 
     // Create resource
     createResource(eNS_URI);

@@ -5,6 +5,7 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -308,50 +309,13 @@ public interface OntoUMLArchivePackage extends EPackage
   int BINARY_ASSOCIATION__STEREOTYPES = ASSOCIATION__STEREOTYPES;
 
   /**
-   * The number of structural features of the '<em>Binary Association</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BINARY_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RegularAssociationImpl <em>Regular Association</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RegularAssociationImpl
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getRegularAssociation()
-   * @generated
-   */
-  int REGULAR_ASSOCIATION = 7;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REGULAR_ASSOCIATION__NAME = BINARY_ASSOCIATION__NAME;
-
-  /**
-   * The feature id for the '<em><b>Stereotypes</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REGULAR_ASSOCIATION__STEREOTYPES = BINARY_ASSOCIATION__STEREOTYPES;
-
-  /**
    * The feature id for the '<em><b>From</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REGULAR_ASSOCIATION__FROM = BINARY_ASSOCIATION_FEATURE_COUNT + 0;
+  int BINARY_ASSOCIATION__FROM = ASSOCIATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>To</b></em>' containment reference.
@@ -360,71 +324,16 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int REGULAR_ASSOCIATION__TO = BINARY_ASSOCIATION_FEATURE_COUNT + 1;
+  int BINARY_ASSOCIATION__TO = ASSOCIATION_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Regular Association</em>' class.
+   * The number of structural features of the '<em>Binary Association</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REGULAR_ASSOCIATION_FEATURE_COUNT = BINARY_ASSOCIATION_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ParthoodAssociationImpl <em>Parthood Association</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ParthoodAssociationImpl
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getParthoodAssociation()
-   * @generated
-   */
-  int PARTHOOD_ASSOCIATION = 8;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARTHOOD_ASSOCIATION__NAME = BINARY_ASSOCIATION__NAME;
-
-  /**
-   * The feature id for the '<em><b>Stereotypes</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARTHOOD_ASSOCIATION__STEREOTYPES = BINARY_ASSOCIATION__STEREOTYPES;
-
-  /**
-   * The feature id for the '<em><b>Whole</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARTHOOD_ASSOCIATION__WHOLE = BINARY_ASSOCIATION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Part</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARTHOOD_ASSOCIATION__PART = BINARY_ASSOCIATION_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Parthood Association</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARTHOOD_ASSOCIATION_FEATURE_COUNT = BINARY_ASSOCIATION_FEATURE_COUNT + 2;
+  int BINARY_ASSOCIATION_FEATURE_COUNT = ASSOCIATION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.NaryAssociationImpl <em>Nary Association</em>}' class.
@@ -434,7 +343,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getNaryAssociation()
    * @generated
    */
-  int NARY_ASSOCIATION = 9;
+  int NARY_ASSOCIATION = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -480,7 +389,16 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getAssociationEnd()
    * @generated
    */
-  int ASSOCIATION_END = 10;
+  int ASSOCIATION_END = 8;
+
+  /**
+   * The feature id for the '<em><b>Aggregation Kind</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSOCIATION_END__AGGREGATION_KIND = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -489,7 +407,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_END__NAME = 0;
+  int ASSOCIATION_END__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -498,7 +416,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_END__MULTIPLICITY = 1;
+  int ASSOCIATION_END__MULTIPLICITY = 2;
 
   /**
    * The feature id for the '<em><b>End Type</b></em>' reference.
@@ -507,7 +425,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_END__END_TYPE = 2;
+  int ASSOCIATION_END__END_TYPE = 3;
 
   /**
    * The feature id for the '<em><b>Constraints</b></em>' attribute list.
@@ -516,7 +434,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_END__CONSTRAINTS = 3;
+  int ASSOCIATION_END__CONSTRAINTS = 4;
 
   /**
    * The number of structural features of the '<em>Association End</em>' class.
@@ -525,7 +443,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_END_FEATURE_COUNT = 4;
+  int ASSOCIATION_END_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.MultiplicityImpl <em>Multiplicity</em>}' class.
@@ -535,7 +453,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getMultiplicity()
    * @generated
    */
-  int MULTIPLICITY = 11;
+  int MULTIPLICITY = 9;
 
   /**
    * The feature id for the '<em><b>Lower</b></em>' attribute.
@@ -572,7 +490,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getGeneralization()
    * @generated
    */
-  int GENERALIZATION = 12;
+  int GENERALIZATION = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -618,7 +536,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getDependencyLink()
    * @generated
    */
-  int DEPENDENCY_LINK = 13;
+  int DEPENDENCY_LINK = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -673,7 +591,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getDerivation()
    * @generated
    */
-  int DERIVATION = 14;
+  int DERIVATION = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -728,7 +646,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getClassDerivationEnd()
    * @generated
    */
-  int CLASS_DERIVATION_END = 15;
+  int CLASS_DERIVATION_END = 13;
 
   /**
    * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -774,7 +692,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getRelationDerivationEnd()
    * @generated
    */
-  int RELATION_DERIVATION_END = 16;
+  int RELATION_DERIVATION_END = 14;
 
   /**
    * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -820,7 +738,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getGeneralizationSet()
    * @generated
    */
-  int GENERALIZATION_SET = 17;
+  int GENERALIZATION_SET = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -866,6 +784,16 @@ public interface OntoUMLArchivePackage extends EPackage
    * @ordered
    */
   int GENERALIZATION_SET_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind <em>Aggregation Kind</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getAggregationKind()
+   * @generated
+   */
+  int AGGREGATION_KIND = 16;
 
 
   /**
@@ -1038,68 +966,26 @@ public interface OntoUMLArchivePackage extends EPackage
   EClass getBinaryAssociation();
 
   /**
-   * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation <em>Regular Association</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Regular Association</em>'.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation
-   * @generated
-   */
-  EClass getRegularAssociation();
-
-  /**
-   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation#getFrom <em>From</em>}'.
+   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation#getFrom <em>From</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>From</em>'.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation#getFrom()
-   * @see #getRegularAssociation()
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation#getFrom()
+   * @see #getBinaryAssociation()
    * @generated
    */
-  EReference getRegularAssociation_From();
+  EReference getBinaryAssociation_From();
 
   /**
-   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation#getTo <em>To</em>}'.
+   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation#getTo <em>To</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>To</em>'.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation#getTo()
-   * @see #getRegularAssociation()
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation#getTo()
+   * @see #getBinaryAssociation()
    * @generated
    */
-  EReference getRegularAssociation_To();
-
-  /**
-   * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation <em>Parthood Association</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Parthood Association</em>'.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation
-   * @generated
-   */
-  EClass getParthoodAssociation();
-
-  /**
-   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation#getWhole <em>Whole</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Whole</em>'.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation#getWhole()
-   * @see #getParthoodAssociation()
-   * @generated
-   */
-  EReference getParthoodAssociation_Whole();
-
-  /**
-   * Returns the meta object for the containment reference '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation#getPart <em>Part</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Part</em>'.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation#getPart()
-   * @see #getParthoodAssociation()
-   * @generated
-   */
-  EReference getParthoodAssociation_Part();
+  EReference getBinaryAssociation_To();
 
   /**
    * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation <em>Nary Association</em>}'.
@@ -1131,6 +1017,17 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    */
   EClass getAssociationEnd();
+
+  /**
+   * Returns the meta object for the attribute '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getAggregationKind <em>Aggregation Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Aggregation Kind</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getAggregationKind()
+   * @see #getAssociationEnd()
+   * @generated
+   */
+  EAttribute getAssociationEnd_AggregationKind();
 
   /**
    * Returns the meta object for the attribute '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getName <em>Name</em>}'.
@@ -1456,6 +1353,16 @@ public interface OntoUMLArchivePackage extends EPackage
   EReference getGeneralizationSet_Generalizations();
 
   /**
+   * Returns the meta object for enum '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind <em>Aggregation Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Aggregation Kind</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind
+   * @generated
+   */
+  EEnum getAggregationKind();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1621,22 +1528,12 @@ public interface OntoUMLArchivePackage extends EPackage
     EClass BINARY_ASSOCIATION = eINSTANCE.getBinaryAssociation();
 
     /**
-     * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RegularAssociationImpl <em>Regular Association</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.RegularAssociationImpl
-     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getRegularAssociation()
-     * @generated
-     */
-    EClass REGULAR_ASSOCIATION = eINSTANCE.getRegularAssociation();
-
-    /**
      * The meta object literal for the '<em><b>From</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REGULAR_ASSOCIATION__FROM = eINSTANCE.getRegularAssociation_From();
+    EReference BINARY_ASSOCIATION__FROM = eINSTANCE.getBinaryAssociation_From();
 
     /**
      * The meta object literal for the '<em><b>To</b></em>' containment reference feature.
@@ -1644,33 +1541,7 @@ public interface OntoUMLArchivePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REGULAR_ASSOCIATION__TO = eINSTANCE.getRegularAssociation_To();
-
-    /**
-     * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ParthoodAssociationImpl <em>Parthood Association</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.ParthoodAssociationImpl
-     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getParthoodAssociation()
-     * @generated
-     */
-    EClass PARTHOOD_ASSOCIATION = eINSTANCE.getParthoodAssociation();
-
-    /**
-     * The meta object literal for the '<em><b>Whole</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PARTHOOD_ASSOCIATION__WHOLE = eINSTANCE.getParthoodAssociation_Whole();
-
-    /**
-     * The meta object literal for the '<em><b>Part</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PARTHOOD_ASSOCIATION__PART = eINSTANCE.getParthoodAssociation_Part();
+    EReference BINARY_ASSOCIATION__TO = eINSTANCE.getBinaryAssociation_To();
 
     /**
      * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.NaryAssociationImpl <em>Nary Association</em>}' class.
@@ -1699,6 +1570,14 @@ public interface OntoUMLArchivePackage extends EPackage
      * @generated
      */
     EClass ASSOCIATION_END = eINSTANCE.getAssociationEnd();
+
+    /**
+     * The meta object literal for the '<em><b>Aggregation Kind</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSOCIATION_END__AGGREGATION_KIND = eINSTANCE.getAssociationEnd_AggregationKind();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1953,6 +1832,16 @@ public interface OntoUMLArchivePackage extends EPackage
      * @generated
      */
     EReference GENERALIZATION_SET__GENERALIZATIONS = eINSTANCE.getGeneralizationSet_Generalizations();
+
+    /**
+     * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind <em>Aggregation Kind</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getAggregationKind()
+     * @generated
+     */
+    EEnum AGGREGATION_KIND = eINSTANCE.getAggregationKind();
 
   }
 

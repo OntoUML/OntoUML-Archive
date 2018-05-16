@@ -3,20 +3,54 @@
  */
 package it.unibz.inf.ontouml.archive.ontoUMLArchive.impl;
 
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Binary Association</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.BinaryAssociationImpl#getFrom <em>From</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.BinaryAssociationImpl#getTo <em>To</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class BinaryAssociationImpl extends AssociationImpl implements BinaryAssociation
 {
+  /**
+   * The cached value of the '{@link #getFrom() <em>From</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFrom()
+   * @generated
+   * @ordered
+   */
+  protected AssociationEnd from;
+
+  /**
+   * The cached value of the '{@link #getTo() <em>To</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTo()
+   * @generated
+   * @ordered
+   */
+  protected AssociationEnd to;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +70,196 @@ public class BinaryAssociationImpl extends AssociationImpl implements BinaryAsso
   protected EClass eStaticClass()
   {
     return OntoUMLArchivePackage.Literals.BINARY_ASSOCIATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AssociationEnd getFrom()
+  {
+    return from;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFrom(AssociationEnd newFrom, NotificationChain msgs)
+  {
+    AssociationEnd oldFrom = from;
+    from = newFrom;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.BINARY_ASSOCIATION__FROM, oldFrom, newFrom);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFrom(AssociationEnd newFrom)
+  {
+    if (newFrom != from)
+    {
+      NotificationChain msgs = null;
+      if (from != null)
+        msgs = ((InternalEObject)from).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OntoUMLArchivePackage.BINARY_ASSOCIATION__FROM, null, msgs);
+      if (newFrom != null)
+        msgs = ((InternalEObject)newFrom).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OntoUMLArchivePackage.BINARY_ASSOCIATION__FROM, null, msgs);
+      msgs = basicSetFrom(newFrom, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.BINARY_ASSOCIATION__FROM, newFrom, newFrom));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AssociationEnd getTo()
+  {
+    return to;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTo(AssociationEnd newTo, NotificationChain msgs)
+  {
+    AssociationEnd oldTo = to;
+    to = newTo;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.BINARY_ASSOCIATION__TO, oldTo, newTo);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTo(AssociationEnd newTo)
+  {
+    if (newTo != to)
+    {
+      NotificationChain msgs = null;
+      if (to != null)
+        msgs = ((InternalEObject)to).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OntoUMLArchivePackage.BINARY_ASSOCIATION__TO, null, msgs);
+      if (newTo != null)
+        msgs = ((InternalEObject)newTo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OntoUMLArchivePackage.BINARY_ASSOCIATION__TO, null, msgs);
+      msgs = basicSetTo(newTo, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.BINARY_ASSOCIATION__TO, newTo, newTo));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case OntoUMLArchivePackage.BINARY_ASSOCIATION__FROM:
+        return basicSetFrom(null, msgs);
+      case OntoUMLArchivePackage.BINARY_ASSOCIATION__TO:
+        return basicSetTo(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case OntoUMLArchivePackage.BINARY_ASSOCIATION__FROM:
+        return getFrom();
+      case OntoUMLArchivePackage.BINARY_ASSOCIATION__TO:
+        return getTo();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case OntoUMLArchivePackage.BINARY_ASSOCIATION__FROM:
+        setFrom((AssociationEnd)newValue);
+        return;
+      case OntoUMLArchivePackage.BINARY_ASSOCIATION__TO:
+        setTo((AssociationEnd)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case OntoUMLArchivePackage.BINARY_ASSOCIATION__FROM:
+        setFrom((AssociationEnd)null);
+        return;
+      case OntoUMLArchivePackage.BINARY_ASSOCIATION__TO:
+        setTo((AssociationEnd)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case OntoUMLArchivePackage.BINARY_ASSOCIATION__FROM:
+        return from != null;
+      case OntoUMLArchivePackage.BINARY_ASSOCIATION__TO:
+        return to != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //BinaryAssociationImpl

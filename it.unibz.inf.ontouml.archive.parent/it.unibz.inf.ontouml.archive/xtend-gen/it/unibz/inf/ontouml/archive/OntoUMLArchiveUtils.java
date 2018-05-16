@@ -74,7 +74,7 @@ public class OntoUMLArchiveUtils {
     return _xblockexpression;
   }
   
-  public static Set<String> getExpectedRegularAssociationStereotypes() {
+  public static Set<String> getExpectedBinaryAssociationStereotypes() {
     HashSet<String> _xblockexpression = null;
     {
       final HashSet<String> ret = new HashSet<String>();
@@ -82,15 +82,6 @@ public class OntoUMLArchiveUtils {
       ret.add(OntoUMLArchiveUtils.STEREOTYPE_MATERIAL);
       ret.add(OntoUMLArchiveUtils.STEREOTYPE_MEDIATION);
       ret.add(OntoUMLArchiveUtils.STEREOTYPE_CHARACTERIZATION);
-      _xblockexpression = ret;
-    }
-    return _xblockexpression;
-  }
-  
-  public static Set<String> getExpectedParthoodAssociationStereotypes() {
-    HashSet<String> _xblockexpression = null;
-    {
-      final HashSet<String> ret = new HashSet<String>();
       ret.add(OntoUMLArchiveUtils.STEREOTYPE_MEMBER_OF);
       ret.add(OntoUMLArchiveUtils.STEREOTYPE_SUB_COLLECTION_OF);
       ret.add(OntoUMLArchiveUtils.STEREOTYPE_COMPONENT_OF);

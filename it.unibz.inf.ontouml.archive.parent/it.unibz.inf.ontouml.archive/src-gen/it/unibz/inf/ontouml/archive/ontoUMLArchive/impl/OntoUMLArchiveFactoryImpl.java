@@ -3,6 +3,7 @@
  */
 package it.unibz.inf.ontouml.archive.ontoUMLArchive.impl;
 
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Association;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Attribute;
@@ -18,12 +19,11 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchiveFactory;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -90,8 +90,6 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
       case OntoUMLArchivePackage.RELATIONSHIP: return createRelationship();
       case OntoUMLArchivePackage.ASSOCIATION: return createAssociation();
       case OntoUMLArchivePackage.BINARY_ASSOCIATION: return createBinaryAssociation();
-      case OntoUMLArchivePackage.REGULAR_ASSOCIATION: return createRegularAssociation();
-      case OntoUMLArchivePackage.PARTHOOD_ASSOCIATION: return createParthoodAssociation();
       case OntoUMLArchivePackage.NARY_ASSOCIATION: return createNaryAssociation();
       case OntoUMLArchivePackage.ASSOCIATION_END: return createAssociationEnd();
       case OntoUMLArchivePackage.MULTIPLICITY: return createMultiplicity();
@@ -103,6 +101,40 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
       case OntoUMLArchivePackage.GENERALIZATION_SET: return createGeneralizationSet();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case OntoUMLArchivePackage.AGGREGATION_KIND:
+        return createAggregationKindFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case OntoUMLArchivePackage.AGGREGATION_KIND:
+        return convertAggregationKindToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -181,28 +213,6 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
   {
     BinaryAssociationImpl binaryAssociation = new BinaryAssociationImpl();
     return binaryAssociation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RegularAssociation createRegularAssociation()
-  {
-    RegularAssociationImpl regularAssociation = new RegularAssociationImpl();
-    return regularAssociation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ParthoodAssociation createParthoodAssociation()
-  {
-    ParthoodAssociationImpl parthoodAssociation = new ParthoodAssociationImpl();
-    return parthoodAssociation;
   }
 
   /**
@@ -302,6 +312,28 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
   {
     GeneralizationSetImpl generalizationSet = new GeneralizationSetImpl();
     return generalizationSet;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AggregationKind createAggregationKindFromString(EDataType eDataType, String initialValue)
+  {
+    AggregationKind result = AggregationKind.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertAggregationKindToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

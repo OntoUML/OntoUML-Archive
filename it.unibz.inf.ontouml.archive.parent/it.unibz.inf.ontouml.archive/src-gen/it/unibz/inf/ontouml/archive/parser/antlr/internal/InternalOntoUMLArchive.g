@@ -23,6 +23,7 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -422,55 +423,19 @@ ruleBinaryAssociation returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getBinaryAssociationAccess().getRegularAssociationParserRuleCall_0());
-		}
-		this_RegularAssociation_0=ruleRegularAssociation
-		{
-			$current = $this_RegularAssociation_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getBinaryAssociationAccess().getParthoodAssociationParserRuleCall_1());
-		}
-		this_ParthoodAssociation_1=ruleParthoodAssociation
-		{
-			$current = $this_ParthoodAssociation_1.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
-;
-
-// Entry rule entryRuleRegularAssociation
-entryRuleRegularAssociation returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getRegularAssociationRule()); }
-	iv_ruleRegularAssociation=ruleRegularAssociation
-	{ $current=$iv_ruleRegularAssociation.current; }
-	EOF;
-
-// Rule RegularAssociation
-ruleRegularAssociation returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
 		otherlv_0='association'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getRegularAssociationAccess().getAssociationKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getBinaryAssociationAccess().getAssociationKeyword_0());
 		}
 		(
 			(
 				lv_name_1_0=RULE_STRING
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getRegularAssociationAccess().getNameSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getBinaryAssociationAccess().getNameSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getRegularAssociationRule());
+						$current = createModelElement(grammarAccess.getBinaryAssociationRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -484,11 +449,11 @@ ruleRegularAssociation returns [EObject current=null]
 			(
 				lv_stereotypes_2_0=RULE_STEREOTYPE_STRING
 				{
-					newLeafNode(lv_stereotypes_2_0, grammarAccess.getRegularAssociationAccess().getStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0());
+					newLeafNode(lv_stereotypes_2_0, grammarAccess.getBinaryAssociationAccess().getStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getRegularAssociationRule());
+						$current = createModelElement(grammarAccess.getBinaryAssociationRule());
 					}
 					addWithLastConsumed(
 						$current,
@@ -500,17 +465,17 @@ ruleRegularAssociation returns [EObject current=null]
 		)*
 		otherlv_3='from'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getRegularAssociationAccess().getFromKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getBinaryAssociationAccess().getFromKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRegularAssociationAccess().getFromAssociationEndParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getBinaryAssociationAccess().getFromAssociationEndParserRuleCall_4_0());
 				}
 				lv_from_4_0=ruleAssociationEnd
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRegularAssociationRule());
+						$current = createModelElementForParent(grammarAccess.getBinaryAssociationRule());
 					}
 					set(
 						$current,
@@ -523,127 +488,22 @@ ruleRegularAssociation returns [EObject current=null]
 		)
 		otherlv_5='to'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getRegularAssociationAccess().getToKeyword_5());
+			newLeafNode(otherlv_5, grammarAccess.getBinaryAssociationAccess().getToKeyword_5());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRegularAssociationAccess().getToAssociationEndParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getBinaryAssociationAccess().getToAssociationEndParserRuleCall_6_0());
 				}
 				lv_to_6_0=ruleAssociationEnd
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRegularAssociationRule());
+						$current = createModelElementForParent(grammarAccess.getBinaryAssociationRule());
 					}
 					set(
 						$current,
 						"to",
 						lv_to_6_0,
-						"it.unibz.inf.ontouml.archive.OntoUMLArchive.AssociationEnd");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-	)
-;
-
-// Entry rule entryRuleParthoodAssociation
-entryRuleParthoodAssociation returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getParthoodAssociationRule()); }
-	iv_ruleParthoodAssociation=ruleParthoodAssociation
-	{ $current=$iv_ruleParthoodAssociation.current; }
-	EOF;
-
-// Rule ParthoodAssociation
-ruleParthoodAssociation returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='association'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getParthoodAssociationAccess().getAssociationKeyword_0());
-		}
-		(
-			(
-				lv_name_1_0=RULE_STRING
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getParthoodAssociationAccess().getNameSTRINGTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getParthoodAssociationRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)?
-		(
-			(
-				lv_stereotypes_2_0=RULE_STEREOTYPE_STRING
-				{
-					newLeafNode(lv_stereotypes_2_0, grammarAccess.getParthoodAssociationAccess().getStereotypesSTEREOTYPE_STRINGTerminalRuleCall_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getParthoodAssociationRule());
-					}
-					addWithLastConsumed(
-						$current,
-						"stereotypes",
-						lv_stereotypes_2_0,
-						"it.unibz.inf.ontouml.archive.OntoUMLArchive.STEREOTYPE_STRING");
-				}
-			)
-		)*
-		otherlv_3='whole'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getParthoodAssociationAccess().getWholeKeyword_3());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getParthoodAssociationAccess().getWholeAssociationEndParserRuleCall_4_0());
-				}
-				lv_whole_4_0=ruleAssociationEnd
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getParthoodAssociationRule());
-					}
-					set(
-						$current,
-						"whole",
-						lv_whole_4_0,
-						"it.unibz.inf.ontouml.archive.OntoUMLArchive.AssociationEnd");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_5='part'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getParthoodAssociationAccess().getPartKeyword_5());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getParthoodAssociationAccess().getPartAssociationEndParserRuleCall_6_0());
-				}
-				lv_part_6_0=ruleAssociationEnd
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getParthoodAssociationRule());
-					}
-					set(
-						$current,
-						"part",
-						lv_part_6_0,
 						"it.unibz.inf.ontouml.archive.OntoUMLArchive.AssociationEnd");
 					afterParserOrEnumRuleCall();
 				}
@@ -804,9 +664,28 @@ ruleAssociationEnd returns [EObject current=null]
 	(
 		(
 			(
-				lv_name_0_0=RULE_STRING
 				{
-					newLeafNode(lv_name_0_0, grammarAccess.getAssociationEndAccess().getNameSTRINGTerminalRuleCall_0_0());
+					newCompositeNode(grammarAccess.getAssociationEndAccess().getAggregationKindAggregationKindDeclarationEnumRuleCall_0_0());
+				}
+				lv_aggregationKind_0_0=ruleAggregationKindDeclaration
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAssociationEndRule());
+					}
+					set(
+						$current,
+						"aggregationKind",
+						lv_aggregationKind_0_0,
+						"it.unibz.inf.ontouml.archive.OntoUMLArchive.AggregationKindDeclaration");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				lv_name_1_0=RULE_STRING
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getAssociationEndAccess().getNameSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -815,7 +694,7 @@ ruleAssociationEnd returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_0_0,
+						lv_name_1_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
@@ -823,9 +702,9 @@ ruleAssociationEnd returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAssociationEndAccess().getMultiplicityMultiplicityParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getAssociationEndAccess().getMultiplicityMultiplicityParserRuleCall_2_0());
 				}
-				lv_multiplicity_1_0=ruleMultiplicity
+				lv_multiplicity_2_0=ruleMultiplicity
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAssociationEndRule());
@@ -833,15 +712,15 @@ ruleAssociationEnd returns [EObject current=null]
 					set(
 						$current,
 						"multiplicity",
-						lv_multiplicity_1_0,
+						lv_multiplicity_2_0,
 						"it.unibz.inf.ontouml.archive.OntoUMLArchive.Multiplicity");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_2=':'
+		otherlv_3=':'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getAssociationEndAccess().getColonKeyword_2());
+			newLeafNode(otherlv_3, grammarAccess.getAssociationEndAccess().getColonKeyword_3());
 		}
 		(
 			(
@@ -850,22 +729,22 @@ ruleAssociationEnd returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getAssociationEndRule());
 					}
 				}
-				otherlv_3=RULE_STRING
+				otherlv_4=RULE_STRING
 				{
-					newLeafNode(otherlv_3, grammarAccess.getAssociationEndAccess().getEndTypeClassCrossReference_3_0());
+					newLeafNode(otherlv_4, grammarAccess.getAssociationEndAccess().getEndTypeClassCrossReference_4_0());
 				}
 			)
 		)
 		(
-			otherlv_4='{'
+			otherlv_5='{'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getAssociationEndAccess().getLeftCurlyBracketKeyword_4_0());
+				newLeafNode(otherlv_5, grammarAccess.getAssociationEndAccess().getLeftCurlyBracketKeyword_5_0());
 			}
 			(
 				(
-					lv_constraints_5_0=RULE_STRING
+					lv_constraints_6_0=RULE_STRING
 					{
-						newLeafNode(lv_constraints_5_0, grammarAccess.getAssociationEndAccess().getConstraintsSTRINGTerminalRuleCall_4_1_0());
+						newLeafNode(lv_constraints_6_0, grammarAccess.getAssociationEndAccess().getConstraintsSTRINGTerminalRuleCall_5_1_0());
 					}
 					{
 						if ($current==null) {
@@ -874,21 +753,21 @@ ruleAssociationEnd returns [EObject current=null]
 						addWithLastConsumed(
 							$current,
 							"constraints",
-							lv_constraints_5_0,
+							lv_constraints_6_0,
 							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
 			(
-				otherlv_6=','
+				otherlv_7=','
 				{
-					newLeafNode(otherlv_6, grammarAccess.getAssociationEndAccess().getCommaKeyword_4_2_0());
+					newLeafNode(otherlv_7, grammarAccess.getAssociationEndAccess().getCommaKeyword_5_2_0());
 				}
 				(
 					(
-						lv_constraints_7_0=RULE_STRING
+						lv_constraints_8_0=RULE_STRING
 						{
-							newLeafNode(lv_constraints_7_0, grammarAccess.getAssociationEndAccess().getConstraintsSTRINGTerminalRuleCall_4_2_1_0());
+							newLeafNode(lv_constraints_8_0, grammarAccess.getAssociationEndAccess().getConstraintsSTRINGTerminalRuleCall_5_2_1_0());
 						}
 						{
 							if ($current==null) {
@@ -897,15 +776,15 @@ ruleAssociationEnd returns [EObject current=null]
 							addWithLastConsumed(
 								$current,
 								"constraints",
-								lv_constraints_7_0,
+								lv_constraints_8_0,
 								"org.eclipse.xtext.common.Terminals.STRING");
 						}
 					)
 				)
 			)*
-			otherlv_8='}'
+			otherlv_9='}'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getAssociationEndAccess().getRightCurlyBracketKeyword_4_3());
+				newLeafNode(otherlv_9, grammarAccess.getAssociationEndAccess().getRightCurlyBracketKeyword_5_3());
 			}
 		)?
 	)
@@ -1608,6 +1487,33 @@ ruleGeneralizationSet returns [EObject current=null]
 				}
 			)
 		)+
+	)
+;
+
+// Rule AggregationKindDeclaration
+ruleAggregationKindDeclaration returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='shared'
+			{
+				$current = grammarAccess.getAggregationKindDeclarationAccess().getSharedEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getAggregationKindDeclarationAccess().getSharedEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='composite'
+			{
+				$current = grammarAccess.getAggregationKindDeclarationAccess().getCompositeEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getAggregationKindDeclarationAccess().getCompositeEnumLiteralDeclaration_1());
+			}
+		)
 	)
 ;
 

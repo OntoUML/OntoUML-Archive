@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getAggregationKind <em>Aggregation Kind</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getName <em>Name</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getEndType <em>End Type</em>}</li>
@@ -28,6 +29,35 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AssociationEnd extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Aggregation Kind</b></em>' attribute.
+   * The literals are from the enumeration {@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Aggregation Kind</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Aggregation Kind</em>' attribute.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind
+   * @see #setAggregationKind(AggregationKind)
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getAssociationEnd_AggregationKind()
+   * @model
+   * @generated
+   */
+  AggregationKind getAggregationKind();
+
+  /**
+   * Sets the value of the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getAggregationKind <em>Aggregation Kind</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Aggregation Kind</em>' attribute.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind
+   * @see #getAggregationKind()
+   * @generated
+   */
+  void setAggregationKind(AggregationKind value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

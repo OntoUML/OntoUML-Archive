@@ -30,23 +30,23 @@ Association:
 	BinaryAssociation | NaryAssociation
 ;
 
-BinaryAssociation:
-	RegularAssociation | ParthoodAssociation
-;
+//BinaryAssociation:
+//	RegularAssociation | ParthoodAssociation
+//;
 
-RegularAssociation:
+BinaryAssociation:
 	'association' name=STRING?
 	stereotypes+=STEREOTYPE_STRING*
 	'from' from=AssociationEnd
 	'to' to=AssociationEnd
 ;
-
-ParthoodAssociation:
-	'association' name=STRING?
-	stereotypes+=STEREOTYPE_STRING*
-	'whole' whole=AssociationEnd
-	'part' part=AssociationEnd
-;
+//
+//ParthoodAssociation:
+//	'association' name=STRING?
+//	stereotypes+=STEREOTYPE_STRING*
+//	'whole' whole=AssociationEnd
+//	'part' part=AssociationEnd
+//;
 
 NaryAssociation:
 	'association' name=STRING?
@@ -57,11 +57,20 @@ NaryAssociation:
 ;
 
 AssociationEnd:
+	aggregationKind=AggregationKindDeclaration?
 	name=STRING?
 	multiplicity=Multiplicity
 	':' endType=[Class|STRING]
 	//constraints+=CONSTRAINT_STRING*
 	('{' constraints+=STRING (',' constraints+=STRING)* '}')?
+;
+
+enum AggregationKind:
+	none | shared | composite
+;
+
+enum AggregationKindDeclaration returns AggregationKind:
+	shared | composite
 ;
 
 Multiplicity:

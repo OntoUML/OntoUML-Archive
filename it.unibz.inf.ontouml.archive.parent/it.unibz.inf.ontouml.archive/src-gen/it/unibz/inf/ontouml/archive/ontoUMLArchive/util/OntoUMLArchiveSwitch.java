@@ -17,8 +17,6 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship;
 
@@ -143,28 +141,6 @@ public class OntoUMLArchiveSwitch<T> extends Switch<T>
         if (result == null) result = caseAssociation(binaryAssociation);
         if (result == null) result = caseRelationship(binaryAssociation);
         if (result == null) result = caseModelElement(binaryAssociation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OntoUMLArchivePackage.REGULAR_ASSOCIATION:
-      {
-        RegularAssociation regularAssociation = (RegularAssociation)theEObject;
-        T result = caseRegularAssociation(regularAssociation);
-        if (result == null) result = caseBinaryAssociation(regularAssociation);
-        if (result == null) result = caseAssociation(regularAssociation);
-        if (result == null) result = caseRelationship(regularAssociation);
-        if (result == null) result = caseModelElement(regularAssociation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OntoUMLArchivePackage.PARTHOOD_ASSOCIATION:
-      {
-        ParthoodAssociation parthoodAssociation = (ParthoodAssociation)theEObject;
-        T result = caseParthoodAssociation(parthoodAssociation);
-        if (result == null) result = caseBinaryAssociation(parthoodAssociation);
-        if (result == null) result = caseAssociation(parthoodAssociation);
-        if (result == null) result = caseRelationship(parthoodAssociation);
-        if (result == null) result = caseModelElement(parthoodAssociation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -353,38 +329,6 @@ public class OntoUMLArchiveSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBinaryAssociation(BinaryAssociation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Regular Association</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Regular Association</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRegularAssociation(RegularAssociation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Parthood Association</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Parthood Association</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseParthoodAssociation(ParthoodAssociation object)
   {
     return null;
   }

@@ -17,8 +17,6 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Relationship;
 
@@ -126,16 +124,6 @@ public class OntoUMLArchiveAdapterFactory extends AdapterFactoryImpl
       public Adapter caseBinaryAssociation(BinaryAssociation object)
       {
         return createBinaryAssociationAdapter();
-      }
-      @Override
-      public Adapter caseRegularAssociation(RegularAssociation object)
-      {
-        return createRegularAssociationAdapter();
-      }
-      @Override
-      public Adapter caseParthoodAssociation(ParthoodAssociation object)
-      {
-        return createParthoodAssociationAdapter();
       }
       @Override
       public Adapter caseNaryAssociation(NaryAssociation object)
@@ -305,36 +293,6 @@ public class OntoUMLArchiveAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBinaryAssociationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation <em>Regular Association</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation
-   * @generated
-   */
-  public Adapter createRegularAssociationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation <em>Parthood Association</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation
-   * @generated
-   */
-  public Adapter createParthoodAssociationAdapter()
   {
     return null;
   }

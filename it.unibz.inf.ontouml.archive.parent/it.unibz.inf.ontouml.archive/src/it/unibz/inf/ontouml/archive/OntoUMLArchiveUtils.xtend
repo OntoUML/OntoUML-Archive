@@ -45,17 +45,12 @@ class OntoUMLArchiveUtils {
 		ret
 	}
 	
-	static def Set<String> getExpectedRegularAssociationStereotypes() {
+	static def Set<String> getExpectedBinaryAssociationStereotypes() {
 		val ret = new HashSet<String>()
-		ret.add(STEREOTYPE_FORMAL) ret.add(STEREOTYPE_MATERIAL)
-		ret.add(STEREOTYPE_MEDIATION) ret.add(STEREOTYPE_CHARACTERIZATION)
-		ret
-	}
-	
-	static def Set<String> getExpectedParthoodAssociationStereotypes() {
-		val ret = new HashSet<String>()
-		ret.add(STEREOTYPE_MEMBER_OF) ret.add(STEREOTYPE_SUB_COLLECTION_OF)
-		ret.add(STEREOTYPE_COMPONENT_OF) ret.add(STEREOTYPE_SUB_QUANTITY_OF)
+		ret.add(STEREOTYPE_FORMAL) ret.add(STEREOTYPE_MATERIAL)				// regular
+		ret.add(STEREOTYPE_MEDIATION) ret.add(STEREOTYPE_CHARACTERIZATION)	// regular
+		ret.add(STEREOTYPE_MEMBER_OF) ret.add(STEREOTYPE_SUB_COLLECTION_OF)	// part-whole
+		ret.add(STEREOTYPE_COMPONENT_OF) ret.add(STEREOTYPE_SUB_QUANTITY_OF)	// part-whole
 		ret
 	}
 	

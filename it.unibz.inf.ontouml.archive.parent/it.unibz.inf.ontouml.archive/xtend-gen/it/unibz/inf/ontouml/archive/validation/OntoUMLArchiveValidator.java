@@ -6,11 +6,10 @@ package it.unibz.inf.ontouml.archive.validation;
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import it.unibz.inf.ontouml.archive.OntoUMLArchiveUtils;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation;
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation;
 import it.unibz.inf.ontouml.archive.validation.AbstractOntoUMLArchiveValidator;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -80,26 +79,10 @@ public class OntoUMLArchiveValidator extends AbstractOntoUMLArchiveValidator {
   }
   
   @Check
-  public void checkUnexpectedRegularAssociationStereotypes(final RegularAssociation a) {
+  public void checkUnexpectedBinaryAssociationStereotypes(final BinaryAssociation a) {
     EList<String> _stereotypes = a.getStereotypes();
     for (final String str : _stereotypes) {
-      boolean _contains = OntoUMLArchiveUtils.getExpectedRegularAssociationStereotypes().contains(str);
-      boolean _not = (!_contains);
-      if (_not) {
-        StringConcatenation _builder = new StringConcatenation();
-        _builder.append("Unexpected class stereotype");
-        this.warning(_builder.toString(), a, 
-          OntoUMLArchivePackage.eINSTANCE.getAssociation_Stereotypes(), 
-          a.getStereotypes().indexOf(str), OntoUMLArchiveValidator.UNEXPECTED_STEREOTYPE);
-      }
-    }
-  }
-  
-  @Check
-  public void checkUnexpectedParthoodAssociationStereotypes(final ParthoodAssociation a) {
-    EList<String> _stereotypes = a.getStereotypes();
-    for (final String str : _stereotypes) {
-      boolean _contains = OntoUMLArchiveUtils.getExpectedParthoodAssociationStereotypes().contains(str);
+      boolean _contains = OntoUMLArchiveUtils.getExpectedBinaryAssociationStereotypes().contains(str);
       boolean _not = (!_contains);
       if (_not) {
         StringConcatenation _builder = new StringConcatenation();

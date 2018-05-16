@@ -3,6 +3,7 @@
  */
 package it.unibz.inf.ontouml.archive.ontoUMLArchive.impl;
 
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationEndImpl#getAggregationKind <em>Aggregation Kind</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationEndImpl#getName <em>Name</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationEndImpl#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationEndImpl#getEndType <em>End Type</em>}</li>
@@ -40,6 +42,26 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  */
 public class AssociationEndImpl extends MinimalEObjectImpl.Container implements AssociationEnd
 {
+  /**
+   * The default value of the '{@link #getAggregationKind() <em>Aggregation Kind</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAggregationKind()
+   * @generated
+   * @ordered
+   */
+  protected static final AggregationKind AGGREGATION_KIND_EDEFAULT = AggregationKind.NONE;
+
+  /**
+   * The cached value of the '{@link #getAggregationKind() <em>Aggregation Kind</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAggregationKind()
+   * @generated
+   * @ordered
+   */
+  protected AggregationKind aggregationKind = AGGREGATION_KIND_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -109,6 +131,29 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
   protected EClass eStaticClass()
   {
     return OntoUMLArchivePackage.Literals.ASSOCIATION_END;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AggregationKind getAggregationKind()
+  {
+    return aggregationKind;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAggregationKind(AggregationKind newAggregationKind)
+  {
+    AggregationKind oldAggregationKind = aggregationKind;
+    aggregationKind = newAggregationKind == null ? AGGREGATION_KIND_EDEFAULT : newAggregationKind;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.ASSOCIATION_END__AGGREGATION_KIND, oldAggregationKind, aggregationKind));
   }
 
   /**
@@ -265,6 +310,8 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case OntoUMLArchivePackage.ASSOCIATION_END__AGGREGATION_KIND:
+        return getAggregationKind();
       case OntoUMLArchivePackage.ASSOCIATION_END__NAME:
         return getName();
       case OntoUMLArchivePackage.ASSOCIATION_END__MULTIPLICITY:
@@ -289,6 +336,9 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case OntoUMLArchivePackage.ASSOCIATION_END__AGGREGATION_KIND:
+        setAggregationKind((AggregationKind)newValue);
+        return;
       case OntoUMLArchivePackage.ASSOCIATION_END__NAME:
         setName((String)newValue);
         return;
@@ -316,6 +366,9 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case OntoUMLArchivePackage.ASSOCIATION_END__AGGREGATION_KIND:
+        setAggregationKind(AGGREGATION_KIND_EDEFAULT);
+        return;
       case OntoUMLArchivePackage.ASSOCIATION_END__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -342,6 +395,8 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case OntoUMLArchivePackage.ASSOCIATION_END__AGGREGATION_KIND:
+        return aggregationKind != AGGREGATION_KIND_EDEFAULT;
       case OntoUMLArchivePackage.ASSOCIATION_END__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case OntoUMLArchivePackage.ASSOCIATION_END__MULTIPLICITY:
@@ -365,7 +420,9 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (aggregationKind: ");
+    result.append(aggregationKind);
+    result.append(", name: ");
     result.append(name);
     result.append(", constraints: ");
     result.append(constraints);

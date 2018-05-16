@@ -11,8 +11,7 @@ import org.eclipse.xtext.validation.CheckType
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Class
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.RegularAssociation
-import it.unibz.inf.ontouml.archive.ontoUMLArchive.ParthoodAssociation
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation
 
 /**
  * This class contains custom validation rules. 
@@ -54,19 +53,9 @@ class OntoUMLArchiveValidator extends AbstractOntoUMLArchiveValidator {
 	}
 	
 	@Check
-	def checkUnexpectedRegularAssociationStereotypes(RegularAssociation a) {
+	def checkUnexpectedBinaryAssociationStereotypes(BinaryAssociation a) {
 		for (str : a.stereotypes) {
-			if(!OntoUMLArchiveUtils.expectedRegularAssociationStereotypes.contains(str))
-				warning('''Unexpected class stereotype''', a,
-						OntoUMLArchivePackage.eINSTANCE.association_Stereotypes, 
-						a.stereotypes.indexOf(str), UNEXPECTED_STEREOTYPE)
-		}
-	}
-	
-	@Check
-	def checkUnexpectedParthoodAssociationStereotypes(ParthoodAssociation a) {
-		for (str : a.stereotypes) {
-			if(!OntoUMLArchiveUtils.expectedParthoodAssociationStereotypes.contains(str))
+			if(!OntoUMLArchiveUtils.expectedBinaryAssociationStereotypes.contains(str))
 				warning('''Unexpected class stereotype''', a,
 						OntoUMLArchivePackage.eINSTANCE.association_Stereotypes, 
 						a.stereotypes.indexOf(str), UNEXPECTED_STEREOTYPE)
