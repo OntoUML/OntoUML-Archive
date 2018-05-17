@@ -520,13 +520,22 @@ public interface OntoUMLArchivePackage extends EPackage
   int ASSOCIATION_END__AGGREGATION_KIND = 0;
 
   /**
+   * The feature id for the '<em><b>Navigability</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSOCIATION_END__NAVIGABILITY = 1;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSOCIATION_END__NAME = 1;
+  int ASSOCIATION_END__NAME = 2;
 
   /**
    * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -535,7 +544,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_END__MULTIPLICITY = 2;
+  int ASSOCIATION_END__MULTIPLICITY = 3;
 
   /**
    * The feature id for the '<em><b>End Type</b></em>' reference.
@@ -544,7 +553,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_END__END_TYPE = 3;
+  int ASSOCIATION_END__END_TYPE = 4;
 
   /**
    * The feature id for the '<em><b>Constraints</b></em>' attribute list.
@@ -553,7 +562,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_END__CONSTRAINTS = 4;
+  int ASSOCIATION_END__CONSTRAINTS = 5;
 
   /**
    * The number of structural features of the '<em>Association End</em>' class.
@@ -562,7 +571,7 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSOCIATION_END_FEATURE_COUNT = 5;
+  int ASSOCIATION_END_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.MultiplicityImpl <em>Multiplicity</em>}' class.
@@ -914,6 +923,16 @@ public interface OntoUMLArchivePackage extends EPackage
    */
   int AGGREGATION_KIND = 18;
 
+  /**
+   * The meta object id for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Navigability <em>Navigability</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Navigability
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getNavigability()
+   * @generated
+   */
+  int NAVIGABILITY = 19;
+
 
   /**
    * Returns the meta object for class '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Model <em>Model</em>}'.
@@ -1222,6 +1241,17 @@ public interface OntoUMLArchivePackage extends EPackage
    * @generated
    */
   EAttribute getAssociationEnd_AggregationKind();
+
+  /**
+   * Returns the meta object for the attribute '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getNavigability <em>Navigability</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Navigability</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getNavigability()
+   * @see #getAssociationEnd()
+   * @generated
+   */
+  EAttribute getAssociationEnd_Navigability();
 
   /**
    * Returns the meta object for the attribute '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getName <em>Name</em>}'.
@@ -1557,6 +1587,16 @@ public interface OntoUMLArchivePackage extends EPackage
   EEnum getAggregationKind();
 
   /**
+   * Returns the meta object for enum '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Navigability <em>Navigability</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Navigability</em>'.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Navigability
+   * @generated
+   */
+  EEnum getNavigability();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1834,6 +1874,14 @@ public interface OntoUMLArchivePackage extends EPackage
     EAttribute ASSOCIATION_END__AGGREGATION_KIND = eINSTANCE.getAssociationEnd_AggregationKind();
 
     /**
+     * The meta object literal for the '<em><b>Navigability</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSOCIATION_END__NAVIGABILITY = eINSTANCE.getAssociationEnd_Navigability();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2096,6 +2144,16 @@ public interface OntoUMLArchivePackage extends EPackage
      * @generated
      */
     EEnum AGGREGATION_KIND = eINSTANCE.getAggregationKind();
+
+    /**
+     * The meta object literal for the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Navigability <em>Navigability</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Navigability
+     * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.OntoUMLArchivePackageImpl#getNavigability()
+     * @generated
+     */
+    EEnum NAVIGABILITY = eINSTANCE.getNavigability();
 
   }
 

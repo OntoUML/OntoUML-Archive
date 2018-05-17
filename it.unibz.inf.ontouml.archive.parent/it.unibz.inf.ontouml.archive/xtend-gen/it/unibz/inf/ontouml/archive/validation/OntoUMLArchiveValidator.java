@@ -36,6 +36,8 @@ public class OntoUMLArchiveValidator extends AbstractOntoUMLArchiveValidator {
   
   public final static String UNEXPECTED_STEREOTYPE = "it.unibz.inf.ontouml.archive.validation.UNEXPECTED_STEREOTYPE";
   
+  public final static String DUPLICATED_GENERALIZATION = "it.unibz.inf.ontouml.archive.validation.DUPLICATED_GENERALIZATION";
+  
   @Check(CheckType.NORMAL)
   public void checkNameDuplicatedName(final ModelElement e) {
     if (((!e.getName().isEmpty()) && IterableExtensions.<ModelElement>exists(this._ontoUMLArchiveUtils.getModelElements(this._ontoUMLArchiveUtils.getContainerModel(e)), ((Function1<ModelElement, Boolean>) (ModelElement it) -> {
@@ -91,6 +93,27 @@ public class OntoUMLArchiveValidator extends AbstractOntoUMLArchiveValidator {
           OntoUMLArchivePackage.eINSTANCE.getAssociation_Stereotypes(), 
           a.getStereotypes().indexOf(str), OntoUMLArchiveValidator.UNEXPECTED_STEREOTYPE);
       }
+    }
+  }
+  
+  @Check(CheckType.NORMAL)
+  public void checkDuplicatedGeneralizations(final Generalization g) {
+    final Function1<ModelElement, Boolean> _function = (ModelElement it) -> {
+      boolean _xifexpression = false;
+      if (((it != g) && (it instanceof Generalization))) {
+        _xifexpression = (Objects.equal(((Generalization) it).getSuper(), g.getSuper()) && Objects.equal(((Generalization) it).getSub(), g.getSub()));
+      } else {
+        _xifexpression = false;
+      }
+      return Boolean.valueOf(_xifexpression);
+    };
+    final ModelElement g2 = IterableExtensions.<ModelElement>findFirst(this._ontoUMLArchiveUtils.getModelElements(this._ontoUMLArchiveUtils.getContainerModel(g)), _function);
+    if ((g2 != null)) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Duplicated generalization.");
+      this.warning(_builder.toString(), g, 
+        OntoUMLArchivePackage.eINSTANCE.getModelElement_Name(), 
+        OntoUMLArchiveValidator.DUPLICATED_GENERALIZATION);
     }
   }
 }

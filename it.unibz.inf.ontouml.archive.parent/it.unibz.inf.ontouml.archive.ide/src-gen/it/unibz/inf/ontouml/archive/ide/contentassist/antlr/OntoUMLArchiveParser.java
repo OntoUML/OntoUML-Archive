@@ -39,6 +39,8 @@ public class OntoUMLArchiveParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStringOrIDAccess().getAlternatives(), "rule__StringOrID__Alternatives");
 					put(grammarAccess.getAggregationKindAccess().getAlternatives(), "rule__AggregationKind__Alternatives");
 					put(grammarAccess.getAggregationKindDeclarationAccess().getAlternatives(), "rule__AggregationKindDeclaration__Alternatives");
+					put(grammarAccess.getNavigabilityAccess().getAlternatives(), "rule__Navigability__Alternatives");
+					put(grammarAccess.getNavigabilityDeclarationAccess().getAlternatives(), "rule__NavigabilityDeclaration__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getModelAccess().getGroup_0(), "rule__Model__Group_0__0");
 					put(grammarAccess.getModelAccess().getGroup_1(), "rule__Model__Group_1__0");
@@ -46,6 +48,7 @@ public class OntoUMLArchiveParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelElementAccess().getGroup(), "rule__ModelElement__Group__0");
 					put(grammarAccess.getClassAccess().getGroup(), "rule__Class__Group__0");
 					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
+					put(grammarAccess.getAttributeAccess().getGroup_2(), "rule__Attribute__Group_2__0");
 					put(grammarAccess.getDirectedAssociationAccess().getGroup(), "rule__DirectedAssociation__Group__0");
 					put(grammarAccess.getUndirectedAssociationAccess().getGroup(), "rule__UndirectedAssociation__Group__0");
 					put(grammarAccess.getNaryAssociationAccess().getGroup(), "rule__NaryAssociation__Group__0");
@@ -75,8 +78,8 @@ public class OntoUMLArchiveParser extends AbstractContentAssistParser {
 					put(grammarAccess.getClassAccess().getStereotypesAssignment_3(), "rule__Class__StereotypesAssignment_3");
 					put(grammarAccess.getClassAccess().getAttributesAssignment_4(), "rule__Class__AttributesAssignment_4");
 					put(grammarAccess.getAttributeAccess().getNameAssignment_1(), "rule__Attribute__NameAssignment_1");
-					put(grammarAccess.getAttributeAccess().getMultiplicityAssignment_2(), "rule__Attribute__MultiplicityAssignment_2");
-					put(grammarAccess.getAttributeAccess().getAttTypeAssignment_4(), "rule__Attribute__AttTypeAssignment_4");
+					put(grammarAccess.getAttributeAccess().getMultiplicityAssignment_2_0(), "rule__Attribute__MultiplicityAssignment_2_0");
+					put(grammarAccess.getAttributeAccess().getAttTypeAssignment_2_2(), "rule__Attribute__AttTypeAssignment_2_2");
 					put(grammarAccess.getDirectedAssociationAccess().getNameAssignment_1(), "rule__DirectedAssociation__NameAssignment_1");
 					put(grammarAccess.getDirectedAssociationAccess().getStereotypesAssignment_2(), "rule__DirectedAssociation__StereotypesAssignment_2");
 					put(grammarAccess.getDirectedAssociationAccess().getFromAssignment_4(), "rule__DirectedAssociation__FromAssignment_4");
@@ -90,7 +93,8 @@ public class OntoUMLArchiveParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNaryAssociationAccess().getEndsAssignment_3_1(), "rule__NaryAssociation__EndsAssignment_3_1");
 					put(grammarAccess.getNaryAssociationAccess().getEndsAssignment_4_1(), "rule__NaryAssociation__EndsAssignment_4_1");
 					put(grammarAccess.getNaryAssociationAccess().getEndsAssignment_5_1(), "rule__NaryAssociation__EndsAssignment_5_1");
-					put(grammarAccess.getAssociationEndAccess().getAggregationKindAssignment_0(), "rule__AssociationEnd__AggregationKindAssignment_0");
+					put(grammarAccess.getAssociationEndAccess().getAggregationKindAssignment_0_0(), "rule__AssociationEnd__AggregationKindAssignment_0_0");
+					put(grammarAccess.getAssociationEndAccess().getNavigabilityAssignment_0_1(), "rule__AssociationEnd__NavigabilityAssignment_0_1");
 					put(grammarAccess.getAssociationEndAccess().getNameAssignment_1(), "rule__AssociationEnd__NameAssignment_1");
 					put(grammarAccess.getAssociationEndAccess().getMultiplicityAssignment_2(), "rule__AssociationEnd__MultiplicityAssignment_2");
 					put(grammarAccess.getAssociationEndAccess().getEndTypeAssignment_4(), "rule__AssociationEnd__EndTypeAssignment_4");
@@ -121,6 +125,7 @@ public class OntoUMLArchiveParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGeneralizationSetAccess().getIsCompleteAssignment_1_1(), "rule__GeneralizationSet__IsCompleteAssignment_1_1");
 					put(grammarAccess.getGeneralizationSetAccess().getNameAssignment_2(), "rule__GeneralizationSet__NameAssignment_2");
 					put(grammarAccess.getGeneralizationSetAccess().getGeneralizationsAssignment_3(), "rule__GeneralizationSet__GeneralizationsAssignment_3");
+					put(grammarAccess.getAssociationEndAccess().getUnorderedGroup_0(), "rule__AssociationEnd__UnorderedGroup_0");
 					put(grammarAccess.getGeneralizationSetAccess().getUnorderedGroup_1(), "rule__GeneralizationSet__UnorderedGroup_1");
 				}
 			};

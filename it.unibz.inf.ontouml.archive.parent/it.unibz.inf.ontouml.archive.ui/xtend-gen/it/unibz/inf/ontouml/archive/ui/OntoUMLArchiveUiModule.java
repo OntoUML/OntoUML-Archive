@@ -13,7 +13,7 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class OntoUMLArchiveUiModule extends AbstractOntoUMLArchiveUiModule {
-  public OntoUMLArchiveUiModule(final AbstractUIPlugin arg0) {
-    super(arg0);
+  public OntoUMLArchiveUiModule(final AbstractUIPlugin plugin) {
+    super(plugin);
   }
 }

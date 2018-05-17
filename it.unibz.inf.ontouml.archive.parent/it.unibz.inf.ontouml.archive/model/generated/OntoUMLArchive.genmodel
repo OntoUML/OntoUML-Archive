@@ -11,6 +11,11 @@
       <genEnumLiterals ecoreEnumLiteral="OntoUMLArchive.ecore#//AggregationKind/shared"/>
       <genEnumLiterals ecoreEnumLiteral="OntoUMLArchive.ecore#//AggregationKind/composite"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="OntoUMLArchive.ecore#//Navigability">
+      <genEnumLiterals ecoreEnumLiteral="OntoUMLArchive.ecore#//Navigability/unspecified"/>
+      <genEnumLiterals ecoreEnumLiteral="OntoUMLArchive.ecore#//Navigability/navigable"/>
+      <genEnumLiterals ecoreEnumLiteral="OntoUMLArchive.ecore#//Navigability/nonnavigable"/>
+    </genEnums>
     <genClasses ecoreClass="OntoUMLArchive.ecore#//Model">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OntoUMLArchive.ecore#//Model/publicationTitle"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OntoUMLArchive.ecore#//Model/authors"/>
@@ -48,6 +53,7 @@
     </genClasses>
     <genClasses ecoreClass="OntoUMLArchive.ecore#//AssociationEnd">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OntoUMLArchive.ecore#//AssociationEnd/aggregationKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OntoUMLArchive.ecore#//AssociationEnd/navigability"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OntoUMLArchive.ecore#//AssociationEnd/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OntoUMLArchive.ecore#//AssociationEnd/multiplicity"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OntoUMLArchive.ecore#//AssociationEnd/endType"/>

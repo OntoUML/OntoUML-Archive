@@ -12,31 +12,15 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalOntoUMLArchiveLexer extends Lexer {
-    public static final int RULE_STEREOTYPE_STRING=7;
-    public static final int RULE_STRING=5;
-    public static final int RULE_SL_COMMENT=9;
     public static final int T__19=19;
     public static final int T__15=15;
-    public static final int T__37=37;
     public static final int T__16=16;
-    public static final int T__38=38;
     public static final int T__17=17;
-    public static final int T__39=39;
     public static final int T__18=18;
-    public static final int T__33=33;
     public static final int T__12=12;
-    public static final int T__34=34;
     public static final int T__13=13;
-    public static final int T__35=35;
     public static final int T__14=14;
-    public static final int T__36=36;
-    public static final int EOF=-1;
-    public static final int T__30=30;
-    public static final int T__31=31;
-    public static final int T__32=32;
     public static final int RULE_ID=6;
-    public static final int RULE_WS=10;
-    public static final int RULE_ANY_OTHER=11;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
@@ -47,10 +31,28 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
-    public static final int T__40=40;
-    public static final int T__41=41;
     public static final int T__20=20;
     public static final int T__21=21;
+    public static final int RULE_STEREOTYPE_STRING=7;
+    public static final int RULE_STRING=5;
+    public static final int RULE_SL_COMMENT=9;
+    public static final int T__37=37;
+    public static final int T__38=38;
+    public static final int T__39=39;
+    public static final int T__33=33;
+    public static final int T__34=34;
+    public static final int T__35=35;
+    public static final int T__36=36;
+    public static final int EOF=-1;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
+    public static final int RULE_WS=10;
+    public static final int RULE_ANY_OTHER=11;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__42=42;
+    public static final int T__43=43;
 
     // delegates
     // delegators
@@ -132,10 +134,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:14:7: ( 'publication' )
-            // InternalOntoUMLArchive.g:14:9: 'publication'
+            // InternalOntoUMLArchive.g:14:7: ( 'navigable' )
+            // InternalOntoUMLArchive.g:14:9: 'navigable'
             {
-            match("publication"); 
+            match("navigable"); 
 
 
             }
@@ -153,10 +155,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:15:7: ( 'authors' )
-            // InternalOntoUMLArchive.g:15:9: 'authors'
+            // InternalOntoUMLArchive.g:15:7: ( 'nonnavigable' )
+            // InternalOntoUMLArchive.g:15:9: 'nonnavigable'
             {
-            match("authors"); 
+            match("nonnavigable"); 
 
 
             }
@@ -174,10 +176,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:16:7: ( 'ontology' )
-            // InternalOntoUMLArchive.g:16:9: 'ontology'
+            // InternalOntoUMLArchive.g:16:7: ( 'publication' )
+            // InternalOntoUMLArchive.g:16:9: 'publication'
             {
-            match("ontology"); 
+            match("publication"); 
 
 
             }
@@ -195,10 +197,11 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:17:7: ( ';' )
-            // InternalOntoUMLArchive.g:17:9: ';'
+            // InternalOntoUMLArchive.g:17:7: ( 'authors' )
+            // InternalOntoUMLArchive.g:17:9: 'authors'
             {
-            match(';'); 
+            match("authors"); 
+
 
             }
 
@@ -215,10 +218,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:18:7: ( 'class' )
-            // InternalOntoUMLArchive.g:18:9: 'class'
+            // InternalOntoUMLArchive.g:18:7: ( 'ontology' )
+            // InternalOntoUMLArchive.g:18:9: 'ontology'
             {
-            match("class"); 
+            match("ontology"); 
 
 
             }
@@ -236,11 +239,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:19:7: ( 'att' )
-            // InternalOntoUMLArchive.g:19:9: 'att'
+            // InternalOntoUMLArchive.g:19:7: ( ';' )
+            // InternalOntoUMLArchive.g:19:9: ';'
             {
-            match("att"); 
-
+            match(';'); 
 
             }
 
@@ -257,10 +259,11 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:20:7: ( ':' )
-            // InternalOntoUMLArchive.g:20:9: ':'
+            // InternalOntoUMLArchive.g:20:7: ( 'class' )
+            // InternalOntoUMLArchive.g:20:9: 'class'
             {
-            match(':'); 
+            match("class"); 
+
 
             }
 
@@ -277,10 +280,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:21:7: ( 'association' )
-            // InternalOntoUMLArchive.g:21:9: 'association'
+            // InternalOntoUMLArchive.g:21:7: ( 'att' )
+            // InternalOntoUMLArchive.g:21:9: 'att'
             {
-            match("association"); 
+            match("att"); 
 
 
             }
@@ -298,11 +301,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:22:7: ( 'from' )
-            // InternalOntoUMLArchive.g:22:9: 'from'
+            // InternalOntoUMLArchive.g:22:7: ( ':' )
+            // InternalOntoUMLArchive.g:22:9: ':'
             {
-            match("from"); 
-
+            match(':'); 
 
             }
 
@@ -319,10 +321,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:23:7: ( 'to' )
-            // InternalOntoUMLArchive.g:23:9: 'to'
+            // InternalOntoUMLArchive.g:23:7: ( 'association' )
+            // InternalOntoUMLArchive.g:23:9: 'association'
             {
-            match("to"); 
+            match("association"); 
 
 
             }
@@ -340,10 +342,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:24:7: ( 'end' )
-            // InternalOntoUMLArchive.g:24:9: 'end'
+            // InternalOntoUMLArchive.g:24:7: ( 'from' )
+            // InternalOntoUMLArchive.g:24:9: 'from'
             {
-            match("end"); 
+            match("from"); 
 
 
             }
@@ -361,10 +363,11 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:25:7: ( '{' )
-            // InternalOntoUMLArchive.g:25:9: '{'
+            // InternalOntoUMLArchive.g:25:7: ( 'to' )
+            // InternalOntoUMLArchive.g:25:9: 'to'
             {
-            match('{'); 
+            match("to"); 
+
 
             }
 
@@ -381,10 +384,11 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:26:7: ( '}' )
-            // InternalOntoUMLArchive.g:26:9: '}'
+            // InternalOntoUMLArchive.g:26:7: ( 'end' )
+            // InternalOntoUMLArchive.g:26:9: 'end'
             {
-            match('}'); 
+            match("end"); 
+
 
             }
 
@@ -401,10 +405,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:27:7: ( ',' )
-            // InternalOntoUMLArchive.g:27:9: ','
+            // InternalOntoUMLArchive.g:27:7: ( '{' )
+            // InternalOntoUMLArchive.g:27:9: '{'
             {
-            match(','); 
+            match('{'); 
 
             }
 
@@ -421,10 +425,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:28:7: ( '[' )
-            // InternalOntoUMLArchive.g:28:9: '['
+            // InternalOntoUMLArchive.g:28:7: ( '}' )
+            // InternalOntoUMLArchive.g:28:9: '}'
             {
-            match('['); 
+            match('}'); 
 
             }
 
@@ -441,11 +445,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:29:7: ( '..' )
-            // InternalOntoUMLArchive.g:29:9: '..'
+            // InternalOntoUMLArchive.g:29:7: ( ',' )
+            // InternalOntoUMLArchive.g:29:9: ','
             {
-            match(".."); 
-
+            match(','); 
 
             }
 
@@ -462,10 +465,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:30:7: ( ']' )
-            // InternalOntoUMLArchive.g:30:9: ']'
+            // InternalOntoUMLArchive.g:30:7: ( '[' )
+            // InternalOntoUMLArchive.g:30:9: '['
             {
-            match(']'); 
+            match('['); 
 
             }
 
@@ -482,10 +485,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:31:7: ( 'gen' )
-            // InternalOntoUMLArchive.g:31:9: 'gen'
+            // InternalOntoUMLArchive.g:31:7: ( '..' )
+            // InternalOntoUMLArchive.g:31:9: '..'
             {
-            match("gen"); 
+            match(".."); 
 
 
             }
@@ -503,11 +506,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:32:7: ( 'super' )
-            // InternalOntoUMLArchive.g:32:9: 'super'
+            // InternalOntoUMLArchive.g:32:7: ( ']' )
+            // InternalOntoUMLArchive.g:32:9: ']'
             {
-            match("super"); 
-
+            match(']'); 
 
             }
 
@@ -524,10 +526,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:33:7: ( 'sub' )
-            // InternalOntoUMLArchive.g:33:9: 'sub'
+            // InternalOntoUMLArchive.g:33:7: ( 'gen' )
+            // InternalOntoUMLArchive.g:33:9: 'gen'
             {
-            match("sub"); 
+            match("gen"); 
 
 
             }
@@ -545,10 +547,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:34:7: ( 'dependency' )
-            // InternalOntoUMLArchive.g:34:9: 'dependency'
+            // InternalOntoUMLArchive.g:34:7: ( 'super' )
+            // InternalOntoUMLArchive.g:34:9: 'super'
             {
-            match("dependency"); 
+            match("super"); 
 
 
             }
@@ -566,10 +568,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:35:7: ( 'derivation' )
-            // InternalOntoUMLArchive.g:35:9: 'derivation'
+            // InternalOntoUMLArchive.g:35:7: ( 'sub' )
+            // InternalOntoUMLArchive.g:35:9: 'sub'
             {
-            match("derivation"); 
+            match("sub"); 
 
 
             }
@@ -587,10 +589,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:36:7: ( 'relation' )
-            // InternalOntoUMLArchive.g:36:9: 'relation'
+            // InternalOntoUMLArchive.g:36:7: ( 'dependency' )
+            // InternalOntoUMLArchive.g:36:9: 'dependency'
             {
-            match("relation"); 
+            match("dependency"); 
 
 
             }
@@ -608,10 +610,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:37:7: ( 'genset' )
-            // InternalOntoUMLArchive.g:37:9: 'genset'
+            // InternalOntoUMLArchive.g:37:7: ( 'derivation' )
+            // InternalOntoUMLArchive.g:37:9: 'derivation'
             {
-            match("genset"); 
+            match("derivation"); 
 
 
             }
@@ -629,10 +631,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:38:7: ( 'abstract' )
-            // InternalOntoUMLArchive.g:38:9: 'abstract'
+            // InternalOntoUMLArchive.g:38:7: ( 'relation' )
+            // InternalOntoUMLArchive.g:38:9: 'relation'
             {
-            match("abstract"); 
+            match("relation"); 
 
 
             }
@@ -650,10 +652,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:39:7: ( 'disjoint' )
-            // InternalOntoUMLArchive.g:39:9: 'disjoint'
+            // InternalOntoUMLArchive.g:39:7: ( 'genset' )
+            // InternalOntoUMLArchive.g:39:9: 'genset'
             {
-            match("disjoint"); 
+            match("genset"); 
 
 
             }
@@ -671,10 +673,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:40:7: ( 'complete' )
-            // InternalOntoUMLArchive.g:40:9: 'complete'
+            // InternalOntoUMLArchive.g:40:7: ( 'abstract' )
+            // InternalOntoUMLArchive.g:40:9: 'abstract'
             {
-            match("complete"); 
+            match("abstract"); 
 
 
             }
@@ -687,13 +689,55 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
     }
     // $ANTLR end "T__41"
 
+    // $ANTLR start "T__42"
+    public final void mT__42() throws RecognitionException {
+        try {
+            int _type = T__42;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalOntoUMLArchive.g:41:7: ( 'disjoint' )
+            // InternalOntoUMLArchive.g:41:9: 'disjoint'
+            {
+            match("disjoint"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__42"
+
+    // $ANTLR start "T__43"
+    public final void mT__43() throws RecognitionException {
+        try {
+            int _type = T__43;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalOntoUMLArchive.g:42:7: ( 'complete' )
+            // InternalOntoUMLArchive.g:42:9: 'complete'
+            {
+            match("complete"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__43"
+
     // $ANTLR start "RULE_STEREOTYPE_STRING"
     public final void mRULE_STEREOTYPE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STEREOTYPE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:4588:24: ( '<<' ( 'a' .. 'z' | 'A' .. 'Z' | ' ' ) ( 'a' .. 'z' | 'A' .. 'Z' | ' ' )* '>>' )
-            // InternalOntoUMLArchive.g:4588:26: '<<' ( 'a' .. 'z' | 'A' .. 'Z' | ' ' ) ( 'a' .. 'z' | 'A' .. 'Z' | ' ' )* '>>'
+            // InternalOntoUMLArchive.g:4750:24: ( '<<' ( 'a' .. 'z' | 'A' .. 'Z' | ' ' ) ( 'a' .. 'z' | 'A' .. 'Z' | ' ' )* '>>' )
+            // InternalOntoUMLArchive.g:4750:26: '<<' ( 'a' .. 'z' | 'A' .. 'Z' | ' ' ) ( 'a' .. 'z' | 'A' .. 'Z' | ' ' )* '>>'
             {
             match("<<"); 
 
@@ -706,7 +750,7 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalOntoUMLArchive.g:4588:55: ( 'a' .. 'z' | 'A' .. 'Z' | ' ' )*
+            // InternalOntoUMLArchive.g:4750:55: ( 'a' .. 'z' | 'A' .. 'Z' | ' ' )*
             loop1:
             do {
                 int alt1=2;
@@ -757,10 +801,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:4590:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalOntoUMLArchive.g:4590:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalOntoUMLArchive.g:4752:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalOntoUMLArchive.g:4752:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalOntoUMLArchive.g:4590:11: ( '^' )?
+            // InternalOntoUMLArchive.g:4752:11: ( '^' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -769,7 +813,7 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalOntoUMLArchive.g:4590:11: '^'
+                    // InternalOntoUMLArchive.g:4752:11: '^'
                     {
                     match('^'); 
 
@@ -787,7 +831,7 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalOntoUMLArchive.g:4590:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalOntoUMLArchive.g:4752:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop3:
             do {
                 int alt3=2;
@@ -836,10 +880,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:4592:10: ( ( '0' .. '9' )+ )
-            // InternalOntoUMLArchive.g:4592:12: ( '0' .. '9' )+
+            // InternalOntoUMLArchive.g:4754:10: ( ( '0' .. '9' )+ )
+            // InternalOntoUMLArchive.g:4754:12: ( '0' .. '9' )+
             {
-            // InternalOntoUMLArchive.g:4592:12: ( '0' .. '9' )+
+            // InternalOntoUMLArchive.g:4754:12: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -853,7 +897,7 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalOntoUMLArchive.g:4592:13: '0' .. '9'
+            	    // InternalOntoUMLArchive.g:4754:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -885,10 +929,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:4594:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalOntoUMLArchive.g:4594:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalOntoUMLArchive.g:4756:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalOntoUMLArchive.g:4756:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalOntoUMLArchive.g:4594:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalOntoUMLArchive.g:4756:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -906,10 +950,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalOntoUMLArchive.g:4594:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalOntoUMLArchive.g:4756:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalOntoUMLArchive.g:4594:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalOntoUMLArchive.g:4756:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -925,7 +969,7 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalOntoUMLArchive.g:4594:21: '\\\\' .
+                    	    // InternalOntoUMLArchive.g:4756:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -933,7 +977,7 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalOntoUMLArchive.g:4594:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalOntoUMLArchive.g:4756:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -958,10 +1002,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalOntoUMLArchive.g:4594:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalOntoUMLArchive.g:4756:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalOntoUMLArchive.g:4594:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalOntoUMLArchive.g:4756:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -977,7 +1021,7 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // InternalOntoUMLArchive.g:4594:54: '\\\\' .
+                    	    // InternalOntoUMLArchive.g:4756:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -985,7 +1029,7 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalOntoUMLArchive.g:4594:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalOntoUMLArchive.g:4756:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1028,12 +1072,12 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:4596:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalOntoUMLArchive.g:4596:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalOntoUMLArchive.g:4758:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalOntoUMLArchive.g:4758:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalOntoUMLArchive.g:4596:24: ( options {greedy=false; } : . )*
+            // InternalOntoUMLArchive.g:4758:24: ( options {greedy=false; } : . )*
             loop8:
             do {
                 int alt8=2;
@@ -1058,7 +1102,7 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalOntoUMLArchive.g:4596:52: .
+            	    // InternalOntoUMLArchive.g:4758:52: .
             	    {
             	    matchAny(); 
 
@@ -1088,12 +1132,12 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:4598:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalOntoUMLArchive.g:4598:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalOntoUMLArchive.g:4760:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalOntoUMLArchive.g:4760:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalOntoUMLArchive.g:4598:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalOntoUMLArchive.g:4760:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop9:
             do {
                 int alt9=2;
@@ -1106,7 +1150,7 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalOntoUMLArchive.g:4598:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalOntoUMLArchive.g:4760:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1126,7 +1170,7 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalOntoUMLArchive.g:4598:40: ( ( '\\r' )? '\\n' )?
+            // InternalOntoUMLArchive.g:4760:40: ( ( '\\r' )? '\\n' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1135,9 +1179,9 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // InternalOntoUMLArchive.g:4598:41: ( '\\r' )? '\\n'
+                    // InternalOntoUMLArchive.g:4760:41: ( '\\r' )? '\\n'
                     {
-                    // InternalOntoUMLArchive.g:4598:41: ( '\\r' )?
+                    // InternalOntoUMLArchive.g:4760:41: ( '\\r' )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -1146,7 +1190,7 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
                     }
                     switch (alt10) {
                         case 1 :
-                            // InternalOntoUMLArchive.g:4598:41: '\\r'
+                            // InternalOntoUMLArchive.g:4760:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1178,10 +1222,10 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:4600:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalOntoUMLArchive.g:4600:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalOntoUMLArchive.g:4762:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalOntoUMLArchive.g:4762:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalOntoUMLArchive.g:4600:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalOntoUMLArchive.g:4762:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt12=0;
             loop12:
             do {
@@ -1235,8 +1279,8 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOntoUMLArchive.g:4602:16: ( . )
-            // InternalOntoUMLArchive.g:4602:18: .
+            // InternalOntoUMLArchive.g:4764:16: ( . )
+            // InternalOntoUMLArchive.g:4764:18: .
             {
             matchAny(); 
 
@@ -1251,8 +1295,8 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalOntoUMLArchive.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | RULE_STEREOTYPE_STRING | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt13=38;
+        // InternalOntoUMLArchive.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | RULE_STEREOTYPE_STRING | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt13=40;
         alt13 = dfa13.predict(input);
         switch (alt13) {
             case 1 :
@@ -1466,56 +1510,70 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
                 }
                 break;
             case 31 :
-                // InternalOntoUMLArchive.g:1:190: RULE_STEREOTYPE_STRING
+                // InternalOntoUMLArchive.g:1:190: T__42
+                {
+                mT__42(); 
+
+                }
+                break;
+            case 32 :
+                // InternalOntoUMLArchive.g:1:196: T__43
+                {
+                mT__43(); 
+
+                }
+                break;
+            case 33 :
+                // InternalOntoUMLArchive.g:1:202: RULE_STEREOTYPE_STRING
                 {
                 mRULE_STEREOTYPE_STRING(); 
 
                 }
                 break;
-            case 32 :
-                // InternalOntoUMLArchive.g:1:213: RULE_ID
+            case 34 :
+                // InternalOntoUMLArchive.g:1:225: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 33 :
-                // InternalOntoUMLArchive.g:1:221: RULE_INT
+            case 35 :
+                // InternalOntoUMLArchive.g:1:233: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 34 :
-                // InternalOntoUMLArchive.g:1:230: RULE_STRING
+            case 36 :
+                // InternalOntoUMLArchive.g:1:242: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 35 :
-                // InternalOntoUMLArchive.g:1:242: RULE_ML_COMMENT
+            case 37 :
+                // InternalOntoUMLArchive.g:1:254: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 36 :
-                // InternalOntoUMLArchive.g:1:258: RULE_SL_COMMENT
+            case 38 :
+                // InternalOntoUMLArchive.g:1:270: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 37 :
-                // InternalOntoUMLArchive.g:1:274: RULE_WS
+            case 39 :
+                // InternalOntoUMLArchive.g:1:286: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 38 :
-                // InternalOntoUMLArchive.g:1:282: RULE_ANY_OTHER
+            case 40 :
+                // InternalOntoUMLArchive.g:1:294: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1529,74 +1587,67 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
 
     protected DFA13 dfa13 = new DFA13(this);
     static final String DFA13_eotS =
-        "\2\uffff\5\41\2\uffff\3\41\4\uffff\1\35\1\uffff\3\41\2\35\2\uffff\3\35\3\uffff\2\41\1\uffff\10\41\2\uffff\1\41\1\113\1\41\6\uffff\4\41\6\uffff\2\41\1\124\4\41\1\131\4\41\1\uffff\1\136\1\140\6\41\1\uffff\4\41\1\uffff\3\41\1\157\1\uffff\1\41\1\uffff\5\41\1\166\2\41\1\171\5\41\1\uffff\5\41\1\u0084\1\uffff\2\41\1\uffff\5\41\1\u008c\4\41\1\uffff\3\41\1\u0094\3\41\1\uffff\5\41\1\u009d\1\41\1\uffff\1\41\1\u00a0\1\u00a1\2\41\1\u00a4\1\u00a5\1\u00a6\1\uffff\2\41\2\uffff\2\41\3\uffff\2\41\1\u00ad\1\u00ae\1\u00af\1\u00b0\4\uffff";
+        "\2\uffff\6\42\2\uffff\3\42\4\uffff\1\36\1\uffff\3\42\2\36\2\uffff\3\36\3\uffff\2\42\1\uffff\12\42\2\uffff\1\42\1\120\1\42\6\uffff\4\42\6\uffff\2\42\1\131\6\42\1\140\4\42\1\uffff\1\145\1\147\6\42\1\uffff\6\42\1\uffff\3\42\1\170\1\uffff\1\42\1\uffff\5\42\1\177\2\42\1\u0082\7\42\1\uffff\5\42\1\u008f\1\uffff\2\42\1\uffff\7\42\1\u0099\4\42\1\uffff\5\42\1\u00a3\3\42\1\uffff\5\42\1\u00ac\3\42\1\uffff\1\42\1\u00b1\1\u00b2\2\42\1\u00b5\1\u00b6\1\u00b7\1\uffff\1\u00b8\3\42\2\uffff\2\42\4\uffff\3\42\1\u00c1\1\u00c2\1\42\1\u00c4\1\u00c5\2\uffff\1\u00c6\3\uffff";
     static final String DFA13_eofS =
-        "\u00b1\uffff";
+        "\u00c7\uffff";
     static final String DFA13_minS =
-        "\1\0\1\uffff\1\150\1\154\1\165\1\142\1\156\2\uffff\1\162\1\157\1\156\4\uffff\1\56\1\uffff\3\145\1\74\1\101\2\uffff\2\0\1\52\3\uffff\1\141\1\142\1\uffff\1\155\1\141\1\142\2\164\2\163\1\164\2\uffff\1\157\1\60\1\144\6\uffff\1\156\1\160\1\163\1\154\6\uffff\1\162\1\145\1\60\1\160\1\163\1\154\1\150\1\60\1\157\1\164\1\157\1\155\1\uffff\2\60\1\145\1\151\1\152\1\141\1\145\1\162\1\uffff\1\154\1\163\1\151\1\157\1\uffff\1\143\1\162\1\154\1\60\1\uffff\1\145\1\uffff\1\156\1\166\1\157\1\164\1\144\1\60\1\163\1\145\1\60\1\143\1\162\1\151\1\141\1\157\1\uffff\1\164\1\144\1\141\2\151\1\60\1\uffff\1\151\1\164\1\uffff\1\141\1\163\1\141\1\143\1\147\1\60\1\145\1\164\1\156\1\157\1\uffff\1\164\1\145\1\164\1\60\2\164\1\171\1\uffff\1\156\1\151\1\164\1\156\1\145\1\60\1\151\1\uffff\1\151\2\60\1\143\1\157\3\60\1\uffff\2\157\2\uffff\1\171\1\156\3\uffff\2\156\4\60\4\uffff";
+        "\1\0\1\uffff\1\150\1\154\1\141\1\165\1\142\1\156\2\uffff\1\162\1\157\1\156\4\uffff\1\56\1\uffff\3\145\1\74\1\101\2\uffff\2\0\1\52\3\uffff\1\141\1\142\1\uffff\1\155\1\141\1\166\1\156\1\142\2\164\2\163\1\164\2\uffff\1\157\1\60\1\144\6\uffff\1\156\1\160\1\163\1\154\6\uffff\1\162\1\145\1\60\1\160\1\163\1\151\1\156\1\154\1\150\1\60\1\157\1\164\1\157\1\155\1\uffff\2\60\1\145\1\151\1\152\1\141\1\145\1\162\1\uffff\1\154\1\163\1\147\1\141\1\151\1\157\1\uffff\1\143\1\162\1\154\1\60\1\uffff\1\145\1\uffff\1\156\1\166\1\157\1\164\1\144\1\60\1\163\1\145\1\60\1\141\1\166\1\143\1\162\1\151\1\141\1\157\1\uffff\1\164\1\144\1\141\2\151\1\60\1\uffff\1\151\1\164\1\uffff\1\142\1\151\1\141\1\163\1\141\1\143\1\147\1\60\1\145\1\164\1\156\1\157\1\uffff\1\164\1\145\1\154\1\147\1\164\1\60\2\164\1\171\1\uffff\1\156\1\151\1\164\1\156\1\145\1\60\1\145\1\141\1\151\1\uffff\1\151\2\60\1\143\1\157\3\60\1\uffff\1\60\1\142\2\157\2\uffff\1\171\1\156\4\uffff\1\154\2\156\2\60\1\145\2\60\2\uffff\1\60\3\uffff";
     static final String DFA13_maxS =
-        "\1\uffff\1\uffff\1\165\1\157\2\165\1\156\2\uffff\1\162\1\157\1\156\4\uffff\1\56\1\uffff\1\145\1\151\1\145\1\74\1\172\2\uffff\2\uffff\1\57\3\uffff\1\141\1\160\1\uffff\1\155\1\141\1\142\2\164\2\163\1\164\2\uffff\1\157\1\172\1\144\6\uffff\1\156\1\162\1\163\1\154\6\uffff\1\162\1\145\1\172\1\160\1\163\1\154\1\150\1\172\1\157\1\164\1\157\1\155\1\uffff\2\172\1\145\1\151\1\152\1\141\1\145\1\162\1\uffff\1\157\1\163\1\151\1\157\1\uffff\1\143\1\162\1\154\1\172\1\uffff\1\145\1\uffff\1\156\1\166\1\157\1\164\1\144\1\172\1\163\1\145\1\172\1\143\1\162\1\151\1\141\1\157\1\uffff\1\164\1\144\1\141\2\151\1\172\1\uffff\1\151\1\164\1\uffff\1\141\1\163\1\141\1\143\1\147\1\172\1\145\1\164\1\156\1\157\1\uffff\1\164\1\145\1\164\1\172\2\164\1\171\1\uffff\1\156\1\151\1\164\1\156\1\145\1\172\1\151\1\uffff\1\151\2\172\1\143\1\157\3\172\1\uffff\2\157\2\uffff\1\171\1\156\3\uffff\2\156\4\172\4\uffff";
+        "\1\uffff\1\uffff\1\165\2\157\2\165\1\156\2\uffff\1\162\1\157\1\156\4\uffff\1\56\1\uffff\1\145\1\151\1\145\1\74\1\172\2\uffff\2\uffff\1\57\3\uffff\1\141\1\160\1\uffff\1\155\1\141\1\166\1\156\1\142\2\164\2\163\1\164\2\uffff\1\157\1\172\1\144\6\uffff\1\156\1\162\1\163\1\154\6\uffff\1\162\1\145\1\172\1\160\1\163\1\151\1\156\1\154\1\150\1\172\1\157\1\164\1\157\1\155\1\uffff\2\172\1\145\1\151\1\152\1\141\1\145\1\162\1\uffff\1\157\1\163\1\147\1\141\1\151\1\157\1\uffff\1\143\1\162\1\154\1\172\1\uffff\1\145\1\uffff\1\156\1\166\1\157\1\164\1\144\1\172\1\163\1\145\1\172\1\141\1\166\1\143\1\162\1\151\1\141\1\157\1\uffff\1\164\1\144\1\141\2\151\1\172\1\uffff\1\151\1\164\1\uffff\1\142\1\151\1\141\1\163\1\141\1\143\1\147\1\172\1\145\1\164\1\156\1\157\1\uffff\1\164\1\145\1\154\1\147\1\164\1\172\2\164\1\171\1\uffff\1\156\1\151\1\164\1\156\1\145\1\172\1\145\1\141\1\151\1\uffff\1\151\2\172\1\143\1\157\3\172\1\uffff\1\172\1\142\2\157\2\uffff\1\171\1\156\4\uffff\1\154\2\156\2\172\1\145\2\172\2\uffff\1\172\3\uffff";
     static final String DFA13_acceptS =
-        "\1\uffff\1\1\5\uffff\1\7\1\12\3\uffff\1\17\1\20\1\21\1\22\1\uffff\1\24\5\uffff\1\40\1\41\3\uffff\1\45\1\46\1\1\2\uffff\1\40\10\uffff\1\7\1\12\3\uffff\1\17\1\20\1\21\1\22\1\23\1\24\4\uffff\1\37\1\41\1\42\1\43\1\44\1\45\14\uffff\1\15\10\uffff\1\27\4\uffff\1\11\4\uffff\1\16\1\uffff\1\25\16\uffff\1\14\6\uffff\1\26\2\uffff\1\10\12\uffff\1\2\7\uffff\1\33\7\uffff\1\5\10\uffff\1\36\2\uffff\1\34\1\6\2\uffff\1\35\1\32\1\3\6\uffff\1\30\1\31\1\4\1\13";
+        "\1\uffff\1\1\6\uffff\1\11\1\14\3\uffff\1\21\1\22\1\23\1\24\1\uffff\1\26\5\uffff\1\42\1\43\3\uffff\1\47\1\50\1\1\2\uffff\1\42\12\uffff\1\11\1\14\3\uffff\1\21\1\22\1\23\1\24\1\25\1\26\4\uffff\1\41\1\43\1\44\1\45\1\46\1\47\16\uffff\1\17\10\uffff\1\31\6\uffff\1\13\4\uffff\1\20\1\uffff\1\27\20\uffff\1\16\6\uffff\1\30\2\uffff\1\12\14\uffff\1\2\11\uffff\1\35\11\uffff\1\7\10\uffff\1\40\4\uffff\1\36\1\10\2\uffff\1\37\1\34\1\3\1\4\10\uffff\1\32\1\33\1\uffff\1\6\1\15\1\5";
     static final String DFA13_specialS =
-        "\1\0\30\uffff\1\1\1\2\u0096\uffff}>";
+        "\1\1\31\uffff\1\2\1\0\u00ab\uffff}>";
     static final String[] DFA13_transitionS = {
-            "\11\35\2\34\2\35\1\34\22\35\1\34\1\35\1\31\4\35\1\32\2\35\1\1\1\35\1\16\1\35\1\20\1\33\12\30\1\10\1\7\1\25\4\35\32\27\1\17\1\35\1\21\1\26\1\27\1\35\1\5\1\27\1\3\1\23\1\13\1\11\1\22\7\27\1\6\1\4\1\27\1\24\1\2\1\12\6\27\1\14\1\35\1\15\uff82\35",
+            "\11\36\2\35\2\36\1\35\22\36\1\35\1\36\1\32\4\36\1\33\2\36\1\1\1\36\1\17\1\36\1\21\1\34\12\31\1\11\1\10\1\26\4\36\32\30\1\20\1\36\1\22\1\27\1\30\1\36\1\6\1\30\1\3\1\24\1\14\1\12\1\23\6\30\1\4\1\7\1\5\1\30\1\25\1\2\1\13\6\30\1\15\1\36\1\16\uff82\36",
             "",
-            "\1\37\14\uffff\1\40",
-            "\1\43\2\uffff\1\42",
-            "\1\44",
-            "\1\50\20\uffff\1\47\1\46\1\45",
-            "\1\51",
-            "",
-            "",
+            "\1\40\14\uffff\1\41",
+            "\1\44\2\uffff\1\43",
+            "\1\45\15\uffff\1\46",
+            "\1\47",
+            "\1\53\20\uffff\1\52\1\51\1\50",
             "\1\54",
-            "\1\55",
-            "\1\56",
+            "",
+            "",
+            "\1\57",
+            "\1\60",
+            "\1\61",
             "",
             "",
             "",
             "",
-            "\1\63",
+            "\1\66",
             "",
-            "\1\65",
-            "\1\66\3\uffff\1\67",
             "\1\70",
-            "\1\71",
-            "\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\71\3\uffff\1\72",
+            "\1\73",
+            "\1\74",
+            "\32\42\4\uffff\1\42\1\uffff\32\42",
             "",
             "",
-            "\0\73",
-            "\0\73",
-            "\1\74\4\uffff\1\75",
+            "\0\76",
+            "\0\76",
+            "\1\77\4\uffff\1\100",
             "",
             "",
-            "",
-            "\1\77",
-            "\1\101\15\uffff\1\100",
             "",
             "\1\102",
-            "\1\103",
-            "\1\104",
+            "\1\104\15\uffff\1\103",
+            "",
             "\1\105",
             "\1\106",
             "\1\107",
             "\1\110",
             "\1\111",
-            "",
-            "",
             "\1\112",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\113",
             "\1\114",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\115",
-            "\1\116\1\uffff\1\117",
-            "\1\120",
+            "\1\116",
+            "",
+            "",
+            "\1\117",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
             "\1\121",
             "",
             "",
@@ -1605,116 +1656,145 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
             "",
             "",
             "\1\122",
-            "\1\123",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\123\1\uffff\1\124",
             "\1\125",
             "\1\126",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\127",
             "\1\130",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
             "\1\132",
             "\1\133",
             "\1\134",
             "\1\135",
-            "",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\22\41\1\137\7\41",
+            "\1\136",
+            "\1\137",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
             "\1\141",
             "\1\142",
             "\1\143",
             "\1\144",
-            "\1\145",
-            "\1\146",
             "",
-            "\1\150\2\uffff\1\147",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\22\42\1\146\7\42",
+            "\1\150",
             "\1\151",
             "\1\152",
             "\1\153",
-            "",
             "\1\154",
             "\1\155",
-            "\1\156",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
             "",
+            "\1\157\2\uffff\1\156",
             "\1\160",
-            "",
             "\1\161",
             "\1\162",
             "\1\163",
             "\1\164",
+            "",
             "\1\165",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\166",
             "\1\167",
-            "\1\170",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "",
+            "\1\171",
+            "",
             "\1\172",
             "\1\173",
             "\1\174",
             "\1\175",
             "\1\176",
-            "",
-            "\1\177",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
             "\1\u0080",
             "\1\u0081",
-            "\1\u0082",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
             "\1\u0083",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "",
+            "\1\u0084",
             "\1\u0085",
             "\1\u0086",
-            "",
             "\1\u0087",
             "\1\u0088",
             "\1\u0089",
+            "",
             "\1\u008a",
             "\1\u008b",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u008c",
             "\1\u008d",
             "\1\u008e",
-            "\1\u008f",
-            "\1\u0090",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
             "",
+            "\1\u0090",
             "\1\u0091",
+            "",
             "\1\u0092",
             "\1\u0093",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u0094",
             "\1\u0095",
             "\1\u0096",
             "\1\u0097",
-            "",
             "\1\u0098",
-            "\1\u0099",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
             "\1\u009a",
             "\1\u009b",
             "\1\u009c",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\1\u009e",
+            "\1\u009d",
             "",
+            "\1\u009e",
             "\1\u009f",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\1\u00a0",
+            "\1\u00a1",
             "\1\u00a2",
-            "\1\u00a3",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\1\u00a4",
+            "\1\u00a5",
+            "\1\u00a6",
             "",
             "\1\u00a7",
             "\1\u00a8",
-            "",
-            "",
             "\1\u00a9",
             "\1\u00aa",
-            "",
-            "",
-            "",
             "\1\u00ab",
-            "\1\u00ac",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
-            "\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\1\u00ad",
+            "\1\u00ae",
+            "\1\u00af",
             "",
+            "\1\u00b0",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\1\u00b3",
+            "\1\u00b4",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\1\u00b9",
+            "\1\u00ba",
+            "\1\u00bb",
+            "",
+            "",
+            "\1\u00bc",
+            "\1\u00bd",
+            "",
+            "",
+            "",
+            "",
+            "\1\u00be",
+            "\1\u00bf",
+            "\1\u00c0",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\1\u00c3",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
+            "",
+            "",
+            "\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42",
             "",
             "",
             ""
@@ -1750,13 +1830,23 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
             this.transition = DFA13_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | RULE_STEREOTYPE_STRING | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | RULE_STEREOTYPE_STRING | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA13_27 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA13_27>='\u0000' && LA13_27<='\uFFFF')) ) {s = 62;}
+
+                        else s = 30;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
                         int LA13_0 = input.LA(1);
 
                         s = -1;
@@ -1766,67 +1856,59 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
 
                         else if ( (LA13_0=='c') ) {s = 3;}
 
-                        else if ( (LA13_0=='p') ) {s = 4;}
+                        else if ( (LA13_0=='n') ) {s = 4;}
 
-                        else if ( (LA13_0=='a') ) {s = 5;}
+                        else if ( (LA13_0=='p') ) {s = 5;}
 
-                        else if ( (LA13_0=='o') ) {s = 6;}
+                        else if ( (LA13_0=='a') ) {s = 6;}
 
-                        else if ( (LA13_0==';') ) {s = 7;}
+                        else if ( (LA13_0=='o') ) {s = 7;}
 
-                        else if ( (LA13_0==':') ) {s = 8;}
+                        else if ( (LA13_0==';') ) {s = 8;}
 
-                        else if ( (LA13_0=='f') ) {s = 9;}
+                        else if ( (LA13_0==':') ) {s = 9;}
 
-                        else if ( (LA13_0=='t') ) {s = 10;}
+                        else if ( (LA13_0=='f') ) {s = 10;}
 
-                        else if ( (LA13_0=='e') ) {s = 11;}
+                        else if ( (LA13_0=='t') ) {s = 11;}
 
-                        else if ( (LA13_0=='{') ) {s = 12;}
+                        else if ( (LA13_0=='e') ) {s = 12;}
 
-                        else if ( (LA13_0=='}') ) {s = 13;}
+                        else if ( (LA13_0=='{') ) {s = 13;}
 
-                        else if ( (LA13_0==',') ) {s = 14;}
+                        else if ( (LA13_0=='}') ) {s = 14;}
 
-                        else if ( (LA13_0=='[') ) {s = 15;}
+                        else if ( (LA13_0==',') ) {s = 15;}
 
-                        else if ( (LA13_0=='.') ) {s = 16;}
+                        else if ( (LA13_0=='[') ) {s = 16;}
 
-                        else if ( (LA13_0==']') ) {s = 17;}
+                        else if ( (LA13_0=='.') ) {s = 17;}
 
-                        else if ( (LA13_0=='g') ) {s = 18;}
+                        else if ( (LA13_0==']') ) {s = 18;}
 
-                        else if ( (LA13_0=='d') ) {s = 19;}
+                        else if ( (LA13_0=='g') ) {s = 19;}
 
-                        else if ( (LA13_0=='r') ) {s = 20;}
+                        else if ( (LA13_0=='d') ) {s = 20;}
 
-                        else if ( (LA13_0=='<') ) {s = 21;}
+                        else if ( (LA13_0=='r') ) {s = 21;}
 
-                        else if ( (LA13_0=='^') ) {s = 22;}
+                        else if ( (LA13_0=='<') ) {s = 22;}
 
-                        else if ( ((LA13_0>='A' && LA13_0<='Z')||LA13_0=='_'||LA13_0=='b'||(LA13_0>='h' && LA13_0<='n')||LA13_0=='q'||(LA13_0>='u' && LA13_0<='z')) ) {s = 23;}
+                        else if ( (LA13_0=='^') ) {s = 23;}
 
-                        else if ( ((LA13_0>='0' && LA13_0<='9')) ) {s = 24;}
+                        else if ( ((LA13_0>='A' && LA13_0<='Z')||LA13_0=='_'||LA13_0=='b'||(LA13_0>='h' && LA13_0<='m')||LA13_0=='q'||(LA13_0>='u' && LA13_0<='z')) ) {s = 24;}
 
-                        else if ( (LA13_0=='\"') ) {s = 25;}
+                        else if ( ((LA13_0>='0' && LA13_0<='9')) ) {s = 25;}
 
-                        else if ( (LA13_0=='\'') ) {s = 26;}
+                        else if ( (LA13_0=='\"') ) {s = 26;}
 
-                        else if ( (LA13_0=='/') ) {s = 27;}
+                        else if ( (LA13_0=='\'') ) {s = 27;}
 
-                        else if ( ((LA13_0>='\t' && LA13_0<='\n')||LA13_0=='\r'||LA13_0==' ') ) {s = 28;}
+                        else if ( (LA13_0=='/') ) {s = 28;}
 
-                        else if ( ((LA13_0>='\u0000' && LA13_0<='\b')||(LA13_0>='\u000B' && LA13_0<='\f')||(LA13_0>='\u000E' && LA13_0<='\u001F')||LA13_0=='!'||(LA13_0>='#' && LA13_0<='&')||(LA13_0>='(' && LA13_0<=')')||LA13_0=='+'||LA13_0=='-'||(LA13_0>='=' && LA13_0<='@')||LA13_0=='\\'||LA13_0=='`'||LA13_0=='|'||(LA13_0>='~' && LA13_0<='\uFFFF')) ) {s = 29;}
+                        else if ( ((LA13_0>='\t' && LA13_0<='\n')||LA13_0=='\r'||LA13_0==' ') ) {s = 29;}
 
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA13_25 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA13_25>='\u0000' && LA13_25<='\uFFFF')) ) {s = 59;}
-
-                        else s = 29;
+                        else if ( ((LA13_0>='\u0000' && LA13_0<='\b')||(LA13_0>='\u000B' && LA13_0<='\f')||(LA13_0>='\u000E' && LA13_0<='\u001F')||LA13_0=='!'||(LA13_0>='#' && LA13_0<='&')||(LA13_0>='(' && LA13_0<=')')||LA13_0=='+'||LA13_0=='-'||(LA13_0>='=' && LA13_0<='@')||LA13_0=='\\'||LA13_0=='`'||LA13_0=='|'||(LA13_0>='~' && LA13_0<='\uFFFF')) ) {s = 30;}
 
                         if ( s>=0 ) return s;
                         break;
@@ -1834,9 +1916,9 @@ public class InternalOntoUMLArchiveLexer extends Lexer {
                         int LA13_26 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA13_26>='\u0000' && LA13_26<='\uFFFF')) ) {s = 59;}
+                        if ( ((LA13_26>='\u0000' && LA13_26<='\uFFFF')) ) {s = 62;}
 
-                        else s = 29;
+                        else s = 30;
 
                         if ( s>=0 ) return s;
                         break;

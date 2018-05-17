@@ -18,6 +18,7 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Navigability;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchiveFactory;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
@@ -172,6 +173,13 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * @generated
    */
   private EEnum aggregationKindEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum navigabilityEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -531,7 +539,7 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAssociationEnd_Name()
+  public EAttribute getAssociationEnd_Navigability()
   {
     return (EAttribute)associationEndEClass.getEStructuralFeatures().get(1);
   }
@@ -541,9 +549,9 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssociationEnd_Multiplicity()
+  public EAttribute getAssociationEnd_Name()
   {
-    return (EReference)associationEndEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)associationEndEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -551,7 +559,7 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssociationEnd_EndType()
+  public EReference getAssociationEnd_Multiplicity()
   {
     return (EReference)associationEndEClass.getEStructuralFeatures().get(3);
   }
@@ -561,9 +569,19 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getAssociationEnd_EndType()
+  {
+    return (EReference)associationEndEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getAssociationEnd_Constraints()
   {
-    return (EAttribute)associationEndEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)associationEndEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -841,6 +859,16 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getNavigability()
+  {
+    return navigabilityEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public OntoUMLArchiveFactory getOntoUMLArchiveFactory()
   {
     return (OntoUMLArchiveFactory)getEFactoryInstance();
@@ -905,6 +933,7 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
 
     associationEndEClass = createEClass(ASSOCIATION_END);
     createEAttribute(associationEndEClass, ASSOCIATION_END__AGGREGATION_KIND);
+    createEAttribute(associationEndEClass, ASSOCIATION_END__NAVIGABILITY);
     createEAttribute(associationEndEClass, ASSOCIATION_END__NAME);
     createEReference(associationEndEClass, ASSOCIATION_END__MULTIPLICITY);
     createEReference(associationEndEClass, ASSOCIATION_END__END_TYPE);
@@ -945,6 +974,7 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
 
     // Create enums
     aggregationKindEEnum = createEEnum(AGGREGATION_KIND);
+    navigabilityEEnum = createEEnum(NAVIGABILITY);
   }
 
   /**
@@ -1028,6 +1058,7 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
 
     initEClass(associationEndEClass, AssociationEnd.class, "AssociationEnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAssociationEnd_AggregationKind(), this.getAggregationKind(), "aggregationKind", null, 0, 1, AssociationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssociationEnd_Navigability(), this.getNavigability(), "navigability", null, 0, 1, AssociationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAssociationEnd_Name(), ecorePackage.getEString(), "name", null, 0, 1, AssociationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssociationEnd_Multiplicity(), this.getMultiplicity(), null, "multiplicity", null, 0, 1, AssociationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssociationEnd_EndType(), this.getClass_(), null, "endType", null, 0, 1, AssociationEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1071,6 +1102,11 @@ public class OntoUMLArchivePackageImpl extends EPackageImpl implements OntoUMLAr
     addEEnumLiteral(aggregationKindEEnum, AggregationKind.NONE);
     addEEnumLiteral(aggregationKindEEnum, AggregationKind.SHARED);
     addEEnumLiteral(aggregationKindEEnum, AggregationKind.COMPOSITE);
+
+    initEEnum(navigabilityEEnum, Navigability.class, "Navigability");
+    addEEnumLiteral(navigabilityEEnum, Navigability.UNSPECIFIED);
+    addEEnumLiteral(navigabilityEEnum, Navigability.NAVIGABLE);
+    addEEnumLiteral(navigabilityEEnum, Navigability.NONNAVIGABLE);
 
     // Create resource
     createResource(eNS_URI);

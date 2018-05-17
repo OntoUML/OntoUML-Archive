@@ -25,6 +25,7 @@ class OntoUMLArchiveValidator extends AbstractOntoUMLArchiveValidator {
 	public static val DUPLICATED_NAME = "it.unibz.inf.ontouml.archive.validation.DUPLICATED_NAME"
 	public static val REFLEXIVE_GENERALIZATION = "it.unibz.inf.ontouml.archive.validation.REFLEXIVE_GENERALIZATION"
 	public static val UNEXPECTED_STEREOTYPE = "it.unibz.inf.ontouml.archive.validation.UNEXPECTED_STEREOTYPE"
+	public static val DUPLICATED_GENERALIZATION = "it.unibz.inf.ontouml.archive.validation.DUPLICATED_GENERALIZATION"
 	
 	@Check(CheckType.NORMAL)
 	def checkNameDuplicatedName(ModelElement e) {
@@ -60,6 +61,18 @@ class OntoUMLArchiveValidator extends AbstractOntoUMLArchiveValidator {
 						OntoUMLArchivePackage.eINSTANCE.association_Stereotypes, 
 						a.stereotypes.indexOf(str), UNEXPECTED_STEREOTYPE)
 		}
+	}
+	
+	@Check(CheckType.NORMAL)
+	def checkDuplicatedGeneralizations(Generalization g) {
+		val g2 = g.containerModel.modelElements.findFirst[ 
+				if(it!==g && it instanceof Generalization)
+					(it as Generalization).getSuper==g.getSuper && (it as Generalization).sub==g.sub
+				else	 false  ]
+		if(g2!==null)
+			warning('''Duplicated generalization.''', g, 
+					OntoUMLArchivePackage.eINSTANCE.modelElement_Name,
+					DUPLICATED_GENERALIZATION)
 	}
 	
 }

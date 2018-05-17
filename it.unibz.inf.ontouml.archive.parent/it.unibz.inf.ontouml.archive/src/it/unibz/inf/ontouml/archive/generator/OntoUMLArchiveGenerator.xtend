@@ -17,6 +17,7 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.BinaryAssociation
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.GeneralizationSet
 
 /**
  * Generates code from your model files on save.
@@ -28,18 +29,14 @@ class OntoUMLArchiveGenerator extends AbstractGenerator {
 	@Inject extension OntoUMLArchiveUtils
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		if(resource.contents.empty)	return
+		
 		val modelName = "full_model.txt"
+		val model = resource.contents.get(0) as Model
 		fsa.generateFile(modelName, 
-				"@startuml\n\n"+
-'''«FOR e : (resource.contents.get(0) as Model).modelElements»
-«e.toPlantUML»
-«ENDFOR»'''+"\n@enduml")
-				
+				"@startuml\n\n"+ 
+				'''«FOR e : model.modelElements.filter[!(it instanceof GeneralizationSet)]» «e.toPlantUML+"\n"»«ENDFOR»'''
+				+"\n@enduml")
 	}
 	
 	def String toPlantUML(ModelElement e) {
@@ -48,11 +45,14 @@ class OntoUMLArchiveGenerator extends AbstractGenerator {
 			case e instanceof Generalization : return (e as Generalization).generalizationToPlantUML()
 			case e instanceof DirectedAssociation: return (e as DirectedAssociation).directedAssociationToPlantUML()
 			case e instanceof UndirectedAssociation: return (e as UndirectedAssociation).undirectedAssociationToPlantUML()
+			default : return ""
 		}
 	}
 	
 	def String classToPlantUML(Class c) {
-		'''class «IF c.isAbstract»abstract «ENDIF»«c.name.replaceAll(" ","_")» «FOR str:c.stereotypes»<<«str»>>«ENDFOR»'''
+		'''«IF c.isAbstract»abstract «ENDIF»'''+
+		'''class «c.name.replaceAll(" ","_")»'''+
+		''' «FOR str:c.stereotypes»<<«str»>>«ENDFOR»'''
 	}
 	
 	def String generalizationToPlantUML(Generalization g) {

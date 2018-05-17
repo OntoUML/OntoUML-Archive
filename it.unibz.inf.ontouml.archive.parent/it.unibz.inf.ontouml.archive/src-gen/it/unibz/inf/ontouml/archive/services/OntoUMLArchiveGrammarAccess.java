@@ -181,47 +181,51 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cAttKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cMultiplicityAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMultiplicityMultiplicityParserRuleCall_2_0 = (RuleCall)cMultiplicityAssignment_2.eContents().get(0);
-		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cAttTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cAttTypeClassCrossReference_4_0 = (CrossReference)cAttTypeAssignment_4.eContents().get(0);
-		private final RuleCall cAttTypeClassStringOrIDParserRuleCall_4_0_1 = (RuleCall)cAttTypeClassCrossReference_4_0.eContents().get(1);
+		private final RuleCall cNameStringOrIDParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cMultiplicityAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cMultiplicityMultiplicityParserRuleCall_2_0_0 = (RuleCall)cMultiplicityAssignment_2_0.eContents().get(0);
+		private final Keyword cColonKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cAttTypeAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final CrossReference cAttTypeClassCrossReference_2_2_0 = (CrossReference)cAttTypeAssignment_2_2.eContents().get(0);
+		private final RuleCall cAttTypeClassStringOrIDParserRuleCall_2_2_0_1 = (RuleCall)cAttTypeClassCrossReference_2_2_0.eContents().get(1);
 		
 		//Attribute:
-		//	'att' name=STRING multiplicity=Multiplicity ':' attType=[Class|StringOrID];
+		//	'att' name=StringOrID (multiplicity=Multiplicity? ':' attType=[Class|StringOrID])?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'att' name=STRING multiplicity=Multiplicity ':' attType=[Class|StringOrID]
+		//'att' name=StringOrID (multiplicity=Multiplicity? ':' attType=[Class|StringOrID])?
 		public Group getGroup() { return cGroup; }
 		
 		//'att'
 		public Keyword getAttKeyword_0() { return cAttKeyword_0; }
 		
-		//name=STRING
+		//name=StringOrID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
+		//StringOrID
+		public RuleCall getNameStringOrIDParserRuleCall_1_0() { return cNameStringOrIDParserRuleCall_1_0; }
 		
-		//multiplicity=Multiplicity
-		public Assignment getMultiplicityAssignment_2() { return cMultiplicityAssignment_2; }
+		//(multiplicity=Multiplicity? ':' attType=[Class|StringOrID])?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//multiplicity=Multiplicity?
+		public Assignment getMultiplicityAssignment_2_0() { return cMultiplicityAssignment_2_0; }
 		
 		//Multiplicity
-		public RuleCall getMultiplicityMultiplicityParserRuleCall_2_0() { return cMultiplicityMultiplicityParserRuleCall_2_0; }
+		public RuleCall getMultiplicityMultiplicityParserRuleCall_2_0_0() { return cMultiplicityMultiplicityParserRuleCall_2_0_0; }
 		
 		//':'
-		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		public Keyword getColonKeyword_2_1() { return cColonKeyword_2_1; }
 		
 		//attType=[Class|StringOrID]
-		public Assignment getAttTypeAssignment_4() { return cAttTypeAssignment_4; }
+		public Assignment getAttTypeAssignment_2_2() { return cAttTypeAssignment_2_2; }
 		
 		//[Class|StringOrID]
-		public CrossReference getAttTypeClassCrossReference_4_0() { return cAttTypeClassCrossReference_4_0; }
+		public CrossReference getAttTypeClassCrossReference_2_2_0() { return cAttTypeClassCrossReference_2_2_0; }
 		
 		//StringOrID
-		public RuleCall getAttTypeClassStringOrIDParserRuleCall_4_0_1() { return cAttTypeClassStringOrIDParserRuleCall_4_0_1; }
+		public RuleCall getAttTypeClassStringOrIDParserRuleCall_2_2_0_1() { return cAttTypeClassStringOrIDParserRuleCall_2_2_0_1; }
 	}
 	public class RelationshipElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.Relationship");
@@ -489,8 +493,11 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 	public class AssociationEndElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.AssociationEnd");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cAggregationKindAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cAggregationKindAggregationKindDeclarationEnumRuleCall_0_0 = (RuleCall)cAggregationKindAssignment_0.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_0 = (UnorderedGroup)cGroup.eContents().get(0);
+		private final Assignment cAggregationKindAssignment_0_0 = (Assignment)cUnorderedGroup_0.eContents().get(0);
+		private final RuleCall cAggregationKindAggregationKindDeclarationEnumRuleCall_0_0_0 = (RuleCall)cAggregationKindAssignment_0_0.eContents().get(0);
+		private final Assignment cNavigabilityAssignment_0_1 = (Assignment)cUnorderedGroup_0.eContents().get(1);
+		private final RuleCall cNavigabilityNavigabilityDeclarationEnumRuleCall_0_1_0 = (RuleCall)cNavigabilityAssignment_0_1.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameStringOrIDParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cMultiplicityAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -510,21 +517,29 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5_3 = (Keyword)cGroup_5.eContents().get(3);
 		
 		//AssociationEnd:
-		//	aggregationKind=AggregationKindDeclaration?
-		//	name=StringOrID?
+		//	(aggregationKind=AggregationKindDeclaration? & navigability=NavigabilityDeclaration?) name=StringOrID?
 		//	multiplicity=Multiplicity?
 		//	':' endType=[Class|StringOrID] ('{' constraints+=STRING (',' constraints+=STRING)* '}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//aggregationKind=AggregationKindDeclaration? name=StringOrID? multiplicity=Multiplicity? ':' endType=[Class|StringOrID]
-		//('{' constraints+=STRING (',' constraints+=STRING)* '}')?
+		//(aggregationKind=AggregationKindDeclaration? & navigability=NavigabilityDeclaration?) name=StringOrID?
+		//multiplicity=Multiplicity? ':' endType=[Class|StringOrID] ('{' constraints+=STRING (',' constraints+=STRING)* '}')?
 		public Group getGroup() { return cGroup; }
 		
+		//aggregationKind=AggregationKindDeclaration? & navigability=NavigabilityDeclaration?
+		public UnorderedGroup getUnorderedGroup_0() { return cUnorderedGroup_0; }
+		
 		//aggregationKind=AggregationKindDeclaration?
-		public Assignment getAggregationKindAssignment_0() { return cAggregationKindAssignment_0; }
+		public Assignment getAggregationKindAssignment_0_0() { return cAggregationKindAssignment_0_0; }
 		
 		//AggregationKindDeclaration
-		public RuleCall getAggregationKindAggregationKindDeclarationEnumRuleCall_0_0() { return cAggregationKindAggregationKindDeclarationEnumRuleCall_0_0; }
+		public RuleCall getAggregationKindAggregationKindDeclarationEnumRuleCall_0_0_0() { return cAggregationKindAggregationKindDeclarationEnumRuleCall_0_0_0; }
+		
+		//navigability=NavigabilityDeclaration?
+		public Assignment getNavigabilityAssignment_0_1() { return cNavigabilityAssignment_0_1; }
+		
+		//NavigabilityDeclaration
+		public RuleCall getNavigabilityNavigabilityDeclarationEnumRuleCall_0_1_0() { return cNavigabilityNavigabilityDeclarationEnumRuleCall_0_1_0; }
 		
 		//name=StringOrID?
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -1087,6 +1102,68 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		//"composite"
 		public Keyword getCompositeCompositeKeyword_1_0() { return cCompositeCompositeKeyword_1_0; }
 	}
+	public class NavigabilityElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.Navigability");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cUnspecifiedEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cUnspecifiedUnspecifiedKeyword_0_0 = (Keyword)cUnspecifiedEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cNavigableEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cNavigableNavigableKeyword_1_0 = (Keyword)cNavigableEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cNonnavigableEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cNonnavigableNonnavigableKeyword_2_0 = (Keyword)cNonnavigableEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum Navigability:
+		//	unspecified | navigable | nonnavigable;
+		public EnumRule getRule() { return rule; }
+		
+		//unspecified | navigable | nonnavigable
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//unspecified
+		public EnumLiteralDeclaration getUnspecifiedEnumLiteralDeclaration_0() { return cUnspecifiedEnumLiteralDeclaration_0; }
+		
+		//"unspecified"
+		public Keyword getUnspecifiedUnspecifiedKeyword_0_0() { return cUnspecifiedUnspecifiedKeyword_0_0; }
+		
+		//navigable
+		public EnumLiteralDeclaration getNavigableEnumLiteralDeclaration_1() { return cNavigableEnumLiteralDeclaration_1; }
+		
+		//"navigable"
+		public Keyword getNavigableNavigableKeyword_1_0() { return cNavigableNavigableKeyword_1_0; }
+		
+		//nonnavigable
+		public EnumLiteralDeclaration getNonnavigableEnumLiteralDeclaration_2() { return cNonnavigableEnumLiteralDeclaration_2; }
+		
+		//"nonnavigable"
+		public Keyword getNonnavigableNonnavigableKeyword_2_0() { return cNonnavigableNonnavigableKeyword_2_0; }
+	}
+	public class NavigabilityDeclarationElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "it.unibz.inf.ontouml.archive.OntoUMLArchive.NavigabilityDeclaration");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cNavigableEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cNavigableNavigableKeyword_0_0 = (Keyword)cNavigableEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cNonnavigableEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cNonnavigableNonnavigableKeyword_1_0 = (Keyword)cNonnavigableEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum NavigabilityDeclaration returns Navigability:
+		//	navigable | nonnavigable;
+		public EnumRule getRule() { return rule; }
+		
+		//navigable | nonnavigable
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//navigable
+		public EnumLiteralDeclaration getNavigableEnumLiteralDeclaration_0() { return cNavigableEnumLiteralDeclaration_0; }
+		
+		//"navigable"
+		public Keyword getNavigableNavigableKeyword_0_0() { return cNavigableNavigableKeyword_0_0; }
+		
+		//nonnavigable
+		public EnumLiteralDeclaration getNonnavigableEnumLiteralDeclaration_1() { return cNonnavigableEnumLiteralDeclaration_1; }
+		
+		//"nonnavigable"
+		public Keyword getNonnavigableNonnavigableKeyword_1_0() { return cNonnavigableNonnavigableKeyword_1_0; }
+	}
 	
 	private final ModelElements pModel;
 	private final ModelElementElements pModelElement;
@@ -1101,6 +1178,8 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 	private final AssociationEndElements pAssociationEnd;
 	private final AggregationKindElements eAggregationKind;
 	private final AggregationKindDeclarationElements eAggregationKindDeclaration;
+	private final NavigabilityElements eNavigability;
+	private final NavigabilityDeclarationElements eNavigabilityDeclaration;
 	private final MultiplicityElements pMultiplicity;
 	private final CARDINALITYElements pCARDINALITY;
 	private final GeneralizationElements pGeneralization;
@@ -1134,6 +1213,8 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAssociationEnd = new AssociationEndElements();
 		this.eAggregationKind = new AggregationKindElements();
 		this.eAggregationKindDeclaration = new AggregationKindDeclarationElements();
+		this.eNavigability = new NavigabilityElements();
+		this.eNavigabilityDeclaration = new NavigabilityDeclarationElements();
 		this.pMultiplicity = new MultiplicityElements();
 		this.pCARDINALITY = new CARDINALITYElements();
 		this.pGeneralization = new GeneralizationElements();
@@ -1207,7 +1288,7 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Attribute:
-	//	'att' name=STRING multiplicity=Multiplicity ':' attType=[Class|StringOrID];
+	//	'att' name=StringOrID (multiplicity=Multiplicity? ':' attType=[Class|StringOrID])?;
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
 	}
@@ -1285,8 +1366,7 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AssociationEnd:
-	//	aggregationKind=AggregationKindDeclaration?
-	//	name=StringOrID?
+	//	(aggregationKind=AggregationKindDeclaration? & navigability=NavigabilityDeclaration?) name=StringOrID?
 	//	multiplicity=Multiplicity?
 	//	':' endType=[Class|StringOrID] ('{' constraints+=STRING (',' constraints+=STRING)* '}')?;
 	public AssociationEndElements getAssociationEndAccess() {
@@ -1315,6 +1395,26 @@ public class OntoUMLArchiveGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getAggregationKindDeclarationRule() {
 		return getAggregationKindDeclarationAccess().getRule();
+	}
+	
+	//enum Navigability:
+	//	unspecified | navigable | nonnavigable;
+	public NavigabilityElements getNavigabilityAccess() {
+		return eNavigability;
+	}
+	
+	public EnumRule getNavigabilityRule() {
+		return getNavigabilityAccess().getRule();
+	}
+	
+	//enum NavigabilityDeclaration returns Navigability:
+	//	navigable | nonnavigable;
+	public NavigabilityDeclarationElements getNavigabilityDeclarationAccess() {
+		return eNavigabilityDeclaration;
+	}
+	
+	public EnumRule getNavigabilityDeclarationRule() {
+		return getNavigabilityDeclarationAccess().getRule();
 	}
 	
 	//Multiplicity:

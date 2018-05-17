@@ -9,11 +9,11 @@ import it.unibz.inf.ontouml.archive.OntoUMLArchiveUtils;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.DirectedAssociation;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Generalization;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.GeneralizationSet;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.UndirectedAssociation;
-import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -22,6 +22,8 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -36,21 +38,29 @@ public class OntoUMLArchiveGenerator extends AbstractGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    boolean _isEmpty = resource.getContents().isEmpty();
+    if (_isEmpty) {
+      return;
+    }
     final String modelName = "full_model.txt";
+    EObject _get = resource.getContents().get(0);
+    final Model model = ((Model) _get);
     StringConcatenation _builder = new StringConcatenation();
     {
-      EObject _get = resource.getContents().get(0);
-      Set<ModelElement> _modelElements = this._ontoUMLArchiveUtils.getModelElements(((Model) _get));
-      for(final ModelElement e : _modelElements) {
-        _builder.newLineIfNotEmpty();
+      final Function1<ModelElement, Boolean> _function = (ModelElement it) -> {
+        return Boolean.valueOf((!(it instanceof GeneralizationSet)));
+      };
+      Iterable<ModelElement> _filter = IterableExtensions.<ModelElement>filter(this._ontoUMLArchiveUtils.getModelElements(model), _function);
+      for(final ModelElement e : _filter) {
+        _builder.append(" ");
         String _plantUML = this.toPlantUML(e);
-        _builder.append(_plantUML);
-        _builder.newLineIfNotEmpty();
+        String _plus = (_plantUML + "\n");
+        _builder.append(_plus);
       }
     }
-    String _plus = ("@startuml\n\n" + _builder);
-    String _plus_1 = (_plus + "\n@enduml");
-    fsa.generateFile(modelName, _plus_1);
+    String _plus_1 = ("@startuml\n\n" + _builder);
+    String _plus_2 = (_plus_1 + "\n@enduml");
+    fsa.generateFile(modelName, _plus_2);
   }
   
   public String toPlantUML(final ModelElement e) {
@@ -77,30 +87,33 @@ public class OntoUMLArchiveGenerator extends AbstractGenerator {
         return this.undirectedAssociationToPlantUML(((UndirectedAssociation) e));
       }
     }
-    return null;
+    return "";
   }
   
   public String classToPlantUML(final it.unibz.inf.ontouml.archive.ontoUMLArchive.Class c) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("class ");
     {
       boolean _isIsAbstract = c.isIsAbstract();
       if (_isIsAbstract) {
         _builder.append("abstract ");
       }
     }
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("class ");
     String _replaceAll = c.getName().replaceAll(" ", "_");
-    _builder.append(_replaceAll);
-    _builder.append(" ");
+    _builder_1.append(_replaceAll);
+    String _plus = (_builder.toString() + _builder_1);
+    StringConcatenation _builder_2 = new StringConcatenation();
+    _builder_2.append(" ");
     {
       EList<String> _stereotypes = c.getStereotypes();
       for(final String str : _stereotypes) {
-        _builder.append("<<");
-        _builder.append(str);
-        _builder.append(">>");
+        _builder_2.append("<<");
+        _builder_2.append(str, " ");
+        _builder_2.append(">>");
       }
     }
-    return _builder.toString();
+    return (_plus + _builder_2);
   }
   
   public String generalizationToPlantUML(final Generalization g) {

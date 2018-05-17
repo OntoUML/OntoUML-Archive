@@ -6,6 +6,7 @@ package it.unibz.inf.ontouml.archive.ontoUMLArchive.impl;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.AggregationKind;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Navigability;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
 
 import java.util.Collection;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * </p>
  * <ul>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationEndImpl#getAggregationKind <em>Aggregation Kind</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationEndImpl#getNavigability <em>Navigability</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationEndImpl#getName <em>Name</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationEndImpl#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.impl.AssociationEndImpl#getEndType <em>End Type</em>}</li>
@@ -61,6 +63,26 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected AggregationKind aggregationKind = AGGREGATION_KIND_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getNavigability() <em>Navigability</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNavigability()
+   * @generated
+   * @ordered
+   */
+  protected static final Navigability NAVIGABILITY_EDEFAULT = Navigability.UNSPECIFIED;
+
+  /**
+   * The cached value of the '{@link #getNavigability() <em>Navigability</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNavigability()
+   * @generated
+   * @ordered
+   */
+  protected Navigability navigability = NAVIGABILITY_EDEFAULT;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -154,6 +176,29 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
     aggregationKind = newAggregationKind == null ? AGGREGATION_KIND_EDEFAULT : newAggregationKind;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.ASSOCIATION_END__AGGREGATION_KIND, oldAggregationKind, aggregationKind));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Navigability getNavigability()
+  {
+    return navigability;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNavigability(Navigability newNavigability)
+  {
+    Navigability oldNavigability = navigability;
+    navigability = newNavigability == null ? NAVIGABILITY_EDEFAULT : newNavigability;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OntoUMLArchivePackage.ASSOCIATION_END__NAVIGABILITY, oldNavigability, navigability));
   }
 
   /**
@@ -312,6 +357,8 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
     {
       case OntoUMLArchivePackage.ASSOCIATION_END__AGGREGATION_KIND:
         return getAggregationKind();
+      case OntoUMLArchivePackage.ASSOCIATION_END__NAVIGABILITY:
+        return getNavigability();
       case OntoUMLArchivePackage.ASSOCIATION_END__NAME:
         return getName();
       case OntoUMLArchivePackage.ASSOCIATION_END__MULTIPLICITY:
@@ -338,6 +385,9 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
     {
       case OntoUMLArchivePackage.ASSOCIATION_END__AGGREGATION_KIND:
         setAggregationKind((AggregationKind)newValue);
+        return;
+      case OntoUMLArchivePackage.ASSOCIATION_END__NAVIGABILITY:
+        setNavigability((Navigability)newValue);
         return;
       case OntoUMLArchivePackage.ASSOCIATION_END__NAME:
         setName((String)newValue);
@@ -369,6 +419,9 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
       case OntoUMLArchivePackage.ASSOCIATION_END__AGGREGATION_KIND:
         setAggregationKind(AGGREGATION_KIND_EDEFAULT);
         return;
+      case OntoUMLArchivePackage.ASSOCIATION_END__NAVIGABILITY:
+        setNavigability(NAVIGABILITY_EDEFAULT);
+        return;
       case OntoUMLArchivePackage.ASSOCIATION_END__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -397,6 +450,8 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
     {
       case OntoUMLArchivePackage.ASSOCIATION_END__AGGREGATION_KIND:
         return aggregationKind != AGGREGATION_KIND_EDEFAULT;
+      case OntoUMLArchivePackage.ASSOCIATION_END__NAVIGABILITY:
+        return navigability != NAVIGABILITY_EDEFAULT;
       case OntoUMLArchivePackage.ASSOCIATION_END__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case OntoUMLArchivePackage.ASSOCIATION_END__MULTIPLICITY:
@@ -422,6 +477,8 @@ public class AssociationEndImpl extends MinimalEObjectImpl.Container implements 
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (aggregationKind: ");
     result.append(aggregationKind);
+    result.append(", navigability: ");
+    result.append(navigability);
     result.append(", name: ");
     result.append(name);
     result.append(", constraints: ");

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getAggregationKind <em>Aggregation Kind</em>}</li>
+ *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getNavigability <em>Navigability</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getName <em>Name</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getEndType <em>End Type</em>}</li>
@@ -57,6 +58,35 @@ public interface AssociationEnd extends EObject
    * @generated
    */
   void setAggregationKind(AggregationKind value);
+
+  /**
+   * Returns the value of the '<em><b>Navigability</b></em>' attribute.
+   * The literals are from the enumeration {@link it.unibz.inf.ontouml.archive.ontoUMLArchive.Navigability}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Navigability</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Navigability</em>' attribute.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Navigability
+   * @see #setNavigability(Navigability)
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage#getAssociationEnd_Navigability()
+   * @model
+   * @generated
+   */
+  Navigability getNavigability();
+
+  /**
+   * Sets the value of the '{@link it.unibz.inf.ontouml.archive.ontoUMLArchive.AssociationEnd#getNavigability <em>Navigability</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Navigability</em>' attribute.
+   * @see it.unibz.inf.ontouml.archive.ontoUMLArchive.Navigability
+   * @see #getNavigability()
+   * @generated
+   */
+  void setNavigability(Navigability value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

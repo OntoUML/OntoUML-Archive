@@ -22,7 +22,7 @@ Class:
 ;
 
 Attribute:
-	'att' name=STRING multiplicity=Multiplicity ':' attType=[Class|StringOrID]
+	'att' name=StringOrID (multiplicity=Multiplicity? ':' attType=[Class|StringOrID])?
 ;
 
 Relationship:
@@ -60,7 +60,7 @@ NaryAssociation:
 ;
 
 AssociationEnd:
-	aggregationKind=AggregationKindDeclaration?
+	(aggregationKind=AggregationKindDeclaration? & navigability=NavigabilityDeclaration?)
 	name=StringOrID?
 	multiplicity=Multiplicity?
 	':' endType=[Class|StringOrID]
@@ -73,6 +73,14 @@ enum AggregationKind:
 
 enum AggregationKindDeclaration returns AggregationKind:
 	shared | composite
+;
+
+enum Navigability:
+	unspecified | navigable | nonnavigable
+;
+
+enum NavigabilityDeclaration returns Navigability:
+	navigable | nonnavigable
 ;
 
 Multiplicity:

@@ -97,7 +97,7 @@ public class OntoUMLArchiveSemanticSequencer extends AbstractDelegatingSemanticS
 	 *
 	 * Constraint:
 	 *     (
-	 *         aggregationKind=AggregationKindDeclaration? 
+	 *         (aggregationKind=AggregationKindDeclaration | navigability=NavigabilityDeclaration)* 
 	 *         name=StringOrID? 
 	 *         multiplicity=Multiplicity? 
 	 *         endType=[Class|StringOrID] 
@@ -114,22 +114,10 @@ public class OntoUMLArchiveSemanticSequencer extends AbstractDelegatingSemanticS
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     (name=STRING multiplicity=Multiplicity attType=[Class|StringOrID])
+	 *     (name=StringOrID (multiplicity=Multiplicity? attType=[Class|StringOrID])?)
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OntoUMLArchivePackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OntoUMLArchivePackage.Literals.ATTRIBUTE__NAME));
-			if (transientValues.isValueTransient(semanticObject, OntoUMLArchivePackage.Literals.ATTRIBUTE__MULTIPLICITY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OntoUMLArchivePackage.Literals.ATTRIBUTE__MULTIPLICITY));
-			if (transientValues.isValueTransient(semanticObject, OntoUMLArchivePackage.Literals.ATTRIBUTE__ATT_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OntoUMLArchivePackage.Literals.ATTRIBUTE__ATT_TYPE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAttributeAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getAttributeAccess().getMultiplicityMultiplicityParserRuleCall_2_0(), semanticObject.getMultiplicity());
-		feeder.accept(grammarAccess.getAttributeAccess().getAttTypeClassStringOrIDParserRuleCall_4_0_1(), semanticObject.eGet(OntoUMLArchivePackage.Literals.ATTRIBUTE__ATT_TYPE, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

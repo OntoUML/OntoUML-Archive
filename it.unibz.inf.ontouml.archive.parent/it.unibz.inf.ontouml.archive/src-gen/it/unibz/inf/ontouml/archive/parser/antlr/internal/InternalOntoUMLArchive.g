@@ -337,61 +337,64 @@ ruleAttribute returns [EObject current=null]
 		}
 		(
 			(
-				lv_name_1_0=RULE_STRING
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getAttributeAccess().getNameSTRINGTerminalRuleCall_1_0());
+					newCompositeNode(grammarAccess.getAttributeAccess().getNameStringOrIDParserRuleCall_1_0());
 				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAttributeRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getAttributeAccess().getMultiplicityMultiplicityParserRuleCall_2_0());
-				}
-				lv_multiplicity_2_0=ruleMultiplicity
+				lv_name_1_0=ruleStringOrID
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAttributeRule());
 					}
 					set(
 						$current,
-						"multiplicity",
-						lv_multiplicity_2_0,
-						"it.unibz.inf.ontouml.archive.OntoUMLArchive.Multiplicity");
+						"name",
+						lv_name_1_0,
+						"it.unibz.inf.ontouml.archive.OntoUMLArchive.StringOrID");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_3=':'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getAttributeAccess().getColonKeyword_3());
-		}
 		(
 			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAttributeRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getAttributeAccess().getMultiplicityMultiplicityParserRuleCall_2_0_0());
 					}
-				}
-				{
-					newCompositeNode(grammarAccess.getAttributeAccess().getAttTypeClassCrossReference_4_0());
-				}
-				ruleStringOrID
-				{
-					afterParserOrEnumRuleCall();
-				}
+					lv_multiplicity_2_0=ruleMultiplicity
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAttributeRule());
+						}
+						set(
+							$current,
+							"multiplicity",
+							lv_multiplicity_2_0,
+							"it.unibz.inf.ontouml.archive.OntoUMLArchive.Multiplicity");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)?
+			otherlv_3=':'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getAttributeAccess().getColonKeyword_2_1());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAttributeRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getAttributeAccess().getAttTypeClassCrossReference_2_2_0());
+					}
+					ruleStringOrID
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
+		)?
 	)
 ;
 
@@ -886,29 +889,80 @@ ruleAssociationEnd returns [EObject current=null]
 	(
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getAssociationEndAccess().getAggregationKindAggregationKindDeclarationEnumRuleCall_0_0());
+				{ 
+				  getUnorderedGroupHelper().enter(grammarAccess.getAssociationEndAccess().getUnorderedGroup_0());
 				}
-				lv_aggregationKind_0_0=ruleAggregationKindDeclaration
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAssociationEndRule());
+				(
+					(
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getAssociationEndAccess().getUnorderedGroup_0(), 0)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getAssociationEndAccess().getUnorderedGroup_0(), 0);
 					}
-					set(
-						$current,
-						"aggregationKind",
-						lv_aggregationKind_0_0,
-						"it.unibz.inf.ontouml.archive.OntoUMLArchive.AggregationKindDeclaration");
-					afterParserOrEnumRuleCall();
-				}
+								({true}?=>((
+									{
+										newCompositeNode(grammarAccess.getAssociationEndAccess().getAggregationKindAggregationKindDeclarationEnumRuleCall_0_0_0());
+									}
+									lv_aggregationKind_1_0=ruleAggregationKindDeclaration
+									{
+										if ($current==null) {
+											$current = createModelElementForParent(grammarAccess.getAssociationEndRule());
+										}
+										set(
+											$current,
+											"aggregationKind",
+											lv_aggregationKind_1_0,
+											"it.unibz.inf.ontouml.archive.OntoUMLArchive.AggregationKindDeclaration");
+										afterParserOrEnumRuleCall();
+									}
+								)
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getAssociationEndAccess().getUnorderedGroup_0());
+					}
+				)
+			)|
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getAssociationEndAccess().getUnorderedGroup_0(), 1)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getAssociationEndAccess().getUnorderedGroup_0(), 1);
+					}
+								({true}?=>((
+									{
+										newCompositeNode(grammarAccess.getAssociationEndAccess().getNavigabilityNavigabilityDeclarationEnumRuleCall_0_1_0());
+									}
+									lv_navigability_2_0=ruleNavigabilityDeclaration
+									{
+										if ($current==null) {
+											$current = createModelElementForParent(grammarAccess.getAssociationEndRule());
+										}
+										set(
+											$current,
+											"navigability",
+											lv_navigability_2_0,
+											"it.unibz.inf.ontouml.archive.OntoUMLArchive.NavigabilityDeclaration");
+										afterParserOrEnumRuleCall();
+									}
+								)
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getAssociationEndAccess().getUnorderedGroup_0());
+					}
+				)
 			)
-		)?
+					)*
+				)
+			)
+				{ 
+				  getUnorderedGroupHelper().leave(grammarAccess.getAssociationEndAccess().getUnorderedGroup_0());
+				}
+		)
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getAssociationEndAccess().getNameStringOrIDParserRuleCall_1_0());
 				}
-				lv_name_1_0=ruleStringOrID
+				lv_name_3_0=ruleStringOrID
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAssociationEndRule());
@@ -916,7 +970,7 @@ ruleAssociationEnd returns [EObject current=null]
 					set(
 						$current,
 						"name",
-						lv_name_1_0,
+						lv_name_3_0,
 						"it.unibz.inf.ontouml.archive.OntoUMLArchive.StringOrID");
 					afterParserOrEnumRuleCall();
 				}
@@ -927,7 +981,7 @@ ruleAssociationEnd returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getAssociationEndAccess().getMultiplicityMultiplicityParserRuleCall_2_0());
 				}
-				lv_multiplicity_2_0=ruleMultiplicity
+				lv_multiplicity_4_0=ruleMultiplicity
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAssociationEndRule());
@@ -935,15 +989,15 @@ ruleAssociationEnd returns [EObject current=null]
 					set(
 						$current,
 						"multiplicity",
-						lv_multiplicity_2_0,
+						lv_multiplicity_4_0,
 						"it.unibz.inf.ontouml.archive.OntoUMLArchive.Multiplicity");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_3=':'
+		otherlv_5=':'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getAssociationEndAccess().getColonKeyword_3());
+			newLeafNode(otherlv_5, grammarAccess.getAssociationEndAccess().getColonKeyword_3());
 		}
 		(
 			(
@@ -962,15 +1016,15 @@ ruleAssociationEnd returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_5='{'
+			otherlv_7='{'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getAssociationEndAccess().getLeftCurlyBracketKeyword_5_0());
+				newLeafNode(otherlv_7, grammarAccess.getAssociationEndAccess().getLeftCurlyBracketKeyword_5_0());
 			}
 			(
 				(
-					lv_constraints_6_0=RULE_STRING
+					lv_constraints_8_0=RULE_STRING
 					{
-						newLeafNode(lv_constraints_6_0, grammarAccess.getAssociationEndAccess().getConstraintsSTRINGTerminalRuleCall_5_1_0());
+						newLeafNode(lv_constraints_8_0, grammarAccess.getAssociationEndAccess().getConstraintsSTRINGTerminalRuleCall_5_1_0());
 					}
 					{
 						if ($current==null) {
@@ -979,21 +1033,21 @@ ruleAssociationEnd returns [EObject current=null]
 						addWithLastConsumed(
 							$current,
 							"constraints",
-							lv_constraints_6_0,
+							lv_constraints_8_0,
 							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
 			(
-				otherlv_7=','
+				otherlv_9=','
 				{
-					newLeafNode(otherlv_7, grammarAccess.getAssociationEndAccess().getCommaKeyword_5_2_0());
+					newLeafNode(otherlv_9, grammarAccess.getAssociationEndAccess().getCommaKeyword_5_2_0());
 				}
 				(
 					(
-						lv_constraints_8_0=RULE_STRING
+						lv_constraints_10_0=RULE_STRING
 						{
-							newLeafNode(lv_constraints_8_0, grammarAccess.getAssociationEndAccess().getConstraintsSTRINGTerminalRuleCall_5_2_1_0());
+							newLeafNode(lv_constraints_10_0, grammarAccess.getAssociationEndAccess().getConstraintsSTRINGTerminalRuleCall_5_2_1_0());
 						}
 						{
 							if ($current==null) {
@@ -1002,15 +1056,15 @@ ruleAssociationEnd returns [EObject current=null]
 							addWithLastConsumed(
 								$current,
 								"constraints",
-								lv_constraints_8_0,
+								lv_constraints_10_0,
 								"org.eclipse.xtext.common.Terminals.STRING");
 						}
 					)
 				)
 			)*
-			otherlv_9='}'
+			otherlv_11='}'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getAssociationEndAccess().getRightCurlyBracketKeyword_5_3());
+				newLeafNode(otherlv_11, grammarAccess.getAssociationEndAccess().getRightCurlyBracketKeyword_5_3());
 			}
 		)?
 	)
@@ -1792,6 +1846,33 @@ ruleAggregationKindDeclaration returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getAggregationKindDeclarationAccess().getCompositeEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getAggregationKindDeclarationAccess().getCompositeEnumLiteralDeclaration_1());
+			}
+		)
+	)
+;
+
+// Rule NavigabilityDeclaration
+ruleNavigabilityDeclaration returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='navigable'
+			{
+				$current = grammarAccess.getNavigabilityDeclarationAccess().getNavigableEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getNavigabilityDeclarationAccess().getNavigableEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='nonnavigable'
+			{
+				$current = grammarAccess.getNavigabilityDeclarationAccess().getNonnavigableEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getNavigabilityDeclarationAccess().getNonnavigableEnumLiteralDeclaration_1());
 			}
 		)
 	)

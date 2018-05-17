@@ -18,6 +18,7 @@ import it.unibz.inf.ontouml.archive.ontoUMLArchive.Model;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.ModelElement;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.Multiplicity;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.NaryAssociation;
+import it.unibz.inf.ontouml.archive.ontoUMLArchive.Navigability;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchiveFactory;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.OntoUMLArchivePackage;
 import it.unibz.inf.ontouml.archive.ontoUMLArchive.RelationDerivationEnd;
@@ -120,6 +121,8 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
     {
       case OntoUMLArchivePackage.AGGREGATION_KIND:
         return createAggregationKindFromString(eDataType, initialValue);
+      case OntoUMLArchivePackage.NAVIGABILITY:
+        return createNavigabilityFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -137,6 +140,8 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
     {
       case OntoUMLArchivePackage.AGGREGATION_KIND:
         return convertAggregationKindToString(eDataType, instanceValue);
+      case OntoUMLArchivePackage.NAVIGABILITY:
+        return convertNavigabilityToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -358,6 +363,28 @@ public class OntoUMLArchiveFactoryImpl extends EFactoryImpl implements OntoUMLAr
    * @generated
    */
   public String convertAggregationKindToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Navigability createNavigabilityFromString(EDataType eDataType, String initialValue)
+  {
+    Navigability result = Navigability.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertNavigabilityToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }
